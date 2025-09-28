@@ -1512,6 +1512,95 @@
                 height: 400px;
             }
         }
+
+        /* Top Left Social Dot Menu */
+        .social-dot-menu {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+
+        .social-dot {
+            width: 5px;
+            height: 5px;
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        .social-dot:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+        }
+
+        .social-menu {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(10, 10, 10, 0.95);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            min-width: 180px;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+        }
+
+        .social-menu.show {
+            display: flex;
+        }
+
+        .menu-item {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .menu-item:hover {
+            background: rgba(0, 255, 255, 0.1);
+            color: #00ffff;
+            transform: translateX(5px);
+        }
+
+        /* Social media specific colors */
+        .facebook:hover { color: #1877f2; }
+        .instagram:hover { color: #e4405f; }
+        .twitter:hover { color: #1da1f2; }
+        .linkedin:hover { color: #0077b5; }
+        .linktree:hover { color: #39e09b; }
+        .tiktok:hover { color: #000000; }
+        .youtube:hover { color: #ff0000; }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .social-dot-menu {
+                top: 15px;
+                left: 15px;
+            }
+
+            .social-menu {
+                min-width: 160px;
+                padding: 12px;
+            }
+
+            .menu-item {
+                font-size: 13px;
+                padding: 6px 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1543,6 +1632,20 @@
             </ul>
         </div>
     </nav>
+
+    <!-- Top Left Social Dot Menu -->
+    <div class="social-dot-menu" id="social-dot-menu">
+        <div class="social-dot" id="social-dot">⚫</div>
+        <div class="social-menu" id="social-menu">
+            <a href="https://www.facebook.com/profile.php?id=61578595622796" target="_blank" rel="noopener noreferrer" class="menu-item facebook">📘 Facebook</a>
+            <a href="https://www.instagram.com/alchemistsx0/" target="_blank" rel="noopener noreferrer" class="menu-item instagram">📷 Instagram</a>
+            <a href="https://x.com/Philipp36533206" target="_blank" rel="noopener noreferrer" class="menu-item twitter">🐦 X (Twitter)</a>
+            <a href="https://www.linkedin.com/in/philippe-b-1234567890-/" target="_blank" rel="noopener noreferrer" class="menu-item linkedin">💼 LinkedIn</a>
+            <a href="https://linktr.ee/alchemistsx0" target="_blank" rel="noopener noreferrer" class="menu-item linktree">🔗 Linktree</a>
+            <a href="https://www.tiktok.com/@alchystones" target="_blank" rel="noopener noreferrer" class="menu-item tiktok">🎵 TikTok</a>
+            <a href="https://www.youtube.com/@alchemists-u1c" target="_blank" rel="noopener noreferrer" class="menu-item youtube">📺 YouTube</a>
+        </div>
+    </div>
 
     <main>
         <section id="home" class="hero-section">
@@ -2417,6 +2520,33 @@
                 }
             });
         }
+
+        // Social Dot Menu Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const socialDot = document.getElementById('social-dot');
+            const socialMenu = document.getElementById('social-menu');
+
+            if (socialDot && socialMenu) {
+                socialDot.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    socialMenu.classList.toggle('show');
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!socialDot.contains(e.target) && !socialMenu.contains(e.target)) {
+                        socialMenu.classList.remove('show');
+                    }
+                });
+
+                // Close menu on escape key
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape') {
+                        socialMenu.classList.remove('show');
+                    }
+                });
+            }
+        });
     </script>
     <script src="sacred_codex_scripts.min.js"></script>
 </body>
