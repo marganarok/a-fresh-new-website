@@ -620,3 +620,101 @@ function beginInnerJourney() {
         }
     });
 }
+
+// === BOOK PREVIEW FUNCTIONALITY ===
+
+// Preview modal functionality
+let previewModal, previewTitle, previewText, previewClose;
+
+function initBookPreview() {
+    previewModal = document.getElementById('previewModal');
+    previewTitle = document.getElementById('previewTitle');
+    previewText = document.getElementById('previewText');
+    previewClose = document.getElementById('previewClose');
+    
+    if (!previewModal || !previewTitle || !previewText || !previewClose) return;
+    
+    // Close modal when clicking the X button
+    previewClose.addEventListener('click', closePreview);
+    
+    // Close modal when clicking outside the content
+    previewModal.addEventListener('click', (e) => {
+        if (e.target === previewModal) {
+            closePreview();
+        }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && previewModal.classList.contains('active')) {
+            closePreview();
+        }
+    });
+    
+    // Add event listeners to all preview buttons
+    const previewButtons = document.querySelectorAll('.preview-button');
+    previewButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            const filePath = button.getAttribute('data-file');
+            const fileName = button.getAttribute('data-title');
+            showPreview(filePath, fileName);
+        });
+    });
+}
+
+function showPreview(filePath, fileName) {
+    if (!previewModal || !previewTitle || !previewText) return;
+    
+    // Set the title
+    previewTitle.textContent = `Preview: ${fileName}`;
+    
+    // Show loading state
+    previewText.innerHTML = '<div class="preview-loading">Loading preview...</div>';
+    
+    // Show the modal
+    previewModal.classList.add('active');
+    
+    // Load the file content
+    loadFilePreview(filePath);
+}
+
+function closePreview() {
+    if (!previewModal) return;
+    previewModal.classList.remove('active');
+}
+
+function loadFilePreview(filePath) {
+    // Check if it's a PDF file
+    if (filePath.toLowerCase().endsWith('.pdf')) {
+        previewText.innerHTML = '<div class="preview-error">PDF preview not available. Please download the file to read the complete content.</div>';
+        return;
+    }
+    
+    // For text files, try to load the content
+    fetch(filePath)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('File not found');
+            }
+            return response.text();
+        })
+        .then(content => {
+            // Show only the first 2000 characters as preview
+            const previewContent = content.length > 2000 
+                ? content.substring(0, 2000) + '\n\n[... Preview truncated. Download to read the complete text ...]'
+                : content;
+            
+            previewText.innerHTML = `<pre>${previewContent}</pre>`;
+        })
+        .catch(error => {
+            console.error('Error loading preview:', error);
+            previewText.innerHTML = '<div class="preview-error">Unable to load preview. The file may not be available or there was a loading error.</div>';
+        });
+}
+
+// Initialize preview functionality when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // ... existing initialization code ...
+    initBookPreview();
+});

@@ -284,12 +284,154 @@
                 width: 100%;
                 text-align: center;
             }
+            .preview-button {
+                width: 100%;
+                text-align: center;
+            }
         }
+
+        /* --- Preview Modal Styles --- */
+        .preview-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+        }
+
+        .preview-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .preview-content {
+            background: var(--shadow-deep);
+            border: 2px solid var(--divine-gold);
+            border-radius: 15px;
+            max-width: 800px;
+            max-height: 80vh;
+            width: 90%;
+            padding: 2rem;
+            position: relative;
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.3);
+        }
+
+        .preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--sacred-purple);
+            padding-bottom: 1rem;
+        }
+
+        .preview-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--divine-gold);
+            margin: 0;
+        }
+
+        .preview-close {
+            background: var(--sacred-purple);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            color: var(--star-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .preview-close:hover {
+            background: var(--celestial-blue);
+            transform: scale(1.1);
+        }
+
+        .preview-text {
+            max-height: 50vh;
+            overflow-y: auto;
+            line-height: 1.7;
+            color: var(--star-white);
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Crimson Text', serif;
+            white-space: pre-wrap;
+        }
+
+        .preview-loading {
+            text-align: center;
+            color: var(--divine-gold);
+            font-style: italic;
+        }
+
+        .preview-error {
+            text-align: center;
+            color: #FF6B6B;
+            font-style: italic;
+        }
+
+        /* --- Preview Button Styles --- */
+        .preview-button {
+            background: linear-gradient(45deg, var(--celestial-blue), var(--sacred-purple));
+            border: none;
+            border-radius: 20px;
+            padding: 0.6rem 1.2rem;
+            color: var(--star-white);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            white-space: nowrap;
+            margin-left: 0.5rem;
+        }
+
+        .preview-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(65, 105, 225, 0.3);
+        }
+
+        .file-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 0.5rem;
+            flex-shrink: 0;
+        }
+    </style>
     </style>
 </head>
 <body>
 
     <div class="cosmic-background"></div>
+
+    <!-- Preview Modal -->
+    <div id="previewModal" class="preview-modal">
+        <div class="preview-content">
+            <div class="preview-header">
+                <h2 id="previewTitle" class="preview-title">Book Preview</h2>
+                <button id="previewClose" class="preview-close">×</button>
+            </div>
+            <div id="previewText" class="preview-text">
+                <div class="preview-loading">Loading preview...</div>
+            </div>
+        </div>
+    </div>
 
     <nav class="sacred-nav">
         <div class="nav-container">
@@ -327,21 +469,30 @@
                             <div class="file-name">Chapter 1</div>
                             <div class="file-description">Introduction and early prophecies</div>
                         </div>
-                        <a href="./Library/Enoch-1.txt" class="download-button" download="Enoch-1.txt">Download TXT</a>
+                        <div class="button-group">
+                            <button class="preview-button" data-file="./Library/Enoch-1.txt" data-title="The Book of Enoch - Chapter 1">Preview</button>
+                            <a href="./Library/Enoch-1.txt" class="download-button" download="Enoch-1.txt">Download TXT</a>
+                        </div>
                     </div>
                     <div class="file-item">
                         <div class="file-info">
                             <div class="file-name">Chapter 2</div>
                             <div class="file-description">Further revelations and teachings</div>
                         </div>
-                        <a href="./Library/Enoch-2.txt" class="download-button" download="Enoch-2.txt">Download TXT</a>
+                        <div class="button-group">
+                            <button class="preview-button" data-file="./Library/Enoch-2.txt" data-title="The Book of Enoch - Chapter 2">Preview</button>
+                            <a href="./Library/Enoch-2.txt" class="download-button" download="Enoch-2.txt">Download TXT</a>
+                        </div>
                     </div>
                     <div class="file-item">
                         <div class="file-info">
                             <div class="file-name">Chapter 3</div>
                             <div class="file-description">Messianic prophecies and judgments</div>
                         </div>
-                        <a href="./Library/Enoch-3.txt" class="download-button" download="Enoch-3.txt">Download TXT</a>
+                        <div class="button-group">
+                            <button class="preview-button" data-file="./Library/Enoch-3.txt" data-title="The Book of Enoch - Chapter 3">Preview</button>
+                            <a href="./Library/Enoch-3.txt" class="download-button" download="Enoch-3.txt">Download TXT</a>
+                        </div>
                     </div>
                 </div>
 
@@ -371,7 +522,10 @@
                             <div class="file-name">Complete Text</div>
                             <div class="file-description">All seven hermetic principles explained</div>
                         </div>
-                        <a href="./Library/Kybalion.txt" class="download-button" download="Kybalion.txt">Download TXT</a>
+                        <div class="button-group">
+                            <button class="preview-button" data-file="./Library/Kybalion.txt" data-title="The Kybalion">Preview</button>
+                            <a href="./Library/Kybalion.txt" class="download-button" download="Kybalion.txt">Download TXT</a>
+                        </div>
                     </div>
                 </div>
 
@@ -401,7 +555,10 @@
                             <div class="file-name">Complete Guide</div>
                             <div class="file-description">Common sense explanations and insights</div>
                         </div>
-                        <a href="./Library/Captain Common Sense explain it.pdf" class="download-button" download="Captain Common Sense explain it.pdf">Download PDF</a>
+                        <div class="button-group">
+                            <button class="preview-button" data-file="./Library/Captain Common Sense explain it.pdf" data-title="Captain Common Sense">Preview</button>
+                            <a href="./Library/Captain Common Sense explain it.pdf" class="download-button" download="Captain Common Sense explain it.pdf">Download PDF</a>
+                        </div>
                     </div>
                 </div>
 
@@ -416,7 +573,10 @@
                             <div class="file-name">Volume 1</div>
                             <div class="file-description">Philosophical explorations and insights</div>
                         </div>
-                        <a href="./Library/First Gumroad BlackSparrow book 2.99.pdf" class="download-button" download="First Gumroad BlackSparrow book 2.99.pdf">Download PDF</a>
+                        <div class="button-group">
+                            <button class="preview-button" data-file="./Library/First Gumroad BlackSparrow book 2.99.pdf" data-title="Black Sparrow Collection - Volume 1">Preview</button>
+                            <a href="./Library/First Gumroad BlackSparrow book 2.99.pdf" class="download-button" download="First Gumroad BlackSparrow book 2.99.pdf">Download PDF</a>
+                        </div>
                     </div>
                 </div>
 
@@ -431,7 +591,10 @@
                             <div class="file-name">Complete Study</div>
                             <div class="file-description">Archetypal analysis and artistic insights</div>
                         </div>
-                        <a href="./Library/THE EARL Dürer Archetype.pdf" class="download-button" download="THE EARL Dürer Archetype.pdf">Download PDF</a>
+                        <div class="button-group">
+                            <button class="preview-button" data-file="./Library/THE EARL Dürer Archetype.pdf" data-title="The Earl Dürer Archetype">Preview</button>
+                            <a href="./Library/THE EARL Dürer Archetype.pdf" class="download-button" download="THE EARL Dürer Archetype.pdf">Download PDF</a>
+                        </div>
                     </div>
                 </div>
 
@@ -446,7 +609,10 @@
                             <div class="file-name">Complete Journey</div>
                             <div class="file-description">A sacred journey of spiritual becoming</div>
                         </div>
-                        <a href="./Library/The Living Codex_ A Sacred Journey of Becoming.pdf" class="download-button" download="The Living Codex_ A Sacred Journey of Becoming.pdf">Download PDF</a>
+                        <div class="button-group">
+                            <button class="preview-button" data-file="./Library/The Living Codex_ A Sacred Journey of Becoming.pdf" data-title="The Living Codex">Preview</button>
+                            <a href="./Library/The Living Codex_ A Sacred Journey of Becoming.pdf" class="download-button" download="The Living Codex_ A Sacred Journey of Becoming.pdf">Download PDF</a>
+                        </div>
                     </div>
                 </div>
 
@@ -461,7 +627,10 @@
                             <div class="file-name">Complete Volume</div>
                             <div class="file-description">Historical analysis and timeless wisdom</div>
                         </div>
-                        <a href="./Library/curation of history.txt" class="download-button" download="curation of history.txt">Download TXT</a>
+                        <div class="button-group">
+                            <button class="preview-button" data-file="./Library/curation of history.txt" data-title="Curation of History">Preview</button>
+                            <a href="./Library/curation of history.txt" class="download-button" download="curation of history.txt">Download TXT</a>
+                        </div>
                     </div>
                 </div>
 
@@ -476,7 +645,10 @@
                             <div class="file-name">Full Book</div>
                             <div class="file-description">Complete digital ministry teachings</div>
                         </div>
-                        <a href="./Library/sacred_digital_ministry_bibleFULLBOOK.txt" class="download-button" download="sacred_digital_ministry_bibleFULLBOOK.txt">Download TXT</a>
+                        <div class="button-group">
+                            <button class="preview-button" data-file="./Library/sacred_digital_ministry_bibleFULLBOOK.txt" data-title="Sacred Digital Ministry Bible">Preview</button>
+                            <a href="./Library/sacred_digital_ministry_bibleFULLBOOK.txt" class="download-button" download="sacred_digital_ministry_bibleFULLBOOK.txt">Download TXT</a>
+                        </div>
                     </div>
                 </div>
 
@@ -491,7 +663,10 @@
                             <div class="file-name">Complete Work</div>
                             <div class="file-description">Alchemical transformation and enlightenment</div>
                         </div>
-                        <a href="./Library/The Magnum Opus.txt" class="download-button" download="The Magnum Opus.txt">Download TXT</a>
+                        <div class="button-group">
+                            <button class="preview-button" data-file="./Library/The Magnum Opus.txt" data-title="The Magnum Opus">Preview</button>
+                            <a href="./Library/The Magnum Opus.txt" class="download-button" download="The Magnum Opus.txt">Download TXT</a>
+                        </div>
                     </div>
                 </div>
 
@@ -506,7 +681,10 @@
                             <div class="file-name">Complete Satire</div>
                             <div class="file-description">Philosophical comedy and moral insights</div>
                         </div>
-                        <a href="./Library/satan comedy.txt" class="download-button" download="satan comedy.txt">Download TXT</a>
+                        <div class="button-group">
+                            <button class="preview-button" data-file="./Library/satan comedy.txt" data-title="Satan Comedy">Preview</button>
+                            <a href="./Library/satan comedy.txt" class="download-button" download="satan comedy.txt">Download TXT</a>
+                        </div>
                     </div>
                 </div>
 
@@ -521,7 +699,10 @@
                             <div class="file-name">Volume 1</div>
                             <div class="file-description">AI and alchemy adventures</div>
                         </div>
-                        <a href="./Library/Ai-Alchemist-Adventures-1.pdf" class="download-button" download="Ai-Alchemist-Adventures-1.pdf">Download PDF</a>
+                        <div class="button-group">
+                            <button class="preview-button" data-file="./Library/Ai-Alchemist-Adventures-1.pdf" data-title="AI Alchemist Adventures">Preview</button>
+                            <a href="./Library/Ai-Alchemist-Adventures-1.pdf" class="download-button" download="Ai-Alchemist-Adventures-1.pdf">Download PDF</a>
+                        </div>
                     </div>
                 </div>
 
@@ -536,7 +717,10 @@
                             <div class="file-name">Complete Observations</div>
                             <div class="file-description">Celestial wisdom and magical insights</div>
                         </div>
-                        <a href="./Library/Magi and Celestial Observations.txt" class="download-button" download="Magi and Celestial Observations.txt">Download TXT</a>
+                        <div class="button-group">
+                            <button class="preview-button" data-file="./Library/Magi and Celestial Observations.txt" data-title="Magi and Celestial Observations">Preview</button>
+                            <a href="./Library/Magi and Celestial Observations.txt" class="download-button" download="Magi and Celestial Observations.txt">Download TXT</a>
+                        </div>
                     </div>
                 </div>
 
@@ -551,7 +735,10 @@
                             <div class="file-name">First Vision</div>
                             <div class="file-description">Prophetic revelations and divine insights</div>
                         </div>
-                        <a href="./Library/The Oracle's First Glance.pdf" class="download-button" download="The Oracle's First Glance.pdf">Download PDF</a>
+                        <div class="button-group">
+                            <button class="preview-button" data-file="./Library/The Oracle's First Glance.pdf" data-title="The Oracle's First Glance">Preview</button>
+                            <a href="./Library/The Oracle's First Glance.pdf" class="download-button" download="The Oracle's First Glance.pdf">Download PDF</a>
+                        </div>
                     </div>
                 </div>
 
@@ -566,7 +753,10 @@
                             <div class="file-name">Imperial Foundation</div>
                             <div class="file-description">Sacred governance and eternal principles</div>
                         </div>
-                        <a href="./Library/The Living Codex The Imperial Foundation.pdf" class="download-button" download="The Living Codex The Imperial Foundation.pdf">Download PDF</a>
+                        <div class="button-group">
+                            <button class="preview-button" data-file="./Library/The Living Codex The Imperial Foundation.pdf" data-title="The Living Codex The Imperial Foundation">Preview</button>
+                            <a href="./Library/The Living Codex The Imperial Foundation.pdf" class="download-button" download="The Living Codex The Imperial Foundation.pdf">Download PDF</a>
+                        </div>
                     </div>
                 </div>
 
@@ -581,7 +771,10 @@
                             <div class="file-name">Complete Book</div>
                             <div class="file-description">Ancient rituals and spiritual mastery</div>
                         </div>
-                        <a href="./Library/The Key of Solomon-BOOK.txt" class="download-button" download="The Key of Solomon-BOOK.txt">Download TXT</a>
+                        <div class="button-group">
+                            <button class="preview-button" data-file="./Library/The Key of Solomon-BOOK.txt" data-title="The Key of Solomon">Preview</button>
+                            <a href="./Library/The Key of Solomon-BOOK.txt" class="download-button" download="The Key of Solomon-BOOK.txt">Download TXT</a>
+                        </div>
                     </div>
                 </div>
 
@@ -596,7 +789,10 @@
                             <div class="file-name">Complete Epic</div>
                             <div class="file-description">Adventure, wisdom, and discovery</div>
                         </div>
-                        <a href="./Library/The Banana Conquest.txt" class="download-button" download="The Banana Conquest.txt">Download TXT</a>
+                        <div class="button-group">
+                            <button class="preview-button" data-file="./Library/The Banana Conquest.txt" data-title="The Banana Conquest">Preview</button>
+                            <a href="./Library/The Banana Conquest.txt" class="download-button" download="The Banana Conquest.txt">Download TXT</a>
+                        </div>
                     </div>
                 </div>
 
@@ -611,7 +807,10 @@
                             <div class="file-name">Complete Vision</div>
                             <div class="file-description">Perception and deeper understanding</div>
                         </div>
-                        <a href="./Library/EyesD.txt" class="download-button" download="EyesD.txt">Download TXT</a>
+                        <div class="button-group">
+                            <button class="preview-button" data-file="./Library/EyesD.txt" data-title="EyesD">Preview</button>
+                            <a href="./Library/EyesD.txt" class="download-button" download="EyesD.txt">Download TXT</a>
+                        </div>
                     </div>
                 </div>
 
@@ -626,7 +825,10 @@
                             <div class="file-name">Complete Saga</div>
                             <div class="file-description">Digital transformation and spiritual awakening</div>
                         </div>
-                        <a href="./Library/🔥 THE DIGITAL AWAKENING SAGA 🔥.txt" class="download-button" download="🔥 THE DIGITAL AWAKENING SAGA 🔥.txt">Download TXT</a>
+                        <div class="button-group">
+                            <button class="preview-button" data-file="./Library/🔥 THE DIGITAL AWAKENING SAGA 🔥.txt" data-title="THE DIGITAL AWAKENING SAGA">Preview</button>
+                            <a href="./Library/🔥 THE DIGITAL AWAKENING SAGA 🔥.txt" class="download-button" download="🔥 THE DIGITAL AWAKENING SAGA 🔥.txt">Download TXT</a>
+                        </div>
                     </div>
                 </div>
 
@@ -649,7 +851,10 @@
                             <div class="file-name">Flower of Life Template</div>
                             <div class="file-description">High-resolution printable template</div>
                         </div>
-                        <a href="./Library/Flower-of-Life-Template.txt" class="download-button" download="Flower-of-Life-Template.txt">Download TXT</a>
+                        <div class="button-group">
+                            <button class="preview-button" data-file="./Library/Flower-of-Life-Template.txt" data-title="Flower of Life Template">Preview</button>
+                            <a href="./Library/Flower-of-Life-Template.txt" class="download-button" download="Flower-of-Life-Template.txt">Download TXT</a>
+                        </div>
                     </div>
                 </div>
 
@@ -681,7 +886,7 @@
     </footer>
 
     <!-- You can add your JavaScript file here for animations and interactivity -->
-    <!-- <script src="sacred_codex_scripts.js"></script> -->
+    <script src="sacred_codex_scripts.js"></script>
 
 </body>
 </html>
