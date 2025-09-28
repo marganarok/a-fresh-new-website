@@ -21,11 +21,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Scroll Progress Indicator
 function initScrollProgress() {
+    const scrollProgress = document.getElementById('scrollProgress');
+    if (!scrollProgress) return; // Exit if element doesn't exist
+    
     window.addEventListener('scroll', function() {
         const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         const scrolled = (winScroll / height) * 100;
-        document.getElementById('scrollProgress').style.width = scrolled + '%';
+        scrollProgress.style.width = scrolled + '%';
     });
 }
 
@@ -532,7 +535,10 @@ function initiateWisdomJourney() {
 // Begin Inner Journey
 function beginInnerJourney() {
     // Remove current modal
-    document.querySelector('div[style*="position: fixed"]').remove();
+    const currentModal = document.querySelector('div[style*="position: fixed"]');
+    if (currentModal) {
+        currentModal.remove();
+    }
     
     // Show journey experience
     const modal = document.createElement('div');
@@ -594,6 +600,8 @@ function beginInnerJourney() {
     let currentStep = 0;
     const journeyText = document.getElementById('journeyText');
     const continueButton = document.getElementById('continueJourney');
+    
+    if (!journeyText || !continueButton) return; // Safety check
     
     continueButton.addEventListener('click', () => {
         currentStep++;
