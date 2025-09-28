@@ -8,32 +8,30 @@
     <style>
         /* === ROOT VARIABLES FOR DYNAMIC THEMING === */
         :root {
-            /* Leonardo Theme (Italian Renaissance) */
-            --leonardo-bg: linear-gradient(135deg, #1a1a2e 0%, #16213e 30%, #0f3460 60%, #0a0a0f 100%);
-            --leonardo-accent: #FFD700;
-            --leonardo-secondary: #4169E1;
-            --leonardo-text: #ffffff;
-            --leonardo-shadow: rgba(255,215,0,0.3);
-            --leonardo-accent-rgb: 255,215,0;
-            --leonardo-secondary-rgb: 65,105,225;
-
-            /* Dürer Theme (Northern Renaissance) */
-            --durer-bg: linear-gradient(135deg, #2c1810 0%, #8B4513 50%, #DAA520 100%);
-            --durer-accent: #DAA520;
-            --durer-secondary: #8B4513;
-            --durer-text: #f4f1e8;
-            --durer-shadow: rgba(218,165,32,0.4);
-            --durer-accent-rgb: 218,165,32;
-            --durer-secondary-rgb: 139,69,19;
-
-            /* Transition States */
+            /* Masters Page Theme (adapts to current master) */
             --current-bg: var(--leonardo-bg);
             --current-accent: var(--leonardo-accent);
             --current-secondary: var(--leonardo-secondary);
             --current-text: var(--leonardo-text);
             --current-shadow: var(--leonardo-shadow);
-            --current-accent-rgb: var(--leonardo-accent-rgb);
-            --current-secondary-rgb: var(--leonardo-secondary-rgb);
+        }
+
+        /* Leonardo Theme Colors */
+        .leonardo-theme {
+            --leonardo-bg: linear-gradient(135deg, #1a1a2e 0%, #16213e 30%, #0f3460 60%, #0a0a0f 100%);
+            --leonardo-accent: #FFD700;
+            --leonardo-secondary: #4169E1;
+            --leonardo-text: #ffffff;
+            --leonardo-shadow: rgba(255,215,0,0.3);
+        }
+
+        /* Dürer Theme Colors */
+        .durer-theme {
+            --durer-bg: linear-gradient(135deg, #2c1810 0%, #8B4513 50%, #DAA520 100%);
+            --durer-accent: #DAA520;
+            --durer-secondary: #8B4513;
+            --durer-text: #f4f1e8;
+            --durer-shadow: rgba(218,165,32,0.4);
         }
 
         * {
@@ -381,6 +379,15 @@
                     const doc = parser.parseFromString(html, 'text/html');
                     const bodyContent = doc.body.innerHTML;
 
+                    // Extract and inject Leonardo's original CSS (keeping his authentic theme)
+                    const styleElement = doc.querySelector('style');
+                    if (styleElement) {
+                        const leonardoStyle = document.createElement('style');
+                        leonardoStyle.id = 'leonardo-styles';
+                        leonardoStyle.textContent = styleElement.textContent;
+                        document.head.appendChild(leonardoStyle);
+                    }
+
                     // Insert into Leonardo section (skip the loading div)
                     const loadingDiv = this.leonardoContent.querySelector('.loading');
                     loadingDiv.insertAdjacentHTML('afterend', bodyContent);
@@ -405,44 +412,18 @@
                     const doc = parser.parseFromString(html, 'text/html');
                     const bodyContent = doc.body.innerHTML;
 
-                    // Extract and modify the CSS styles
+                    // Extract and inject Dürer's original CSS (keeping his authentic theme)
                     const styleElement = doc.querySelector('style');
                     if (styleElement) {
-                        let durerCSS = styleElement.textContent;
-
-                        // Replace hardcoded Dürer colors with CSS variables that will adapt to theme
-                        durerCSS = durerCSS.replace(/#2c1810/g, 'var(--current-bg)');
-                        durerCSS = durerCSS.replace(/#8B4513/g, 'var(--current-secondary)');
-                        durerCSS = durerCSS.replace(/#DAA520/g, 'var(--current-accent)');
-                        durerCSS = durerCSS.replace(/#f4f1e8/g, 'var(--current-text)');
-                        durerCSS = durerCSS.replace(/rgba\(218,165,32/g, 'rgba(var(--current-accent-rgb)');
-                        durerCSS = durerCSS.replace(/rgba\(139,69,19/g, 'rgba(var(--current-secondary-rgb)');
-
-                        // Create a new style element for Dürer content
                         const durerStyle = document.createElement('style');
                         durerStyle.id = 'durer-styles';
-                        durerStyle.textContent = durerCSS;
+                        durerStyle.textContent = styleElement.textContent;
                         document.head.appendChild(durerStyle);
                     }
 
-                    // Clean the body content to remove inline styles that conflict
-                    const tempDiv = document.createElement('div');
-                    tempDiv.innerHTML = bodyContent;
-
-                    // Update any remaining hardcoded colors in inline styles
-                    const elementsWithStyles = tempDiv.querySelectorAll('[style]');
-                    elementsWithStyles.forEach(el => {
-                        let style = el.getAttribute('style');
-                        style = style.replace(/#2c1810/g, 'var(--current-bg)');
-                        style = style.replace(/#8B4513/g, 'var(--current-secondary)');
-                        style = style.replace(/#DAA520/g, 'var(--current-accent)');
-                        style = style.replace(/#f4f1e8/g, 'var(--current-text)');
-                        el.setAttribute('style', style);
-                    });
-
-                    // Insert into Dürer section
+                    // Insert Dürer's content as-is (preserving his complete visual world)
                     const loadingDiv = this.durerContent.querySelector('.loading');
-                    loadingDiv.insertAdjacentHTML('afterend', tempDiv.innerHTML);
+                    loadingDiv.insertAdjacentHTML('afterend', bodyContent);
                     loadingDiv.remove();
 
                     this.durerLoaded = true;
@@ -515,8 +496,6 @@
                     root.style.setProperty('--current-secondary', 'var(--leonardo-secondary)');
                     root.style.setProperty('--current-text', 'var(--leonardo-text)');
                     root.style.setProperty('--current-shadow', 'var(--leonardo-shadow)');
-                    root.style.setProperty('--current-accent-rgb', 'var(--leonardo-accent-rgb)');
-                    root.style.setProperty('--current-secondary-rgb', 'var(--leonardo-secondary-rgb)');
                     this.currentTheme = 'leonardo';
                 } else if (theme === 'durer') {
                     root.style.setProperty('--current-bg', 'var(--durer-bg)');
@@ -524,8 +503,6 @@
                     root.style.setProperty('--current-secondary', 'var(--durer-secondary)');
                     root.style.setProperty('--current-text', 'var(--durer-text)');
                     root.style.setProperty('--current-shadow', 'var(--durer-shadow)');
-                    root.style.setProperty('--current-accent-rgb', 'var(--durer-accent-rgb)');
-                    root.style.setProperty('--current-secondary-rgb', 'var(--durer-secondary-rgb)');
                     this.currentTheme = 'durer';
                 }
 
