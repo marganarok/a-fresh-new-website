@@ -14,7 +14,6 @@
     <link rel="apple-touch-icon" href="favicon-3d-mantra.svg">
 
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="shared-styles.css">
     <style>
         :root {
@@ -36,6 +35,7 @@
         body {
             font-family: 'Rajdhani', sans-serif;
             background: var(--cosmic-bg);
+            background-color: #0a0a0a; /* Fallback for cosmic background */
             color: #ffffff;
             overflow-x: hidden;
             line-height: 1.6;
@@ -49,6 +49,7 @@
             width: 100%;
             height: 100%;
             z-index: -4;
+            background: #0a0a0a; /* Fallback solid color */
             background: radial-gradient(circle at 20% 30%, rgba(255,0,255,0.1) 0%, transparent 50%),
                         radial-gradient(circle at 80% 70%, rgba(0,255,255,0.1) 0%, transparent 50%),
                         radial-gradient(circle at 50% 50%, rgba(255,255,0,0.05) 0%, transparent 50%);
@@ -1467,121 +1468,48 @@
             }
         }
 
-        /* Header Social Media Icons */
-        .header-social {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            display: flex;
-            gap: 15px;
-            background: rgba(0, 0, 0, 0.8);
-            -webkit-backdrop-filter: blur(15px);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 25px;
-            padding: 10px 20px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-        }
-
-        .header-social-link {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 18px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header-social-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .header-social-link:hover::before {
-            left: 100%;
-        }
-
-        .header-social-link:hover {
-            transform: scale(1.1);
-            color: #ffffff;
-        }
-
-        /* Platform-specific header colors */
-        .header-social-link.facebook:hover {
-            background: rgba(24, 119, 242, 0.2);
-            box-shadow: 0 0 15px rgba(24, 119, 242, 0.5);
-        }
-
-        .header-social-link.instagram:hover {
-            background: rgba(225, 48, 108, 0.2);
-            box-shadow: 0 0 15px rgba(225, 48, 108, 0.5);
-        }
-
-        .header-social-link.twitter:hover {
-            background: rgba(29, 161, 242, 0.2);
-            box-shadow: 0 0 15px rgba(29, 161, 242, 0.5);
-        }
-
-        .header-social-link.linkedin:hover {
-            background: rgba(10, 102, 194, 0.2);
-            box-shadow: 0 0 15px rgba(10, 102, 194, 0.5);
-        }
-
-        .header-social-link.linktree:hover {
-            background: rgba(255, 87, 34, 0.2);
-            box-shadow: 0 0 15px rgba(255, 87, 34, 0.5);
-        }
-
-        .header-social-link.tiktok:hover {
-            background: rgba(255, 0, 0, 0.2);
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
-        }
-
-        .header-social-link.youtube:hover {
-            background: rgba(255, 0, 0, 0.2);
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
-        }
-
-        /* Mobile header social */
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            .header-social {
-                top: 10px;
-                right: 10px;
-                padding: 8px 15px;
-                gap: 10px;
+            .social-section, .shorts-section, .community-section {
+                padding: 60px 20px;
             }
 
-            .header-social-link {
-                width: 30px;
-                height: 30px;
-                font-size: 16px;
+            .social-title, .shorts-title, .community-title {
+                font-size: 2em;
             }
 
-            .footer-content {
-                gap: 15px;
+            .social-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
 
-            .footer-social-links {
-                gap: 8px;
+            .social-button {
+                padding: 20px;
+                flex-direction: column;
+                text-align: center;
             }
 
-            .footer-social-link {
-                width: 40px;
-                height: 40px;
-                font-size: 16px;
+            .social-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .social-content {
+                text-align: center;
+            }
+
+            .community-options {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .shorts-box {
+                padding: 20px;
+            }
+
+            .shorts-video iframe {
+                width: 100%;
+                height: 400px;
             }
         }
     </style>
@@ -1615,31 +1543,6 @@
             </ul>
         </div>
     </nav>
-
-    <!-- Header Social Media Icons -->
-    <div class="header-social">
-        <a href="https://www.facebook.com/profile.php?id=61578595622796" target="_blank" rel="noopener noreferrer" class="header-social-link facebook" title="Facebook">
-            <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://www.instagram.com/alchemistsx0/" target="_blank" rel="noopener noreferrer" class="header-social-link instagram" title="Instagram">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://x.com/Philipp36533206" target="_blank" rel="noopener noreferrer" class="header-social-link twitter" title="X (Twitter)">
-            <i class="fab fa-twitter"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/philippe-b-1234567890-/" target="_blank" rel="noopener noreferrer" class="header-social-link linkedin" title="LinkedIn">
-            <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="https://linktr.ee/alchemistsx0" target="_blank" rel="noopener noreferrer" class="header-social-link linktree" title="Linktree">
-            <i class="fas fa-link"></i>
-        </a>
-        <a href="https://www.tiktok.com/@alchystones" target="_blank" rel="noopener noreferrer" class="header-social-link tiktok" title="TikTok">
-            <i class="fab fa-tiktok"></i>
-        </a>
-        <a href="https://www.youtube.com/@alchemists-u1c" target="_blank" rel="noopener noreferrer" class="header-social-link youtube" title="YouTube">
-            <i class="fab fa-youtube"></i>
-        </a>
-    </div>
 
     <main>
         <section id="home" class="hero-section">
