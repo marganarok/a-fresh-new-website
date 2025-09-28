@@ -500,6 +500,150 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Sacred Dot Menu Navigation */
+        .sacred-dot-nav {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+        }
+
+        .nav-toggle {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(255,215,0,0.9), rgba(153,50,204,0.9));
+            border: 3px solid var(--divine-gold);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(255,215,0,0.5);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(255,215,0,0.8);
+        }
+
+        .nav-toggle.active {
+            background: linear-gradient(135deg, rgba(153,50,204,0.9), rgba(255,215,0,0.9));
+            box-shadow: 0 0 40px rgba(153,50,204,0.8);
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--star-white);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--divine-gold);
+            transition: all 0.3s ease;
+        }
+
+        .nav-toggle.active .nav-dot {
+            box-shadow: 0 0 20px var(--sacred-purple);
+        }
+
+        .nav-content {
+            position: absolute;
+            top: 80px;
+            right: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95), rgba(20,20,20,0.95));
+            border: 2px solid var(--divine-gold);
+            border-radius: 15px;
+            padding: 20px;
+            min-width: 250px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px) scale(0.95);
+            transition: all 0.3s ease;
+            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+        }
+
+        .nav-content.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        .nav-portal-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .portal-link {
+            color: var(--mystic-silver);
+            text-decoration: none;
+            padding: 12px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portal-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,215,0,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .portal-link:hover::before {
+            left: 100%;
+        }
+
+        .portal-link:hover {
+            color: var(--divine-gold);
+            background: rgba(255,215,0,0.1);
+            border-color: var(--divine-gold);
+            transform: translateX(5px);
+            box-shadow: 0 0 15px rgba(255,215,0,0.3);
+        }
+
+        .portal-link.active {
+            color: var(--divine-gold);
+            background: rgba(255,215,0,0.1);
+            border-color: var(--divine-gold);
+            box-shadow: 0 0 15px rgba(255,215,0,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .sacred-dot-nav {
+                top: 15px;
+                right: 15px;
+            }
+
+            .nav-toggle {
+                width: 50px;
+                height: 50px;
+            }
+
+            .nav-content {
+                min-width: 200px;
+                padding: 15px;
+                top: 65px;
+            }
+
+            .portal-link {
+                padding: 10px 12px;
+                font-size: 0.8rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -507,41 +651,25 @@
     <div class="particle-system" id="particleSystem"></div>
     <div class="scroll-progress" id="scrollProgress"></div>
     
-    <!-- Navigation -->
-    <nav class="sacred-nav">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="genesis.html" class="nav-link">Genesis</a>
-        <a href="geometry.html" class="nav-link">Geometry</a>
-        <a href="mathematics.html" class="nav-link">Mathematics</a>
-        <a href="masters.html" class="nav-link">Masters</a>
-        <a href="alchemy.html" class="nav-link">Alchemy</a>
-        <a href="library.html" class="nav-link">Library</a>
-        <a href="digital.html" class="nav-link">Digital Ministry</a>
-        <a href="wisdom.html" class="nav-link">Wisdom Portal</a>
-    </nav>
-
-    <!-- Header -->
-    <header class="sacred-header">
-        <!-- Cosmic Weather Display -->
-        <div class="cosmic-weather" id="cosmicWeather">
-            <div>⭐ Cosmic Alignment: Favorable</div>
-            <div>⚡ Divine Energy: High</div>
-            <div>☀️ Spiritual Weather: Clear</div>
-        </div>
-
-        <!-- Header Main Content -->
-        <div class="header-main">
-            <h1 class="header-title">SACRED ALCHEMY</h1>
-            <p class="header-subtitle">Transforming lead into gold, darkness into light, mortal into divine</p>
-
-            <!-- Sacred Mandala -->
-            <div class="sacred-mandala" onclick="activateMandala(this)">
-                <div class="mandala-ring"></div>
-                <div class="mandala-ring"></div>
-                <div class="mandala-ring"></div>
+    <!-- Sacred Dot Menu Navigation -->
+    <nav class="sacred-dot-nav">
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Navigation Menu">
+            <div class="nav-dot"></div>
+        </button>
+        <div class="nav-content" id="nav-content">
+            <div class="nav-portal-links">
+                <a href="index.html" class="portal-link">🏠 Home</a>
+                <a href="genesis.html" class="portal-link">🌟 Genesis</a>
+                <a href="geometry.html" class="portal-link">📐 Geometry</a>
+                <a href="mathematics.html" class="portal-link">🔢 Mathematics</a>
+                <a href="masters.html" class="portal-link">🎨 Masters</a>
+                <a href="alchemy.html" class="portal-link active">⚗️ Alchemy</a>
+                <a href="library.html" class="portal-link">📚 Library</a>
+                <a href="digital.html" class="portal-link">💻 Digital Ministry</a>
+                <a href="wisdom.html" class="portal-link">🧠 Wisdom Portal</a>
             </div>
         </div>
-    </header>
+    </nav>
 
     <main class="main-content">
         <!-- Alchemy Section -->
@@ -762,5 +890,33 @@ const alchemicalProcess = {<br>
     </footer>
 
     <script src="sacred_codex_scripts.min.js"></script>
+    <script>
+        // Sacred Navigation Menu Toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navContent = document.getElementById('nav-content');
+
+        if (navToggle && navContent) {
+            navToggle.addEventListener('click', function() {
+                navToggle.classList.toggle('active');
+                navContent.classList.toggle('active');
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!navToggle.contains(event.target) && !navContent.contains(event.target)) {
+                    navToggle.classList.remove('active');
+                    navContent.classList.remove('active');
+                }
+            });
+
+            // Close menu on escape key
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape') {
+                    navToggle.classList.remove('active');
+                    navContent.classList.remove('active');
+                }
+            });
+        }
+    </script>
 </body>
 </html>
