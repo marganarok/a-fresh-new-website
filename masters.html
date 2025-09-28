@@ -3,19 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Sacred Codex Universe - Masters</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Orbitron:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <title>Renaissance Masters - Leonardo & Dürer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
+        /* === ROOT VARIABLES FOR DYNAMIC THEMING === */
         :root {
-            --divine-gold: #FFD700;
-            --sacred-purple: #9932CC;
-            --celestial-blue: #4169E1;
-            --emerald-wisdom: #50C878;
-            --crimson-passion: #DC143C;
-            --mystic-silver: #C0C0C0;
-            --star-white: #FFFACD;
-            --shadow-deep: #000000;
-            --cosmic-gradient: linear-gradient(135deg, #000428 0%, #004e92 100%);
+            /* Leonardo Theme (Italian Renaissance) */
+            --leonardo-bg: linear-gradient(135deg, #1a1a2e 0%, #16213e 30%, #0f3460 60%, #0a0a0f 100%);
+            --leonardo-accent: #FFD700;
+            --leonardo-secondary: #4169E1;
+            --leonardo-text: #ffffff;
+            --leonardo-shadow: rgba(255,215,0,0.3);
+
+            /* Dürer Theme (Northern Renaissance) */
+            --durer-bg: linear-gradient(135deg, #2c1810 0%, #8B4513 50%, #DAA520 100%);
+            --durer-accent: #DAA520;
+            --durer-secondary: #8B4513;
+            --durer-text: #f4f1e8;
+            --durer-shadow: rgba(218,165,32,0.4);
+
+            /* Transition States */
+            --current-bg: var(--leonardo-bg);
+            --current-accent: var(--leonardo-accent);
+            --current-secondary: var(--leonardo-secondary);
+            --current-text: var(--leonardo-text);
+            --current-shadow: var(--leonardo-shadow);
         }
 
         * {
@@ -26,28 +38,558 @@
 
         body {
             font-family: 'Crimson Text', serif;
-            background: var(--cosmic-gradient);
-            color: var(--star-white);
+            background: var(--current-bg);
+            color: var(--current-text);
             line-height: 1.6;
             overflow-x: hidden;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Cosmic Background Animation */
-        .cosmic-background {
+        /* === SACRED GEOMETRY BACKGROUND === */
+        .sacred-geometry {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -2;
-            background: 
-                radial-gradient(2px 2px at 20px 30px, var(--divine-gold), transparent),
-                radial-gradient(2px 2px at 40px 70px, var(--sacred-purple), transparent),
-                radial-gradient(1px 1px at 90px 40px, var(--celestial-blue), transparent),
-                radial-gradient(1px 1px at 130px 80px, var(--emerald-wisdom), transparent),
-                radial-gradient(2px 2px at 160px 30px, var(--crimson-passion), transparent);
-            background-repeat: repeat;
+            opacity: 0.1;
+            background-image:
+                radial-gradient(2px 2px at 20px 30px, var(--current-accent), transparent),
+                radial-gradient(2px 2px at 40px 70px, var(--current-secondary), transparent),
+                radial-gradient(1px 1px at 90px 40px, var(--current-accent), transparent),
+                radial-gradient(1px 1px at 130px 80px, var(--current-secondary), transparent),
+                radial-gradient(2px 2px at 160px 30px, var(--current-accent), transparent);
             background-size: 200px 100px;
+            animation: cosmicDrift 40s ease-in-out infinite alternate;
+            transition: all 0.8s ease;
+        }
+
+        @keyframes cosmicDrift {
+            0% { transform: translateX(0px) translateY(0px); }
+            100% { transform: translateX(20px) translateY(10px); }
+        }
+
+        /* === PARTICLE SYSTEM === */
+        .particle-system {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .divine-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--current-accent);
+            border-radius: 50%;
+            animation: divineFloat 8s ease-in-out infinite;
+            transition: background 0.8s ease;
+        }
+
+        @keyframes divineFloat {
+            0%, 100% {
+                transform: translateY(0px) translateX(0px) scale(1);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            50% {
+                transform: translateY(-100px) translateX(50px) scale(1.5);
+                opacity: 0.8;
+            }
+            90% { opacity: 1; }
+        }
+
+        /* === SCROLL PROGRESS INDICATOR === */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--current-secondary), var(--current-accent), var(--current-secondary));
+            z-index: 10000;
+            transition: background 0.8s ease;
+        }
+
+        /* === NAVIGATION === */
+        .masters-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.8);
+            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+            border-bottom: 3px solid var(--current-accent);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: border-color 0.8s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            padding: 0 20px;
+        }
+
+        .nav-link {
+            color: var(--current-text);
+            text-decoration: none;
+            font-family: 'Orbitron', monospace;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 8px 16px;
+            border: 2px solid transparent;
+            border-radius: 8px;
+        }
+
+        .nav-link:hover {
+            color: var(--shadow-deep, #000);
+            background: linear-gradient(45deg, var(--current-accent), var(--current-secondary));
+            border-color: var(--current-text);
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 20px var(--current-shadow);
+        }
+
+        /* === MASTER SECTIONS === */
+        .master-section {
+            min-height: 100vh;
+            padding: 120px 20px 80px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .master-content {
+            max-width: 1200px;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .master-content.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .master-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .master-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            color: var(--current-accent);
+            text-shadow: 0 0 20px var(--current-accent);
+            margin-bottom: 20px;
+            transition: all 0.8s ease;
+        }
+
+        .master-subtitle {
+            font-size: 1.3rem;
+            color: var(--current-text);
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* === TRANSITION ZONE === */
+        .transition-zone {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+
+        .transition-zone.active {
+            opacity: 1;
+        }
+
+        .transition-text {
+            font-family: 'Cinzel', serif;
+            font-size: 4rem;
+            color: var(--current-accent);
+            text-shadow: 0 0 30px var(--current-accent);
+            text-align: center;
+            animation: transitionPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes transitionPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* === RESPONSIVE DESIGN === */
+        @media (max-width: 768px) {
+            .master-title {
+                font-size: 2.5rem;
+            }
+
+            .nav-container {
+                gap: 15px;
+            }
+
+            .nav-link {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+        }
+
+        /* === LOADING STATES === */
+        .loading {
+            text-align: center;
+            padding: 100px;
+            color: var(--current-accent);
+            font-style: italic;
+        }
+
+        .loading::after {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--current-accent);
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s ease-in-out infinite;
+            margin-left: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sacred Geometry Background -->
+    <div class="sacred-geometry"></div>
+
+    <!-- Particle System -->
+    <div class="particle-system" id="particleSystem"></div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Transition Zone -->
+    <div class="transition-zone" id="transitionZone">
+        <div class="transition-text" id="transitionText">BOOM</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="masters-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="genesis.html" class="nav-link">Genesis</a>
+            <a href="geometry.html" class="nav-link">Geometry</a>
+            <a href="mathematics.html" class="nav-link">Mathematics</a>
+            <a href="masters.html" class="nav-link">Masters</a>
+            <a href="alchemy.html" class="nav-link">Alchemy</a>
+            <a href="library.html" class="nav-link">Library</a>
+            <a href="digital.html" class="nav-link">Digital Ministry</a>
+            <a href="wisdom.html" class="nav-link">Wisdom Portal</a>
+        </div>
+    </nav>
+
+    <!-- Leonardo Section -->
+    <section class="master-section" id="leonardoSection">
+        <div class="master-content" id="leonardoContent">
+            <header class="master-header">
+                <h1 class="master-title">Leonardo da Vinci</h1>
+                <p class="master-subtitle">The Universal Genius of the Italian Renaissance</p>
+            </header>
+            <div class="loading">Loading Leonardo's World...</div>
+        </div>
+    </section>
+
+    <!-- Dürer Section -->
+    <section class="master-section" id="durerSection">
+        <div class="master-content" id="durerContent">
+            <header class="master-header">
+                <h1 class="master-title">Albrecht Dürer</h1>
+                <p class="master-subtitle">Master of Symbols and Northern Renaissance Precision</p>
+            </header>
+            <div class="loading">Loading Dürer's World...</div>
+        </div>
+    </section>
+
+    <script>
+        // === DUAL MASTER SCROLL SYSTEM ===
+
+        class DualMasterScroll {
+            constructor() {
+                this.leonardoContent = document.getElementById('leonardoContent');
+                this.durerContent = document.getElementById('durerContent');
+                this.transitionZone = document.getElementById('transitionZone');
+                this.transitionText = document.getElementById('transitionText');
+                this.scrollProgress = document.getElementById('scrollProgress');
+                this.particleSystem = document.getElementById('particleSystem');
+
+                this.leonardoLoaded = false;
+                this.durerLoaded = false;
+                this.currentTheme = 'leonardo';
+
+                this.init();
+            }
+
+            async init() {
+                // Load both master contents
+                await this.loadLeonardoContent();
+                await this.loadDurerContent();
+
+                // Initialize scroll system
+                this.initScrollSystem();
+
+                // Start particle system
+                this.initParticles();
+
+                // Initial theme application
+                this.applyTheme('leonardo');
+            }
+
+            async loadLeonardoContent() {
+                try {
+                    const response = await fetch('./leonardo_da_vinci_complete.html');
+                    const html = await response.text();
+
+                    // Extract body content (skip head, nav, etc.)
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const bodyContent = doc.body.innerHTML;
+
+                    // Insert into Leonardo section (skip the loading div)
+                    const loadingDiv = this.leonardoContent.querySelector('.loading');
+                    loadingDiv.insertAdjacentHTML('afterend', bodyContent);
+                    loadingDiv.remove();
+
+                    this.leonardoLoaded = true;
+                    this.leonardoContent.classList.add('active');
+
+                } catch (error) {
+                    console.error('Error loading Leonardo content:', error);
+                    this.leonardoContent.innerHTML = '<div class="loading">Error loading Leonardo content</div>';
+                }
+            }
+
+            async loadDurerContent() {
+                try {
+                    const response = await fetch('./Albrecht Dürer-research.html');
+                    const html = await response.text();
+
+                    // Extract body content
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const bodyContent = doc.body.innerHTML;
+
+                    // Insert into Dürer section
+                    const loadingDiv = this.durerContent.querySelector('.loading');
+                    loadingDiv.insertAdjacentHTML('afterend', bodyContent);
+                    loadingDiv.remove();
+
+                    this.durerLoaded = true;
+
+                } catch (error) {
+                    console.error('Error loading Dürer content:', error);
+                    this.durerContent.innerHTML = '<div class="loading">Error loading Dürer content</div>';
+                }
+            }
+
+            initScrollSystem() {
+                let ticking = false;
+
+                const handleScroll = () => {
+                    if (!ticking) {
+                        requestAnimationFrame(() => {
+                            this.updateScroll();
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                };
+
+                window.addEventListener('scroll', handleScroll);
+                this.updateScroll(); // Initial call
+            }
+
+            updateScroll() {
+                const scrollTop = window.scrollY;
+                const windowHeight = window.innerHeight;
+                const documentHeight = document.documentElement.scrollHeight;
+                const scrollPercent = scrollTop / (documentHeight - windowHeight);
+
+                // Update scroll progress
+                this.scrollProgress.style.width = (scrollPercent * 100) + '%';
+
+                // Determine current theme based on scroll position
+                const transitionPoint = 0.5; // 50% scroll
+                const transitionZone = 0.05; // 5% transition zone
+
+                if (scrollPercent < transitionPoint - transitionZone) {
+                    // Leonardo theme
+                    if (this.currentTheme !== 'leonardo') {
+                        this.applyTheme('leonardo');
+                        this.showTransition(false);
+                    }
+                } else if (scrollPercent > transitionPoint + transitionZone) {
+                    // Dürer theme
+                    if (this.currentTheme !== 'durer') {
+                        this.applyTheme('durer');
+                        this.showTransition(false);
+                    }
+                } else {
+                    // Transition zone - show BOOM effect
+                    if (this.currentTheme !== 'transition') {
+                        this.showTransition(true);
+                    }
+                }
+
+                // Activate content visibility based on scroll
+                this.updateContentVisibility(scrollPercent);
+            }
+
+            applyTheme(theme) {
+                const root = document.documentElement;
+
+                if (theme === 'leonardo') {
+                    root.style.setProperty('--current-bg', 'var(--leonardo-bg)');
+                    root.style.setProperty('--current-accent', 'var(--leonardo-accent)');
+                    root.style.setProperty('--current-secondary', 'var(--leonardo-secondary)');
+                    root.style.setProperty('--current-text', 'var(--leonardo-text)');
+                    root.style.setProperty('--current-shadow', 'var(--leonardo-shadow)');
+                    this.currentTheme = 'leonardo';
+                } else if (theme === 'durer') {
+                    root.style.setProperty('--current-bg', 'var(--durer-bg)');
+                    root.style.setProperty('--current-accent', 'var(--durer-accent)');
+                    root.style.setProperty('--current-secondary', 'var(--durer-secondary)');
+                    root.style.setProperty('--current-text', 'var(--durer-text)');
+                    root.style.setProperty('--current-shadow', 'var(--durer-shadow)');
+                    this.currentTheme = 'durer';
+                }
+
+                // Update particle colors
+                this.updateParticles();
+            }
+
+            showTransition(show) {
+                if (show) {
+                    this.transitionZone.classList.add('active');
+                    this.transitionText.textContent = 'BOOM';
+                    this.currentTheme = 'transition';
+
+                    // Hide transition after 2 seconds
+                    setTimeout(() => {
+                        this.transitionZone.classList.remove('active');
+                    }, 2000);
+                } else {
+                    this.transitionZone.classList.remove('active');
+                }
+            }
+
+            updateContentVisibility(scrollPercent) {
+                const leonardoSection = document.getElementById('leonardoSection');
+                const durerSection = document.getElementById('durerSection');
+
+                // Leonardo visible in first half
+                if (scrollPercent < 0.6) {
+                    leonardoSection.style.opacity = '1';
+                    leonardoSection.style.pointerEvents = 'auto';
+                } else {
+                    leonardoSection.style.opacity = '0.3';
+                    leonardoSection.style.pointerEvents = 'none';
+                }
+
+                // Dürer visible in second half
+                if (scrollPercent > 0.4) {
+                    durerSection.style.opacity = '1';
+                    durerSection.style.pointerEvents = 'auto';
+                    if (this.durerLoaded && !this.durerContent.classList.contains('active')) {
+                        this.durerContent.classList.add('active');
+                    }
+                } else {
+                    durerSection.style.opacity = '0.3';
+                    durerSection.style.pointerEvents = 'none';
+                }
+            }
+
+            initParticles() {
+                // Create initial particles
+                for (let i = 0; i < 8; i++) {
+                    setTimeout(() => this.createParticle(), i * 800);
+                }
+
+                // Continue creating particles
+                setInterval(() => this.createParticle(), 3000);
+            }
+
+            createParticle() {
+                const particle = document.createElement('div');
+                particle.className = 'divine-particle';
+
+                // Random position
+                particle.style.left = Math.random() * window.innerWidth + 'px';
+                particle.style.top = window.innerHeight + 'px';
+
+                // Random delay
+                particle.style.animationDelay = Math.random() * 2 + 's';
+
+                this.particleSystem.appendChild(particle);
+
+                // Remove after animation
+                setTimeout(() => {
+                    if (particle.parentNode) {
+                        particle.parentNode.removeChild(particle);
+                    }
+                }, 8000);
+            }
+
+            updateParticles() {
+                // Update existing particles with new theme color
+                const particles = document.querySelectorAll('.divine-particle');
+                particles.forEach(particle => {
+                    particle.style.background = 'var(--current-accent)';
+                });
+            }
+        }
+
+        // Initialize the dual master scroll system
+        document.addEventListener('DOMContentLoaded', () => {
+            new DualMasterScroll();
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            // ESC to close any modals (if they exist)
+            if (e.key === 'Escape') {
+                // Handle modal closing if needed
+            }
+
+            // Ctrl/Cmd + K to scroll to top
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+    </script>
+</body>
+</html>
             animation: sparkle 20s linear infinite;
         }
 
