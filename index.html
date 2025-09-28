@@ -1521,6 +1521,28 @@
             z-index: 1000;
         }
 
+        .social-dot-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .social-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            font-weight: 300;
+            font-family: 'Rajdhani', sans-serif;
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .social-dot-container:hover .social-label {
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+        }
+
         .social-dot {
             width: 8px;
             height: 8px;
@@ -1636,6 +1658,14 @@
                 left: 15px;
             }
 
+            .social-dot-container {
+                gap: 6px;
+            }
+
+            .social-label {
+                font-size: 11px;
+            }
+
             .social-dot {
                 width: 10px;
                 height: 10px;
@@ -1692,7 +1722,10 @@
 
     <!-- Top Left Social Dot Menu -->
     <div class="social-dot-menu" id="social-dot-menu">
-        <div class="social-dot" id="social-dot">⚫</div>
+        <div class="social-dot-container">
+            <div class="social-dot" id="social-dot">⚫</div>
+            <span class="social-label">Social Links</span>
+        </div>
         <div class="social-menu" id="social-menu">
             <a href="https://www.facebook.com/profile.php?id=61578595622796" target="_blank" rel="noopener noreferrer" class="menu-item facebook">📘 Facebook</a>
             <a href="https://www.instagram.com/alchemistsx0/" target="_blank" rel="noopener noreferrer" class="menu-item instagram">📷 Instagram</a>
@@ -2580,18 +2613,18 @@
 
         // Social Dot Menu Functionality
         document.addEventListener('DOMContentLoaded', function() {
-            const socialDot = document.getElementById('social-dot');
+            const socialDotContainer = document.querySelector('.social-dot-container');
             const socialMenu = document.getElementById('social-menu');
 
-            if (socialDot && socialMenu) {
-                socialDot.addEventListener('click', function(e) {
+            if (socialDotContainer && socialMenu) {
+                socialDotContainer.addEventListener('click', function(e) {
                     e.stopPropagation();
                     socialMenu.classList.toggle('show');
                 });
 
                 // Close menu when clicking outside
                 document.addEventListener('click', function(e) {
-                    if (!socialDot.contains(e.target) && !socialMenu.contains(e.target)) {
+                    if (!socialDotContainer.contains(e.target) && !socialMenu.contains(e.target)) {
                         socialMenu.classList.remove('show');
                     }
                 });
