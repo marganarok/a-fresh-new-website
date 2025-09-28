@@ -477,8 +477,34 @@
 
                         // Wrap the script execution in a function that runs after content is loaded
                         durerScriptContent = `
+                            // Make showSection globally available immediately for onclick handlers
+                            window.showSection = function(sectionId) {
+                                // Scope to Dürer's content area in masters page
+                                const durerContent = document.getElementById('durerContent');
+                                if (!durerContent) return;
+
+                                // Hide all sections within Dürer's content
+                                const sections = durerContent.querySelectorAll('.content-section');
+                                sections.forEach(section => section.classList.remove('active'));
+
+                                // Remove active class from all tabs within Dürer's content
+                                const tabs = durerContent.querySelectorAll('.nav-tab');
+                                tabs.forEach(tab => tab.classList.remove('active'));
+
+                                // Show selected section within Dürer's content
+                                const targetSection = durerContent.querySelector('#' + sectionId);
+                                if (targetSection) {
+                                    targetSection.classList.add('active');
+                                }
+
+                                // Add active class to clicked tab (find it by event target)
+                                if (event && event.target) {
+                                    event.target.classList.add('active');
+                                }
+                            };
+
                             function initDurerInteractions() {
-                                ${durerScriptContent}
+                                ${durerScriptContent.replace(/function showSection\(sectionId\) \{[\s\S]*?\}/, '')}
                             }
                             // Run after a short delay to ensure DOM is ready
                             setTimeout(initDurerInteractions, 100);
