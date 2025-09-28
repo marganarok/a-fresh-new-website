@@ -12,7 +12,7 @@
                             <div class="file-name">The Kybalion - Complete Text</div>
                             <div class="file-description">All seven hermetic principles explained</div>
                         </div>
-                        <a href="./Library/Kybalion.txt" class="download-button" download="The-Kybalion-Complete-Text.txt">📄 TXT</a>
+                        <a href="./Library/Kybalion.txt" class="download-button" target="_blank">📄 TXT</a>
                     </div>
                     <div class="file-list">
                         <div class="file-info">
@@ -439,21 +439,21 @@
                             <div class="file-name">Book of Enoch - Chapter 1</div>
                             <div class="file-description">Introduction and early prophecies</div>
                         </div>
-                        <a href="./Library/Enoch-1.txt" class="download-button" download="Book-of-Enoch-Chapter-1.txt">📄 TXT</a>
+                        <a href="./Library/Enoch-1.txt" class="download-button" target="_blank">📄 TXT</a>
                     </div>
                     <div class="file-list">
                         <div class="file-info">
                             <div class="file-name">Book of Enoch - Chapter 2</div>
                             <div class="file-description">Further revelations and teachings</div>
                         </div>
-                        <a href="./Library/Enoch-2.txt" class="download-button" download="Book-of-Enoch-Chapter-2.txt">📄 TXT</a>
+                        <a href="./Library/Enoch-2.txt" class="download-button" target="_blank">📄 TXT</a>
                     </div>
                     <div class="file-list">
                         <div class="file-info">
                             <div class="file-name">Book of Enoch - Chapter 3</div>
                             <div class="file-description">Messianic prophecies and judgments</div>
                         </div>
-                        <a href="./Library/Enoch-3.txt" class="download-button" download="Book-of-Enoch-Chapter-3.txt">📄 TXT</a>
+                        <a href="./Library/Enoch-3.txt" class="download-button" target="_blank">📄 TXT</a>
                     </div>
                 </div>
 
@@ -466,7 +466,7 @@
                             <div class="file-name">Emerald Tablet - Complete Text</div>
                             <div class="file-description">The thirteen verses of the sacred tablet</div>
                         </div>
-                        <a href="./Library/Emerald-Tablet.txt" class="download-button" download="Emerald-Tablet-Complete-Text.txt">📄 TXT</a>
+                        <a href="./Library/Emerald-Tablet.txt" class="download-button" target="_blank">📄 TXT</a>
                     </div>
                     <div class="file-list">
                         <div class="file-info">
@@ -669,44 +669,6 @@
     </footer>
 
     <script src="sacred_codex_scripts.js"></script>
-    <script>
-        // Handle downloads for text files
-        document.addEventListener('DOMContentLoaded', function() {
-            const downloadButtons = document.querySelectorAll('.download-button[download]');
-            
-            downloadButtons.forEach(button => {
-                button.addEventListener('click', async function(e) {
-                    e.preventDefault();
-                    const href = this.getAttribute('href');
-                    const filename = this.getAttribute('download');
-                    
-                    try {
-                        // Fetch the file content
-                        const response = await fetch(href);
-                        const text = await response.text();
-                        
-                        // Create a blob and download link
-                        const blob = new Blob([text], { type: 'text/plain' });
-                        const url = URL.createObjectURL(blob);
-                        
-                        const link = document.createElement('a');
-                        link.href = url;
-                        link.download = filename;
-                        document.body.appendChild(link);
-                        link.click();
-                        document.body.removeChild(link);
-                        
-                        // Clean up the object URL
-                        URL.revokeObjectURL(url);
-                    } catch (error) {
-                        console.error('Download failed:', error);
-                        // Fallback: try opening in new tab
-                        window.open(href, '_blank');
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 </html></content>
 <parameter name="filePath">c:\Users\LiteGamer\Desktop\a fresh new website\library.html
