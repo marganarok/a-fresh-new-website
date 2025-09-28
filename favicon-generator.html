@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Favicon Generator - Sacred Codex</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .favicon { width: 32px; height: 32px; border: 1px solid #ccc; margin: 5px; }
+        .preview { display: flex; flex-wrap: wrap; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h1>Sacred Codex Favicon Generator</h1>
+    <p>Generate PNG favicons from our SVG designs for better browser compatibility.</p>
+
+    <div class="preview">
+        <div>
+            <h3>3D Mantra Favicon</h3>
+            <img src="favicon-3d-mantra.svg" class="favicon" alt="3D Mantra">
+            <br><button onclick="downloadPNG('favicon-3d-mantra.svg', 'favicon-3d-mantra.png')">Download PNG</button>
+        </div>
+
+        <div>
+            <h3>Geometric Favicon</h3>
+            <img src="favicon-geometric.svg" class="favicon" alt="Geometric">
+            <br><button onclick="downloadPNG('favicon-geometric.svg', 'favicon-geometric.png')">Download PNG</button>
+        </div>
+
+        <div>
+            <h3>Alchemy Favicon</h3>
+            <img src="favicon-alchemy.svg" class="favicon" alt="Alchemy">
+            <br><button onclick="downloadPNG('favicon-alchemy.svg', 'favicon-alchemy.png')">Download PNG</button>
+        </div>
+    </div>
+
+    <script>
+        function downloadPNG(svgUrl, filename) {
+            // Create a canvas to convert SVG to PNG
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = 32;
+            canvas.height = 32;
+
+            // Create an image from the SVG
+            const img = new Image();
+            img.onload = function() {
+                ctx.drawImage(img, 0, 0, 32, 32);
+
+                // Convert to PNG and download
+                canvas.toBlob(function(blob) {
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = filename;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                });
+            };
+            img.src = svgUrl;
+        }
+    </script>
+</body>
+</html>

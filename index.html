@@ -393,25 +393,70 @@
 
         .social-links {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             flex-wrap: wrap;
+            justify-content: center;
         }
 
         .social-link {
-            color: #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            color: #ffffff;
             text-decoration: none;
-            font-weight: 600;
-            padding: 10px 15px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.2);
+            font-size: 24px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
-            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .social-link:hover::before {
+            left: 100%;
         }
 
         .social-link:hover {
-            background: rgba(255, 255, 255, 0.4);
-            transform: translateY(-2px);
-            border-color: rgba(0, 0, 0, 0.3);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .social-link.facebook:hover {
+            box-shadow: 0 8px 25px rgba(24, 119, 242, 0.3);
+        }
+
+        .social-link.twitter:hover {
+            box-shadow: 0 8px 25px rgba(29, 161, 242, 0.3);
+        }
+
+        .social-link.instagram:hover {
+            box-shadow: 0 8px 25px rgba(225, 48, 108, 0.3);
+        }
+
+        .social-link.linkedin:hover {
+            box-shadow: 0 8px 25px rgba(10, 102, 194, 0.3);
+        }
+
+        .social-link.github:hover {
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
         }
 
         /* Responsive Footer */
@@ -1526,11 +1571,11 @@
                 © 2025 OMNI-EMPIRE-FRESH - Divine Digital Ministry | Guardians of the Infinite Multiverse | Explore, Create, Transcend
             </div>
             <div class="social-links">
-                <a href="https://facebook.com" target="_blank" rel="noopener" class="social-link facebook">📘 Facebook</a>
-                <a href="https://twitter.com" target="_blank" rel="noopener" class="social-link twitter">🐦 Twitter</a>
-                <a href="https://instagram.com" target="_blank" rel="noopener" class="social-link instagram">📷 Instagram</a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-link linkedin">💼 LinkedIn</a>
-                <a href="https://github.com/marganarok/a-fresh-new-website" target="_blank" rel="noopener" class="social-link github">💻 GitHub</a>
+                <a href="https://facebook.com" target="_blank" rel="noopener" class="social-link facebook" title="Facebook">📘</a>
+                <a href="https://twitter.com" target="_blank" rel="noopener" class="social-link twitter" title="Twitter">🐦</a>
+                <a href="https://instagram.com" target="_blank" rel="noopener" class="social-link instagram" title="Instagram">📷</a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-link linkedin" title="LinkedIn">💼</a>
+                <a href="https://github.com/marganarok/a-fresh-new-website" target="_blank" rel="noopener" class="social-link github" title="GitHub">💻</a>
             </div>
         </div>
     </footer>
