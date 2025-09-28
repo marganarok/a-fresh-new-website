@@ -731,4 +731,431 @@ function loadFilePreview(filePath) {
 document.addEventListener('DOMContentLoaded', function() {
     // ... existing initialization code ...
     initBookPreview();
+    initWisdomPortal();
 });
+
+// === WISDOM PORTAL FUNCTIONALITY ===
+
+// Wisdom Portal Interactive Features
+function initWisdomPortal() {
+    // Initialize wisdom assessment
+    initWisdomAssessment();
+
+    // Initialize mandala activation
+    initMandalaActivation();
+
+    // Initialize wisdom map generation
+    initWisdomMap();
+
+    // Initialize inner sanctuary journey
+    initInnerSanctuary();
+}
+
+// Wisdom Assessment System
+function initWisdomAssessment() {
+    const radioButtons = document.querySelectorAll('.option-radio');
+    const wisdomLevel = document.querySelector('.wisdom-level');
+
+    if (!radioButtons.length || !wisdomLevel) return;
+
+    let assessmentScore = 0;
+    const totalQuestions = 3;
+
+    radioButtons.forEach(radio => {
+        radio.addEventListener('change', function() {
+            // Calculate wisdom score based on selections
+            assessmentScore = calculateWisdomScore();
+            updateWisdomLevel(assessmentScore, totalQuestions);
+        });
+    });
+
+    // Initial wisdom level display
+    updateWisdomLevel(0, totalQuestions);
+}
+
+function calculateWisdomScore() {
+    const questions = ['q1', 'q2', 'q3'];
+    let score = 0;
+
+    questions.forEach(question => {
+        const selectedOption = document.querySelector(`input[name="${question}"]:checked`);
+        if (selectedOption) {
+            // Get the index of the selected option (0-3, higher = more wisdom)
+            const optionIndex = Array.from(selectedOption.closest('.option-list').querySelectorAll('li')).indexOf(selectedOption.closest('li'));
+            score += optionIndex + 1; // Add 1-4 points per question
+        }
+    });
+
+    return score;
+}
+
+function updateWisdomLevel(score, maxScore) {
+    const wisdomLevel = document.querySelector('.wisdom-level');
+    if (!wisdomLevel) return;
+
+    const percentage = Math.round((score / maxScore) * 100) || 0;
+
+    // Determine wisdom level title based on score
+    let wisdomTitle = 'Seeker';
+    if (percentage >= 80) wisdomTitle = 'Sage';
+    else if (percentage >= 60) wisdomTitle = 'Guide';
+    else if (percentage >= 40) wisdomTitle = 'Student';
+    else if (percentage >= 20) wisdomTitle = 'Initiate';
+
+    wisdomLevel.innerHTML = `
+        <div>Wisdom Level: ${percentage}%</div>
+        <div>"${wisdomTitle}"</div>
+    `;
+}
+
+// Mandala Activation
+function initMandalaActivation() {
+    // The mandala activation is already handled by onclick in HTML
+    // This function ensures it's properly initialized
+}
+
+function activateMandala(element) {
+    // Add activation animation
+    element.classList.add('activated');
+
+    // Create activation effect
+    const rings = element.querySelectorAll('.mandala-ring');
+    rings.forEach((ring, index) => {
+        ring.style.animationDuration = `${10 + index * 5}s`;
+        ring.style.borderColor = '#FFD700';
+    });
+
+    // Show activation message
+    showWisdomMessage('Mandala activated! Divine energies aligned.', 'success');
+
+    // Remove activation after animation
+    setTimeout(() => {
+        element.classList.remove('activated');
+        rings.forEach(ring => {
+            ring.style.borderColor = '';
+        });
+    }, 3000);
+}
+
+// Wisdom Map Generation
+function initWisdomMap() {
+    const mapButton = document.querySelector('.sacred-card button');
+    if (!mapButton) return;
+
+    mapButton.addEventListener('click', generateWisdomMap);
+}
+
+function generateWisdomMap() {
+    const wisdomScore = calculateWisdomScore();
+
+    // Create wisdom map based on assessment
+    const wisdomPaths = [
+        { name: 'Intellectual Wisdom', icon: '🧠', description: 'Understanding profound truths' },
+        { name: 'Emotional Wisdom', icon: '❤️', description: 'Deep connection with others' },
+        { name: 'Spiritual Wisdom', icon: '🙏', description: 'Divine connection and guidance' },
+        { name: 'Practical Wisdom', icon: '🔧', description: 'Applying knowledge effectively' },
+        { name: 'Creative Wisdom', icon: '🎨', description: 'Innovation and inspiration' },
+        { name: 'Ethical Wisdom', icon: '⚖️', description: 'Moral understanding and justice' },
+        { name: 'Intuitive Wisdom', icon: '🔮', description: 'Inner knowing and insight' }
+    ];
+
+    // Generate personalized map
+    const mapContainer = document.createElement('div');
+    mapContainer.className = 'wisdom-map-result';
+    mapContainer.innerHTML = `
+        <h3>Your Personal Wisdom Map</h3>
+        <div class="wisdom-paths">
+            ${wisdomPaths.map((path, index) => `
+                <div class="wisdom-path ${index < wisdomScore ? 'active' : ''}">
+                    <div class="path-icon">${path.icon}</div>
+                    <div class="path-content">
+                        <h4>${path.name}</h4>
+                        <p>${path.description}</p>
+                    </div>
+                </div>
+            `).join('')}
+        </div>
+        <p class="map-insight">Your wisdom journey shows ${wisdomScore} activated paths. Continue exploring to unlock your full potential.</p>
+    `;
+
+    // Replace button with map
+    const card = document.querySelector('.sacred-card');
+    const button = card.querySelector('button');
+    button.style.display = 'none';
+    card.appendChild(mapContainer);
+
+    showWisdomMessage('Your personal wisdom map has been generated!', 'success');
+}
+
+// Inner Sanctuary Journey
+function initInnerSanctuary() {
+    const journeyButton = document.querySelector('.journey-button');
+    if (!journeyButton) return;
+
+    journeyButton.addEventListener('click', startInnerJourney);
+}
+
+function startInnerJourney() {
+    // Create journey modal
+    const modal = document.createElement('div');
+    modal.className = 'journey-modal';
+    modal.innerHTML = `
+        <div class="journey-content">
+            <h2>The Inner Sanctuary</h2>
+            <div class="journey-stage" id="journeyStage">
+                <p>Welcome to your inner sanctuary. Take a deep breath and center yourself.</p>
+                <p>Feel the divine presence surrounding you...</p>
+            </div>
+            <div class="journey-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+            <button class="journey-continue" id="journeyContinue">Continue Journey</button>
+            <button class="journey-close" id="journeyClose">Exit Sanctuary</button>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    // Initialize journey
+    let journeyStep = 0;
+    const journeyStages = [
+        "Welcome to your inner sanctuary. Take a deep breath and center yourself. Feel the divine presence surrounding you...",
+        "As you breathe deeply, notice the cosmic energies flowing through you. You are connected to the infinite wisdom of the universe...",
+        "In this sacred space, allow your mind to quiet. Listen to the subtle whispers of divine guidance...",
+        "Feel gratitude for the wisdom that flows to you. You are a vessel of divine understanding...",
+        "Carry this sacred energy with you as you return to the world. Your wisdom journey continues...",
+        "Journey complete. May divine wisdom illuminate your path always."
+    ];
+
+    const journeyStage = modal.querySelector('#journeyStage');
+    const progressFill = modal.querySelector('#progressFill');
+    const continueButton = modal.querySelector('#journeyContinue');
+    const closeButton = modal.querySelector('#journeyClose');
+
+    continueButton.addEventListener('click', () => {
+        journeyStep++;
+        if (journeyStep < journeyStages.length) {
+            journeyStage.innerHTML = `<p>${journeyStages[journeyStep]}</p>`;
+            progressFill.style.width = `${(journeyStep / journeyStages.length) * 100}%`;
+        } else {
+            // Journey complete
+            journeyStage.innerHTML = `
+                <p>${journeyStages[journeyStep]}</p>
+                <div class="journey-completion">
+                    <div class="completion-icon">✨</div>
+                    <p>Your inner wisdom has been strengthened.</p>
+                </div>
+            `;
+            continueButton.style.display = 'none';
+            closeButton.textContent = 'Return to World';
+        }
+    });
+
+    closeButton.addEventListener('click', () => {
+        modal.remove();
+        showWisdomMessage('Inner journey complete. Wisdom increased.', 'success');
+    });
+}
+
+// Wisdom Message System
+function showWisdomMessage(message, type = 'info') {
+    // Remove existing messages
+    const existingMessages = document.querySelectorAll('.wisdom-message');
+    existingMessages.forEach(msg => msg.remove());
+
+    // Create new message
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `wisdom-message ${type}`;
+    messageDiv.textContent = message;
+
+    // Style based on type
+    const colors = {
+        success: '#50C878',
+        error: '#DC143C',
+        info: '#4169E1',
+        warning: '#FFD700'
+    };
+
+    messageDiv.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: rgba(0,0,0,0.9);
+        color: ${colors[type]};
+        border: 2px solid ${colors[type]};
+        padding: 15px 20px;
+        border-radius: 10px;
+        z-index: 10000;
+        font-family: 'Cinzel', serif;
+        animation: messageSlideIn 0.5s ease-out;
+    `;
+
+    document.body.appendChild(messageDiv);
+
+    // Remove after 5 seconds
+    setTimeout(() => {
+        messageDiv.style.animation = 'messageSlideOut 0.5s ease-in';
+        setTimeout(() => messageDiv.remove(), 500);
+    }, 5000);
+}
+
+// Add message animations to CSS (will be added to the HTML file)
+const messageAnimations = `
+    @keyframes messageSlideIn {
+        from { transform: translateX(100%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes messageSlideOut {
+        from { transform: translateX(0); opacity: 1; }
+        to { transform: translateX(100%); opacity: 0; }
+    }
+`;
+
+// Add journey modal styles
+const journeyModalStyles = `
+    .journey-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10001;
+    }
+
+    .journey-content {
+        background: var(--shadow-deep);
+        border: 3px solid var(--divine-gold);
+        border-radius: 20px;
+        padding: 40px;
+        max-width: 600px;
+        text-align: center;
+        box-shadow: 0 0 50px rgba(255, 215, 0, 0.3);
+    }
+
+    .journey-content h2 {
+        color: var(--divine-gold);
+        font-family: 'Cinzel', serif;
+        margin-bottom: 30px;
+    }
+
+    .journey-stage p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: var(--star-white);
+        margin-bottom: 20px;
+    }
+
+    .journey-progress {
+        margin: 30px 0;
+    }
+
+    .progress-bar {
+        width: 100%;
+        height: 10px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--divine-gold), var(--sacred-purple));
+        width: 0%;
+        transition: width 1s ease;
+    }
+
+    .journey-continue, .journey-close {
+        background: linear-gradient(45deg, var(--divine-gold), var(--sacred-purple));
+        border: none;
+        border-radius: 10px;
+        padding: 12px 24px;
+        color: var(--shadow-deep);
+        font-family: 'Cinzel', serif;
+        font-weight: 600;
+        cursor: pointer;
+        margin: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .journey-continue:hover, .journey-close:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+    }
+
+    .completion-icon {
+        font-size: 3rem;
+        margin: 20px 0;
+    }
+`;
+
+// Add wisdom map styles
+const wisdomMapStyles = `
+    .wisdom-map-result {
+        margin-top: 20px;
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 15px;
+        border: 2px solid var(--emerald-wisdom);
+    }
+
+    .wisdom-map-result h3 {
+        color: var(--emerald-wisdom);
+        font-family: 'Cinzel', serif;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .wisdom-paths {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .wisdom-path {
+        background: rgba(0, 0, 0, 0.5);
+        border: 2px solid rgba(80, 200, 120, 0.3);
+        border-radius: 10px;
+        padding: 15px;
+        opacity: 0.6;
+        transition: all 0.3s ease;
+    }
+
+    .wisdom-path.active {
+        opacity: 1;
+        border-color: var(--emerald-wisdom);
+        box-shadow: 0 0 20px rgba(80, 200, 120, 0.3);
+    }
+
+    .path-icon {
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .path-content h4 {
+        color: var(--emerald-wisdom);
+        font-family: 'Cinzel', serif;
+        margin-bottom: 8px;
+    }
+
+    .path-content p {
+        color: var(--mystic-silver);
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+
+    .map-insight {
+        text-align: center;
+        color: var(--divine-gold);
+        font-style: italic;
+        font-size: 1.1rem;
+    }
+`;

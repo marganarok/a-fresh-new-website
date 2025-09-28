@@ -536,6 +536,208 @@
             }
         }
     </style>
+
+    <!-- Additional Wisdom Portal Styles -->
+    <style>
+        /* Wisdom Message System */
+        .wisdom-message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.9);
+            border: 2px solid var(--divine-gold);
+            padding: 15px 20px;
+            border-radius: 10px;
+            z-index: 10000;
+            font-family: 'Cinzel', serif;
+            animation: messageSlideIn 0.5s ease-out;
+        }
+
+        @keyframes messageSlideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes messageSlideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+
+        /* Journey Modal */
+        .journey-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10001;
+        }
+
+        .journey-content {
+            background: var(--shadow-deep);
+            border: 3px solid var(--divine-gold);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.3);
+        }
+
+        .journey-content h2 {
+            color: var(--divine-gold);
+            font-family: 'Cinzel', serif;
+            margin-bottom: 30px;
+        }
+
+        .journey-stage p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: var(--star-white);
+            margin-bottom: 20px;
+        }
+
+        .journey-progress {
+            margin: 30px 0;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--divine-gold), var(--sacred-purple));
+            width: 0%;
+            transition: width 1s ease;
+        }
+
+        .journey-continue, .journey-close {
+            background: linear-gradient(45deg, var(--divine-gold), var(--sacred-purple));
+            border: none;
+            border-radius: 10px;
+            padding: 12px 24px;
+            color: var(--shadow-deep);
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .journey-continue:hover, .journey-close:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .completion-icon {
+            font-size: 3rem;
+            margin: 20px 0;
+        }
+
+        /* Wisdom Map */
+        .wisdom-map-result {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            border: 2px solid var(--emerald-wisdom);
+        }
+
+        .wisdom-map-result h3 {
+            color: var(--emerald-wisdom);
+            font-family: 'Cinzel', serif;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .wisdom-paths {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .wisdom-path {
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(80, 200, 120, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+
+        .wisdom-path.active {
+            opacity: 1;
+            border-color: var(--emerald-wisdom);
+            box-shadow: 0 0 20px rgba(80, 200, 120, 0.3);
+        }
+
+        .path-icon {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .path-content h4 {
+            color: var(--emerald-wisdom);
+            font-family: 'Cinzel', serif;
+            margin-bottom: 8px;
+        }
+
+        .path-content p {
+            color: var(--mystic-silver);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .map-insight {
+            text-align: center;
+            color: var(--divine-gold);
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        /* Enhanced Mandala Activation */
+        .mandala-container.activated .mandala-ring {
+            animation: mandalaPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes mandalaPulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+
+        /* Wisdom Level Enhancement */
+        .wisdom-level {
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--divine-gold);
+            margin-top: 10px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            border: 1px solid var(--emerald-wisdom);
+        }
+
+        .wisdom-level div:first-child {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .wisdom-level div:last-child {
+            font-style: italic;
+            color: var(--emerald-wisdom);
+        }
+    </style>
 </head>
 <body>
     <div class="cosmic-background"></div>
@@ -708,31 +910,37 @@
             <div class="assessment-question">
                 <div class="question-text">1. When seeking truth, I primarily rely on:</div>
                 <ul class="option-list">
-                    <li><input type="radio" name="q1" class="option-radio"> Logical analysis</li>
-                    <li><input type="radio" name="q1" class="option-radio"> Intuition and feeling</li>
-                    <li><input type="radio" name="q1" class="option-radio"> Direct experience</li>
-                    <li><input type="radio" name="q1" class="option-radio"> Multiple approaches</li>
+                    <li><input type="radio" name="q1" id="q1-logical" class="option-radio"><label for="q1-logical"> Logical analysis</label></li>
+                    <li><input type="radio" name="q1" id="q1-intuition" class="option-radio"><label for="q1-intuition"> Intuition and feeling</label></li>
+                    <li><input type="radio" name="q1" id="q1-experience" class="option-radio"><label for="q1-experience"> Direct experience</label></li>
+                    <li><input type="radio" name="q1" id="q1-multiple" class="option-radio"><label for="q1-multiple"> Multiple approaches</label></li>
                 </ul>
             </div>
 
             <div class="assessment-question">
                 <div class="question-text">2. My spiritual practice primarily involves:</div>
                 <ul class="option-list">
-                    <li><input type="radio" name="q2" class="option-radio"> Meditation and mindfulness</li>
-                    <li><input type="radio" name="q2" class="option-radio"> Prayer and worship</li>
-                    <li><input type="radio" name="q2" class="option-radio"> Helping others</li>
-                    <li><input type="radio" name="q2" class="option-radio"> Ritual and ceremony</li>
+                    <li><input type="radio" name="q2" id="q2-meditation" class="option-radio"><label for="q2-meditation"> Meditation and mindfulness</label></li>
+                    <li><input type="radio" name="q2" id="q2-prayer" class="option-radio"><label for="q2-prayer"> Prayer and worship</label></li>
+                    <li><input type="radio" name="q2" id="q2-service" class="option-radio"><label for="q2-service"> Helping others</label></li>
+                    <li><input type="radio" name="q2" id="q2-ritual" class="option-radio"><label for="q2-ritual"> Ritual and ceremony</label></li>
                 </ul>
             </div>
 
             <div class="assessment-question">
                 <div class="question-text">3. I feel most connected to the divine when:</div>
                 <ul class="option-list">
-                    <li><input type="radio" name="q3" class="option-radio"> In deep connection with others</li>
-                    <li><input type="radio" name="q3" class="option-radio"> Experiencing beauty or love</li>
-                    <li><input type="radio" name="q3" class="option-radio"> Understanding profound truths</li>
-                    <li><input type="radio" name="q3" class="option-radio"> Serving those in need</li>
+                    <li><input type="radio" name="q3" id="q3-connection" class="option-radio"><label for="q3-connection"> In deep connection with others</label></li>
+                    <li><input type="radio" name="q3" id="q3-beauty" class="option-radio"><label for="q3-beauty"> Experiencing beauty or love</label></li>
+                    <li><input type="radio" name="q3" id="q3-truth" class="option-radio"><label for="q3-truth"> Understanding profound truths</label></li>
+                    <li><input type="radio" name="q3" id="q3-service" class="option-radio"><label for="q3-service"> Serving those in need</label></li>
                 </ul>
+            </div>
+
+            <!-- Wisdom Level Display -->
+            <div class="wisdom-level">
+                <div>Wisdom Level: 0%</div>
+                <div>"Seeker"</div>
             </div>
 
             <div class="sacred-card" style="margin: 40px 0;">

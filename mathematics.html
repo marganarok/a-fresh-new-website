@@ -499,34 +499,288 @@
                 <div class="quote-author">— Galileo Galilei 🔢</div>
             </div>
 
-            <div class="sacred-grid">
-                <div class="sacred-card">
-                    <span class="card-icon">🌀</span>
-                    <h3 class="card-title">Fibonacci Sequence</h3>
+            <!-- Expanded Fibonacci Section -->
+            <section class="sacred-section" style="margin-top: 60px;">
+                <h2 class="section-title">The Fibonacci Sequence: Nature's Divine Pattern</h2>
+                <p class="section-subtitle">The golden ratio encoded in growth and creation</p>
+
+                <div class="sacred-quote">
+                    <div class="quote-text">"The Fibonacci sequence is the mathematical representation of the evolutionary impulse of the universe."</div>
+                    <div class="quote-author">— Sacred Mathematics</div>
+                </div>
+
+                <div class="sacred-card" style="margin: 40px 0; text-align: left;">
+                    <h3 class="card-title" style="text-align: center; margin-bottom: 30px;">What is the Fibonacci Sequence?</h3>
                     <div class="card-content">
-                        <p>The divine growth pattern (0, 1, 1, 2, 3, 5, 8, 13, 21...) where each number is the sum of the two preceding ones. This sequence appears throughout nature in the arrangement of leaves, petals, and seeds.</p>
-                        <div class="divine-code">
+                        <p>The <strong>Fibonacci sequence</strong> is a series of numbers where each number is the sum of the two preceding ones: <strong>0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987...</strong></p>
+                        <p>This sequence was first described by Indian mathematician Pingala in the 2nd century BCE, but was popularized in the West by Italian mathematician Leonardo Fibonacci in his 1202 book "Liber Abaci."</p>
+                    </div>
+                </div>
+
+                <div class="sacred-grid">
+                    <div class="sacred-card">
+                        <span class="card-icon">🌱</span>
+                        <h3 class="card-title">The Mathematical Rule</h3>
+                        <div class="card-content">
+                            <p><strong>F(n) = F(n-1) + F(n-2)</strong></p>
+                            <p>Where F(0) = 0 and F(1) = 1</p>
+                            <p>This recursive formula generates the entire infinite sequence from just two starting numbers.</p>
+                            <div class="divine-code">
 // Fibonacci Sequence Generator
 function fibonacci(n) {
+    if (n <= 0) return [];
+    if (n === 1) return [0];
+    if (n === 2) return [0, 1];
+
     let sequence = [0, 1];
     for (let i = 2; i < n; i++) {
         sequence[i] = sequence[i-1] + sequence[i-2];
     }
     return sequence;
 }
+
+// Generate first 15 Fibonacci numbers
+console.log(fibonacci(15));
+// Output: [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377]
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sacred-card">
+                        <span class="card-icon">🌿</span>
+                        <h3 class="card-title">Nature's Pattern</h3>
+                        <div class="card-content">
+                            <p>The Fibonacci sequence appears everywhere in nature:</p>
+                            <ul style="margin: 15px 0; color: var(--mystic-silver);">
+                                <li><strong>Plant growth:</strong> Leaves, petals, and seeds often follow Fibonacci numbers</li>
+                                <li><strong>Tree branches:</strong> Branching patterns optimize sunlight exposure</li>
+                                <li><strong>Shell spirals:</strong> Nautilus shells grow according to the golden ratio</li>
+                                <li><strong>DNA structure:</strong> The double helix follows Fibonacci proportions</li>
+                                <li><strong>Galaxy arms:</strong> Spiral galaxies follow Fibonacci-based patterns</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="sacred-card">
+                        <span class="card-icon">φ</span>
+                        <h3 class="card-title">The Golden Ratio</h3>
+                        <div class="card-content">
+                            <p>As Fibonacci numbers get larger, the ratio between consecutive numbers approaches the <strong>Golden Ratio (φ)</strong>:</p>
+                            <div class="equation" style="font-size: 1.5rem; margin: 15px 0;">φ = (1 + √5) / 2 ≈ 1.6180339887...</div>
+                            <p>This ratio is considered the most aesthetically pleasing proportion and appears in art, architecture, and nature.</p>
+                            <div class="divine-code">
+// Calculate Golden Ratio
+function goldenRatio(iterations = 20) {
+    let a = 1, b = 1;
+    for (let i = 0; i < iterations; i++) {
+        let temp = a + b;
+        a = b;
+        b = temp;
+    }
+    return b / a; // Approaches φ
+}
+
+console.log(goldenRatio()); // ≈ 1.618033988749895
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="sacred-card">
-                    <span class="card-icon">π</span>
-                    <h3 class="card-title">Transcendental Constants</h3>
-                    <div class="card-content">
-                        <p>Numbers like π (3.14159...) and e (2.71828...) transcend rational expression, pointing to the infinite nature of divine reality. These constants govern fundamental relationships in physics and mathematics.</p>
-                        <div class="equation" style="font-size: 1.5rem; margin-top: 15px;">e^(iπ) + 1 = 0</div>
+                <div class="sacred-grid">
+                    <div class="sacred-card">
+                        <span class="card-icon">🏛️</span>
+                        <h3 class="card-title">Architecture & Art</h3>
+                        <div class="card-content">
+                            <p>The Golden Ratio appears in:</p>
+                            <ul style="margin: 15px 0; color: var(--mystic-silver);">
+                                <li><strong>Parthenon:</strong> Greek temple proportions</li>
+                                <li><strong>Mona Lisa:</strong> Face and composition ratios</li>
+                                <li><strong>Pyramids:</strong> Giza pyramid dimensions</li>
+                                <li><strong>Da Vinci's works:</strong> Vitruvian Man proportions</li>
+                                <li><strong>Modern design:</strong> Credit cards, smartphones</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="sacred-card">
+                        <span class="card-icon">🧬</span>
+                        <h3 class="card-title">Biological Applications</h3>
+                        <div class="card-content">
+                            <p>Fibonacci in biology:</p>
+                            <ul style="margin: 15px 0; color: var(--mystic-silver);">
+                                <li><strong>Human body:</strong> Finger ratios, facial proportions</li>
+                                <li><strong>DNA:</strong> Base pair arrangements</li>
+                                <li><strong>Population growth:</strong> Rabbit breeding model</li>
+                                <li><strong>Evolution:</strong> Optimal growth patterns</li>
+                                <li><strong>Ecology:</strong> Predator-prey relationships</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="sacred-card">
+                        <span class="card-icon">💰</span>
+                        <h3 class="card-title">Financial Markets</h3>
+                        <div class="card-content">
+                            <p>Fibonacci in trading:</p>
+                            <ul style="margin: 15px 0; color: var(--mystic-silver);">
+                                <li><strong>Retracement levels:</strong> 23.6%, 38.2%, 61.8%</li>
+                                <li><strong>Price targets:</strong> Extension levels</li>
+                                <li><strong>Time cycles:</strong> Market timing</li>
+                                <li><strong>Risk management:</strong> Position sizing</li>
+                                <li><strong>Pattern recognition:</strong> Elliott Wave Theory</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
+                <div class="equation-box">
+                    <div class="equation">F(n) = [φ^n - (-φ)^(-n)] / √5</div>
+                    <div class="equation-explanation">
+                        The closed-form expression for the nth Fibonacci number using the Golden Ratio. This formula, known as Binet's formula, shows the deep connection between Fibonacci numbers and the golden ratio φ. It demonstrates how the Fibonacci sequence is fundamentally related to the most beautiful proportion in mathematics.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Expanded Pi Section -->
+            <section class="sacred-section" style="margin-top: 60px;">
+                <h2 class="section-title">Pi (π): The Circle of Divine Perfection</h2>
+                <p class="section-subtitle">The transcendental constant that defines circularity and cycles</p>
+
+                <div class="sacred-quote">
+                    <div class="quote-text">"Pi is not merely the circumference of a circle divided by its diameter. Pi is the heart of the circle, the essence of cycles, the soul of symmetry."</div>
+                    <div class="quote-author">— Ancient Wisdom</div>
+                </div>
+
+                <div class="sacred-card" style="margin: 40px 0; text-align: left;">
+                    <h3 class="card-title" style="text-align: center; margin-bottom: 30px;">What is Pi (π)?</h3>
+                    <div class="card-content">
+                        <p><strong>Pi (π)</strong> is the ratio of a circle's circumference to its diameter. No matter how large or small the circle, this ratio remains constant at approximately <strong>3.141592653589793...</strong></p>
+                        <p>The symbol π was first used by Welsh mathematician William Jones in 1706, but the concept dates back to ancient Babylonians (2000 BCE) who approximated π as 3.125.</p>
+                        <div class="equation" style="font-size: 1.8rem; margin: 20px 0; text-align: center;">π = C/d = 3.141592653589793238462643383279...</div>
+                    </div>
+                </div>
+
+                <div class="sacred-grid">
+                    <div class="sacred-card">
+                        <span class="card-icon">📐</span>
+                        <h3 class="card-title">Basic Properties</h3>
+                        <div class="card-content">
+                            <p><strong>Key Facts about π:</strong></p>
+                            <ul style="margin: 15px 0; color: var(--mystic-silver);">
+                                <li><strong>Irrational:</strong> Cannot be expressed as a fraction</li>
+                                <li><strong>Transcendental:</strong> Not a root of any polynomial equation</li>
+                                <li><strong>Normal:</strong> Contains all digit sequences (conjectured)</li>
+                                <li><strong>Infinite:</strong> Never repeats or terminates</li>
+                                <li><strong>Universal:</strong> Appears in physics, biology, statistics</li>
+                            </ul>
+                            <div class="divine-code">
+// Pi approximation methods
+function approximatePi(iterations = 1000) {
+    let pi = 0;
+    for (let i = 0; i < iterations; i++) {
+        // Leibniz formula: π/4 = Σ((-1)^n / (2n+1))
+        pi += Math.pow(-1, i) / (2 * i + 1);
+    }
+    return pi * 4;
+}
+
+console.log(approximatePi(10000)); // Gets closer to π with more iterations
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sacred-card">
+                        <span class="card-icon">🌍</span>
+                        <h3 class="card-title">Pi in Nature</h3>
+                        <div class="card-content">
+                            <p>Pi appears in natural phenomena:</p>
+                            <ul style="margin: 15px 0; color: var(--mystic-silver);">
+                                <li><strong>Celestial bodies:</strong> Planetary orbits</li>
+                                <li><strong>Sound waves:</strong> Harmonic frequencies</li>
+                                <li><strong>DNA structure:</strong> Helical proportions</li>
+                                <li><strong>Brain waves:</strong> Neural oscillation patterns</li>
+                                <li><strong>River systems:</strong> Meandering patterns</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="sacred-card">
+                        <span class="card-icon">⚛️</span>
+                        <h3 class="card-title">Pi in Physics</h3>
+                        <div class="card-content">
+                            <p>Fundamental physics equations:</p>
+                            <ul style="margin: 15px 0; color: var(--mystic-silver);">
+                                <li><strong>Electromagnetism:</strong> Maxwell's equations</li>
+                                <li><strong>Quantum mechanics:</strong> Wave functions</li>
+                                <li><strong>General relativity:</strong> Einstein field equations</li>
+                                <li><strong>String theory:</strong> Extra dimensions</li>
+                                <li><strong>Cosmology:</strong> Big Bang models</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sacred-grid">
+                    <div class="sacred-card">
+                        <span class="card-icon">📚</span>
+                        <h3 class="card-title">Historical Approximations</h3>
+                        <div class="card-content">
+                            <p>Ancient civilizations calculated π:</p>
+                            <ul style="margin: 15px 0; color: var(--mystic-silver);">
+                                <li><strong>Egypt (1650 BCE):</strong> (16/9)² ≈ 3.1605</li>
+                                <li><strong>Babylon (2000 BCE):</strong> 3 + 1/8 = 3.125</li>
+                                <li><strong>India (500 CE):</strong> √10 ≈ 3.162</li>
+                                <li><strong>China (300 CE):</strong> 355/113 ≈ 3.1415929</li>
+                                <li><strong>Archimedes (250 BCE):</strong> 22/7 ≈ 3.1429</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="sacred-card">
+                        <span class="card-icon">🧮</span>
+                        <h3 class="card-title">Modern Calculations</h3>
+                        <div class="card-content">
+                            <p>Computing π to trillions of digits:</p>
+                            <ul style="margin: 15px 0; color: var(--mystic-silver);">
+                                <li><strong>Chudnovsky algorithm:</strong> Fast convergence</li>
+                                <li><strong>Machin-like formulas:</strong> Arctangent series</li>
+                                <li><strong>Monte Carlo methods:</strong> Statistical approximation</li>
+                                <li><strong>Supercomputers:</strong> Record-breaking calculations</li>
+                                <li><strong>Distributed computing:</strong> Volunteer networks</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="sacred-card">
+                        <span class="card-icon">🎨</span>
+                        <h3 class="card-title">Pi in Culture</h3>
+                        <div class="card-content">
+                            <p>Pi's cultural significance:</p>
+                            <ul style="margin: 15px 0; color: var(--mystic-silver);">
+                                <li><strong>Pi Day:</strong> March 14th (3.14)</li>
+                                <li><strong>Art and music:</strong> Pi-inspired compositions</li>
+                                <li><strong>Literature:</strong> Pi memorization contests</li>
+                                <li><strong>Religion:</strong> Sacred geometry symbolism</li>
+                                <li><strong>Popular culture:</strong> Movies, books, memes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="equation-box">
+                    <div class="equation">e^(iπ) + 1 = 0</div>
+                    <div class="equation-explanation">
+                    Euler's identity: The most beautiful equation in mathematics, linking five fundamental constants (e, i, π, 1, 0) in a single elegant relationship. This equation demonstrates the deep interconnectedness of exponential growth, imaginary numbers, circularity, unity, and nothingness - the fundamental building blocks of reality.
+                    </div>
+                </div>
+
+                <div class="sacred-quote" style="margin: 40px 0;">
+                    <div class="quote-text">"The circle is the synthesis of the greatest oppositions. It combines the concentric and the eccentric in a single form and in equilibrium. Of the three primary forms, it points most clearly to the fourth dimension."</div>
+                    <div class="quote-author">— Wassily Kandinsky</div>
+                </div>
+            </section>
+
+            <div class="sacred-grid">
                 <div class="sacred-card">
                     <span class="card-icon">🔢</span>
                     <h3 class="card-title">Sacred Numbers</h3>
@@ -650,6 +904,183 @@ function isPrime(num) {
 
             <div style="text-align: center; margin: 40px 0; color: var(--divine-gold); font-family: 'Cinzel', serif; font-size: 1.2rem;">
                 Mathematical Wisdom Level: 70% - "Seeing the Patterns"
+            </div>
+        </section>
+
+        <!-- Terrance McKenna Section -->
+        <section id="mckenna" class="sacred-section">
+            <h2 class="section-title">Terrance McKenna's Mathematical Mysticism</h2>
+            <p class="section-subtitle">The psychedelic mathematician who decoded time itself</p>
+
+            <div class="sacred-quote">
+                <div class="quote-text">"The universe is not only stranger than we imagine, it is stranger than we can imagine."</div>
+                <div class="quote-author">— Terrance McKenna 🌈</div>
+            </div>
+
+            <div class="sacred-card" style="margin: 40px 0; text-align: left;">
+                <h3 class="card-title" style="text-align: center; margin-bottom: 30px;">Who Was Terrance McKenna?</h3>
+                <div class="card-content">
+                    <p><strong>Terrance McKenna (1946-2000)</strong> was a pioneering ethnobotanist, mystic, and mathematician who explored the intersection of psychedelics, consciousness, and time. His work combined rigorous mathematical analysis with shamanic wisdom, creating revolutionary theories about the nature of reality itself.</p>
+                    <p>McKenna's genius lay in his ability to see mathematics not as abstract symbols, but as the language through which consciousness expresses itself. He believed that psychedelics could reveal the mathematical structure of reality, and that time itself was a fractal phenomenon.</p>
+                </div>
+            </div>
+
+            <h3 style="color: var(--divine-gold); text-align: center; margin: 60px 0 30px; font-family: 'Cinzel', serif; font-size: 2rem;">The Four Pillars of McKenna's Mathematical Philosophy</h3>
+
+            <div class="sacred-grid">
+                <div class="sacred-card">
+                    <span class="card-icon">⏰</span>
+                    <h3 class="card-title">Timewave Theory</h3>
+                    <div class="card-content">
+                        <p><strong>The Core Innovation:</strong> McKenna discovered that the King Wen sequence of the I Ching (an ancient Chinese divination system) could be graphed as a wave function that perfectly modeled the historical development of novelty in human culture.</p>
+                        <p><strong>How It Works:</strong> The I Ching's 64 hexagrams were arranged in a specific order by King Wen 3,000 years ago. McKenna plotted these hexagrams against time, creating a "timewave" that showed peaks of novelty (cultural breakthroughs) and troughs of habituation.</p>
+                        <div class="divine-code">
+// Simplified Timewave Concept
+function timewave(novelty) {
+    // Novelty increases exponentially toward the eschaton
+    return Math.pow(novelty, 1.1); // McKenna's exponent
+}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sacred-card">
+                    <span class="card-icon">🌊</span>
+                    <h3 class="card-title">Novelty Theory</h3>
+                    <div class="card-content">
+                        <p><strong>The Mathematical Model:</strong> Novelty = (Complexity × Intensity × Density) / Habituation</p>
+                        <p><strong>The Logic:</strong> Cultural evolution follows a mathematical curve where novelty (new ideas, technologies, consciousness states) increases exponentially while habituation (resistance to change) decreases. The result is accelerating cultural transformation.</p>
+                        <p><strong>McKenna's Prediction:</strong> This curve reaches infinite novelty at December 21, 2012 (the end of the Mayan calendar), creating a "singularity" of consciousness.</p>
+                    </div>
+                </div>
+
+                <div class="sacred-card">
+                    <span class="card-icon">🔀</span>
+                    <h3 class="card-title">Fractal Time</h3>
+                    <div class="card-content">
+                        <p><strong>The Revolutionary Idea:</strong> Time is not linear but fractal - self-similar patterns repeat at different scales. What happens in a microsecond mirrors what happens in a millennium.</p>
+                        <p><strong>The Mathematics:</strong> McKenna used fractal geometry to show how historical patterns repeat at different temporal scales, from seconds to centuries. This explains why "history rhymes."</p>
+                        <div class="divine-code">
+// Fractal Time Scaling
+function fractalScale(time, scale) {
+    return time * Math.pow(scale, 1/3); // McKenna's scaling factor
+}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sacred-card">
+                    <span class="card-icon">🧬</span>
+                    <h3 class="card-title">Psychedelic Mathematics</h3>
+                    <div class="card-content">
+                        <p><strong>The Core Insight:</strong> Psychedelic experiences reveal the mathematical structure of consciousness. McKenna believed DMT (dimethyltryptamine) was "the spirit molecule" that allows consciousness to interface directly with mathematical reality.</p>
+                        <p><strong>The Teaching:</strong> Mathematics is not just a tool for describing reality - it IS reality. Psychedelics temporarily dissolve the ego's filtering mechanism, allowing direct perception of this mathematical foundation.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="color: var(--divine-gold); text-align: center; margin: 60px 0 30px; font-family: 'Cinzel', serif; font-size: 2rem;">McKenna's Key Mathematical Insights</h3>
+
+            <div class="sacred-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">1971</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">The Invisible Landscape</div>
+                        <p>McKenna and his brother Dennis develop the timewave theory while experimenting with psilocybin mushrooms in the Amazon. They discover that the I Ching sequence creates a perfect mathematical model of historical novelty when graphed against time.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">1975</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">The Eschaton</div>
+                        <p>McKenna calculates that the timewave reaches infinite novelty on December 21, 2012 - the end date of the Mayan Long Count calendar. He calls this moment the "eschaton" (from Greek: "the farthest point"), a singularity where linear time ends.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">1983</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">The Trial of Psychedelic Mathematics</div>
+                        <p>McKenna publishes "The Invisible Landscape," presenting rigorous mathematical proofs that psychedelic experiences follow predictable patterns. He shows how DMT experiences last exactly 15-30 minutes, corresponding to specific brain wave patterns.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">1992</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">The Archaic Revival</div>
+                        <p>McKenna coins the term "Archaic Revival" to describe humanity's reconnection with ancient shamanic wisdom through modern technology and psychedelics. He sees this as a mathematical inevitability of the timewave.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">1993</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">DMT and the Machine Elves</div>
+                        <p>McKenna's research into DMT experiences reveals consistent reports of "machine elves" - hyper-dimensional entities that communicate in mathematical and linguistic patterns. He theorizes these are consciousness interfacing with the fundamental mathematical structure of reality.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="equation-box">
+                <div class="equation">N(t) = N₀ × e^(kt)</div>
+                <div class="equation-explanation">
+                    McKenna's Novelty Equation: Novelty at time t equals initial novelty times e raised to the power of k times t. This exponential growth of novelty explains why technological and cultural change accelerates over time, leading inevitably to a singularity where consciousness transcends linear time.
+                </div>
+            </div>
+
+            <h3 style="color: var(--divine-gold); text-align: center; margin: 60px 0 30px; font-family: 'Cinzel', serif; font-size: 2rem;">McKenna's Mathematical Legacy</h3>
+
+            <div class="sacred-grid">
+                <div class="sacred-card">
+                    <span class="card-icon">🎯</span>
+                    <h3 class="card-title">The 2012 Prediction</h3>
+                    <div class="card-content">
+                        <p>McKenna predicted that December 21, 2012 would be a moment of maximum novelty - a "concrescence" where human consciousness would be permanently altered. While the exact date came and went, the acceleration of technological change (AI, VR, blockchain) validates his mathematical model.</p>
+                    </div>
+                </div>
+
+                <div class="sacred-card">
+                    <span class="card-icon">🧠</span>
+                    <h3 class="card-title">Consciousness Mathematics</h3>
+                    <div class="card-content">
+                        <p>McKenna showed that consciousness follows mathematical rules. Psychedelic experiences have predictable durations, fractal patterns, and linguistic structures. This suggests consciousness is not random but algorithmic - a mathematical process we can learn to program.</p>
+                    </div>
+                </div>
+
+                <div class="sacred-card">
+                    <span class="card-icon">🌍</span>
+                    <h3 class="card-title">Gaia's Algorithm</h3>
+                    <div class="card-content">
+                        <p>McKenna theorized that Earth itself is a living supercomputer running an algorithm of increasing complexity. Humans are the "ovum" through which planetary consciousness reproduces itself into the cosmos.</p>
+                    </div>
+                </div>
+
+                <div class="sacred-card">
+                    <span class="card-icon">🔮</span>
+                    <h3 class="card-title">The Stoned Ape Theory</h3>
+                    <div class="card-content">
+                        <p>McKenna's most controversial theory: Human intelligence evolved when our ancestors ate psilocybin mushrooms 100,000 years ago. The psychedelic experience provided the evolutionary pressure that created language, art, and self-consciousness.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sacred-quote" style="margin: 40px 0;">
+                <div class="quote-text">"The world is made of language. The world is made of music. The world is made of mathematics. And all three are made of vibration."</div>
+                <div class="quote-author">— Terrance McKenna</div>
+            </div>
+
+            <div class="equation-box">
+                <div class="equation">C = f(M × P × T)</div>
+                <div class="equation-explanation">
+                    Consciousness equals a function of Mathematics multiplied by Psychedelics multiplied by Time. McKenna's final equation suggests that consciousness evolution requires all three elements working together. Mathematics provides the structure, psychedelics provide the catalyst, and time provides the canvas for transformation.
+                </div>
+            </div>
+
+            <div style="text-align: center; margin: 40px 0; color: var(--sacred-purple); font-family: 'Cinzel', serif; font-size: 1.2rem;">
+                "Mathematics is the alphabet with which God has written the universe." - Galileo<br>
+                "And psychedelics are the vowels that bring it to life." - Terrance McKenna
             </div>
         </section>
     </main>
