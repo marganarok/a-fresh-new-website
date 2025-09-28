@@ -687,7 +687,23 @@ function closePreview() {
 function loadFilePreview(filePath) {
     // Check if it's a PDF file
     if (filePath && filePath.toLowerCase().endsWith('.pdf')) {
-        previewText.innerHTML = '<div class="preview-error">PDF preview not available. Please download the file to read the complete content.</div>';
+        previewText.innerHTML = `
+            <div class="preview-pdf-notice">
+                <div class="pdf-icon">📄</div>
+                <h3>PDF Document</h3>
+                <p>This is a PDF file that contains rich formatting, images, and complex layouts.</p>
+                <p>To experience the full content with proper formatting, please download the file.</p>
+                <div class="pdf-benefits">
+                    <strong>PDF Benefits:</strong>
+                    <ul>
+                        <li>Preserves original formatting</li>
+                        <li>Includes images and graphics</li>
+                        <li>Professional layout</li>
+                        <li>Universal compatibility</li>
+                    </ul>
+                </div>
+            </div>
+        `;
         return;
     }
 
