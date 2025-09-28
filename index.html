@@ -1522,18 +1522,63 @@
         }
 
         .social-dot {
-            width: 5px;
-            height: 5px;
-            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            width: 8px;
+            height: 8px;
+            background: radial-gradient(circle, #00ffff 0%, #ff00ff 50%, #ffff00 100%);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            box-shadow:
+                0 0 5px rgba(0, 255, 255, 0.8),
+                0 0 10px rgba(255, 0, 255, 0.6),
+                0 0 15px rgba(255, 255, 0, 0.4),
+                inset 0 0 3px rgba(255, 255, 255, 0.2);
+            animation: socialDotPulse 2s ease-in-out infinite;
+            position: relative;
+        }
+
+        .social-dot::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.3), transparent);
+            animation: socialDotRotate 3s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes socialDotPulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes socialDotRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .social-dot:hover {
-            transform: scale(1.2);
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+            transform: scale(1.3);
+            box-shadow:
+                0 0 8px rgba(0, 255, 255, 1),
+                0 0 16px rgba(255, 0, 255, 0.8),
+                0 0 24px rgba(255, 255, 0, 0.6),
+                inset 0 0 5px rgba(255, 255, 255, 0.3);
+            animation-play-state: paused;
+        }
+
+        .social-dot:hover::before {
+            animation-duration: 1s;
         }
 
         .social-menu {
@@ -1589,6 +1634,18 @@
             .social-dot-menu {
                 top: 15px;
                 left: 15px;
+            }
+
+            .social-dot {
+                width: 10px;
+                height: 10px;
+            }
+
+            .social-dot::before {
+                top: -3px;
+                left: -3px;
+                right: -3px;
+                bottom: -3px;
             }
 
             .social-menu {
