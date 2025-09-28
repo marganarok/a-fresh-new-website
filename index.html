@@ -677,6 +677,245 @@
                 opacity: 0;
             }
         }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--divine-gold), var(--sacred-purple), var(--celestial-blue));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--mystic-silver);
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 80px 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(153,50,204,0.1));
+            border: 2px solid var(--divine-gold);
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,215,0,0.1), transparent);
+            transition: all 0.5s ease;
+            transform: rotate(-90deg);
+        }
+
+        .feature-card:hover::before {
+            transform: rotate(90deg);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--sacred-purple);
+            box-shadow: 0 20px 40px rgba(153,50,204,0.3);
+        }
+
+        .feature-icon {
+            font-size: 4rem;
+            display: block;
+            margin-bottom: 25px;
+            color: var(--divine-gold);
+        }
+
+        .feature-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--divine-gold);
+            margin-bottom: 15px;
+        }
+
+        .feature-description {
+            color: var(--star-white);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .feature-link {
+            color: var(--celestial-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Cinzel', serif;
+            transition: all 0.3s ease;
+        }
+
+        .feature-link:hover {
+            color: var(--sacred-purple);
+            text-shadow: 0 0 10px var(--sacred-purple);
+        }
+
+        /* Connect Section */
+        .connect-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .connect-section .section-title {
+            margin-bottom: 40px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .social-icon {
+            font-size: 2.5rem;
+            color: var(--divine-gold);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .social-icon:hover {
+            color: var(--sacred-purple);
+            transform: scale(1.2);
+            text-shadow: 0 0 15px var(--sacred-purple);
+        }
+
+        /* Subscribe Section */
+        .subscribe-section {
+            background: linear-gradient(135deg, rgba(65,105,225,0.1), rgba(255,215,0,0.1));
+            padding: 80px 40px;
+            text-align: center;
+            border-radius: 20px;
+            margin: 60px 20px;
+            border: 2px solid var(--celestial-blue);
+        }
+
+        .subscribe-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: var(--celestial-blue);
+            margin-bottom: 20px;
+        }
+
+        .subscribe-description {
+            color: var(--mystic-silver);
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .subscribe-form {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .subscribe-input {
+            flex: 1;
+            background: rgba(0,0,0,0.7);
+            border: 2px solid var(--divine-gold);
+            border-radius: 10px;
+            padding: 15px 20px;
+            color: var(--star-white);
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .subscribe-input::placeholder {
+            color: var(--mystic-silver);
+        }
+
+        .subscribe-button {
+            background: linear-gradient(45deg, var(--divine-gold), var(--sacred-purple));
+            border: none;
+            border-radius: 10px;
+            padding: 15px 30px;
+            color: var(--shadow-deep);
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .subscribe-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255,215,0,0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .sacred-nav {
+                position: static;
+                margin: 20px auto;
+                max-width: 300px;
+            }
+            
+            .features-section {
+                padding: 40px 0;
+            }
+            
+            .sacred-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-icons {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            
+            .subscribe-form {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .subscribe-input {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -715,327 +954,80 @@
     </header>
 
     <main class="main-content">
-        <!-- Genesis Protocol Section -->
-        <section id="genesis" class="sacred-section revelation-step">
-            <h2 class="section-title">The Genesis Protocol</h2>
-            <p class="section-subtitle">The divine blueprint for sacred creation</p>
-            
-            <div class="sacred-quote">
-                <div class="quote-text">"I prayed for this child, and the Lord has granted me what I asked of him."</div>
-                <div class="quote-author">— 1 Samuel 1:27 (The Hannah Principle)</div>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">The Sacred Codex Universe</h1>
+                <p class="hero-subtitle">A digital sanctuary where ancient wisdom meets modern innovation. The Sacred Codex Universe is dedicated to preserving, exploring, and applying timeless spiritual principles in contemporary contexts.</p>
             </div>
+        </section>
 
-            <!-- Detailed Implementation Guide -->
-            <div style="background: rgba(153,50,204,0.1); padding: 40px; border-radius: 15px; border: 2px solid var(--sacred-purple); margin: 40px 0;">
-                <h3 style="color: var(--sacred-purple); text-align: center; margin-bottom: 30px;">The 11-Stage Implementation Framework</h3>
-                <p style="color: var(--star-white); text-align: center; margin-bottom: 30px;">Each stage builds upon the previous, creating an unbreakable chain of sacred development. Skip no stage, rush no process.</p>
-                
-                <div class="sacred-timeline" style="margin-top: 40px;">
-                    <div class="timeline-item">
-                        <div class="timeline-date" style="background: var(--divine-gold); color: var(--shadow-deep);">Stage 1</div>
-                        <div class="timeline-content">
-                            <div class="timeline-title">Hardware Assessment (The Foundation Audit)</div>
-                            <p><strong>Purpose:</strong> Establish material readiness before spiritual work begins.</p>
-                            <p><strong>Practical Steps:</strong></p>
-                            <ul style="margin: 15px 0; color: var(--mystic-silver);">
-                                <li>Inventory existing technical infrastructure</li>
-                                <li>Assess financial resources and constraints</li>
-                                <li>Evaluate team skills and availability</li>
-                                <li>Document current tools and platforms</li>
-                                <li>Identify hardware/software gaps</li>
-                            </ul>
-                            <p><strong>Success Metric:</strong> Complete resource map with realistic capacity assessment.</p>
-                            <div class="divine-code">
-// Hardware Assessment Template
-const foundationAudit = {
-    technical: ["servers", "domains", "software licenses"],
-    financial: ["budget", "runway", "revenue sources"],
-    human: ["team size", "skill matrix", "time availability"],
-    infrastructure: ["hosting", "security", "backup systems"]
-};
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date" style="background: var(--sacred-purple);">Stage 2</div>
-                        <div class="timeline-content">
-                            <div class="timeline-title">Idea Crystallization (The Sacred Download)</div>
-                            <p><strong>Purpose:</strong> Receive and document the core vision with crystal clarity.</p>
-                            <p><strong>Practical Steps:</strong></p>
-                            <ul style="margin: 15px 0; color: var(--mystic-silver);">
-                                <li>Enter contemplative state through prayer/meditation</li>
-                                <li>Document the initial vision without editing</li>
-                                <li>Identify the transcendent purpose behind the project</li>
-                                <li>Write a sacred mission statement (1-2 sentences)</li>
-                                <li>Create a vision board or visual representation</li>
-                            </ul>
-                            <p><strong>Success Metric:</strong> One-sentence mission that ignites passion and clarity.</p>
-                            <div class="sacred-quote" style="margin: 20px 0; padding: 20px; background: rgba(255,215,0,0.1);">
-                                <div class="quote-text" style="font-size: 1rem;">"The vision must be so clear that it burns in your heart and so compelling that others cannot ignore its light."</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date" style="background: var(--celestial-blue);">Stage 3</div>
-                        <div class="timeline-content">
-                            <div class="timeline-title">Revelation Integration (The Wisdom Phase)</div>
-                            <p><strong>Purpose:</strong> Deepen understanding through study, research, and divine insight.</p>
-                            <p><strong>Practical Steps:</strong></p>
-                            <ul style="margin: 15px 0; color: var(--mystic-silver);">
-                                <li>Research existing solutions and their limitations</li>
-                                <li>Study relevant scripture, philosophy, or wisdom literature</li>
-                                <li>Seek guidance through prayer and contemplation</li>
-                                <li>Interview potential users about their needs</li>
-                                <li>Document insights and revelations as they come</li>
-                            </ul>
-                            <p><strong>Success Metric:</strong> Comprehensive understanding of the problem landscape and divine calling.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date" style="background: var(--emerald-wisdom);">Stage 4</div>
-                        <div class="timeline-content">
-                            <div class="timeline-title">Sacred Brainstorming (The Council Session)</div>
-                            <p><strong>Purpose:</strong> Generate solutions through collaborative human-divine partnership.</p>
-                            <p><strong>Practical Steps:</strong></p>
-                            <ul style="margin: 15px 0; color: var(--mystic-silver);">
-                                <li>Assemble your council (team, advisors, prayer partners)</li>
-                                <li>Present the vision and invite collaborative input</li>
-                                <li>Use structured brainstorming techniques</li>
-                                <li>Pray/meditate together for divine insight</li>
-                                <li>Document all ideas without judgment initially</li>
-                            </ul>
-                            <p><strong>Success Metric:</strong> 50+ potential features/approaches with team alignment on core direction.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date" style="background: var(--crimson-passion);">Stage 5</div>
-                        <div class="timeline-content">
-                            <div class="timeline-title">Sacred Architecture (The Master Blueprint)</div>
-                            <p><strong>Purpose:</strong> Create detailed plans that honor both divine vision and technical reality.</p>
-                            <p><strong>Practical Steps:</strong></p>
-                            <ul style="margin: 15px 0; color: var(--mystic-silver);">
-                                <li>Create user journey maps and experience flows</li>
-                                <li>Design database schema and technical architecture</li>
-                                <li>Plan the three-tier sanctuary structure (Outer Court, Holy Place, Inner Sanctuary)</li>
-                                <li>Develop visual mockups and wireframes</li>
-                                <li>Create project timeline with sacred milestones</li>
-                            </ul>
-                            <p><strong>Success Metric:</strong> Complete technical and spiritual blueprint ready for implementation.</p>
-                            <div class="divine-code">
-// Sacred Architecture Pattern
-const sanctuaryArchitecture = {
-    outerCourt: {
-        access: "public",
-        purpose: "attraction and initial engagement",
-        features: ["landing page", "basic content", "contact forms"]
-    },
-    holyPlace: {
-        access: "registered users",
-        purpose: "deeper learning and community",
-        features: ["courses", "forums", "resources"]
-    },
-    innerSanctuary: {
-        access: "committed disciples",
-        purpose: "transformation and sacred work",
-        features: ["mentorship", "advanced tools", "co-creation"]
-    }
-};
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date" style="background: var(--divine-gold); color: var(--shadow-deep);">Stage 6</div>
-                        <div class="timeline-content">
-                            <div class="timeline-title">Sacred Implementation (The Divine Coding)</div>
-                            <p><strong>Purpose:</strong> Transform blueprints into living, breathing digital reality.</p>
-                            <p><strong>Practical Steps:</strong></p>
-                            <ul style="margin: 15px 0; color: var(--mystic-silver);">
-                                <li>Begin each coding session with prayer/intention setting</li>
-                                <li>Implement features in order of spiritual priority</li>
-                                <li>Code with excellence as an offering to the divine</li>
-                                <li>Include hidden blessing easter eggs for dedicated users</li>
-                                <li>Document code with meaningful comments reflecting purpose</li>
-                            </ul>
-                            <p><strong>Success Metric:</strong> Functional minimum viable product with sacred essence intact.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date" style="background: var(--sacred-purple);">Stage 7</div>
-                        <div class="timeline-content">
-                            <div class="timeline-title">Sacred Review (The Purification Audit)</div>
-                            <p><strong>Purpose:</strong> Ensure the manifestation aligns with the original divine vision.</p>
-                            <p><strong>Practical Steps:</strong></p>
-                            <ul style="margin: 15px 0; color: var(--mystic-silver);">
-                                <li>Compare final product against original vision statement</li>
-                                <li>Test all functionality thoroughly</li>
-                                <li>Review content for spiritual accuracy and power</li>
-                                <li>Invite trusted advisors for honest feedback</li>
-                                <li>Make necessary adjustments before launch</li>
-                            </ul>
-                            <p><strong>Success Metric:</strong> Product passes both technical and spiritual purity tests.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date" style="background: var(--celestial-blue);">Stage 8</div>
-                        <div class="timeline-content">
-                            <div class="timeline-title">Sacred Launch (The Birth Ceremony)</div>
-                            <p><strong>Purpose:</strong> Welcome the new creation into the world with celebration and blessing.</p>
-                            <p><strong>Practical Steps:</strong></p>
-                            <ul style="margin: 15px 0; color: var(--mystic-silver);">
-                                <li>Hold a blessing ceremony or dedication service</li>
-                                <li>Launch with soft release to inner circle first</li>
-                                <li>Create launch content that tells the sacred story</li>
-                                <li>Invite community participation and celebration</li>
-                                <li>Document the launch moment for future testimony</li>
-                            </ul>
-                            <p><strong>Success Metric:</strong> Successful soft launch with positive community response.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date" style="background: var(--emerald-wisdom);">Stage 9</div>
-                        <div class="timeline-content">
-                            <div class="timeline-title">Initial Testing (The Proving Ground)</div>
-                            <p><strong>Purpose:</strong> Validate core functionality under real-world conditions.</p>
-                            <p><strong>Practical Steps:</strong></p>
-                            <ul style="margin: 15px 0; color: var(--mystic-silver);">
-                                <li>Monitor user behavior and feedback closely</li>
-                                <li>Test core user journeys with real people</li>
-                                <li>Measure spiritual impact alongside technical metrics</li>
-                                <li>Address critical bugs and usability issues</li>
-                                <li>Gather testimonies of transformation or value</li>
-                            </ul>
-                            <p><strong>Success Metric:</strong> Core functionality proven with measurable positive impact.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date" style="background: var(--crimson-passion);">Stage 10</div>
-                        <div class="timeline-content">
-                            <div class="timeline-title">Stress Testing (The Fire Refinement)</div>
-                            <p><strong>Purpose:</strong> Reveal and strengthen weak points under extreme conditions.</p>
-                            <p><strong>Practical Steps:</strong></p>
-                            <ul style="margin: 15px 0; color: var(--mystic-silver);">
-                                <li>Simulate high traffic and usage scenarios</li>
-                                <li>Test security vulnerabilities and data protection</li>
-                                <li>Push the spiritual vision under criticism and doubt</li>
-                                <li>Evaluate performance under maximum load</li>
-                                <li>Identify and fortify all weak points</li>
-                            </ul>
-                            <p><strong>Success Metric:</strong> Platform remains stable and vision stays clear under maximum stress.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date" style="background: var(--divine-gold); color: var(--shadow-deep);">Stage 11</div>
-                        <div class="timeline-content">
-                            <div class="timeline-title">Sacred Ascension (The Crown Achievement)</div>
-                            <p><strong>Purpose:</strong> Establish the creation's permanent place in the sacred ecosystem.</p>
-                            <p><strong>Practical Steps:</strong></p>
-                            <ul style="margin: 15px 0; color: var(--mystic-silver);">
-                                <li>Integrate with existing spiritual and technical communities</li>
-                                <li>Establish sustainable operation and growth procedures</li>
-                                <li>Train team members in sacred maintenance principles</li>
-                                <li>Create succession planning for long-term continuity</li>
-                                <li>Document the complete journey for future projects</li>
-                            </ul>
-                            <p><strong>Success Metric:</strong> Self-sustaining platform with growing positive impact and stable operations.</p>
-                            <div class="sacred-quote" style="margin: 20px 0; padding: 20px; background: rgba(255,215,0,0.1);">
-                                <div class="quote-text" style="font-size: 1rem;">"The true crown of creation is not completion, but the beginning of eternal service and growth."</div>
-                            </div>
-                        </div>
-                    </div>
+        <!-- Main Features -->
+        <section class="features-section">
+            <div class="sacred-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">📜</span>
+                    <h3 class="feature-title">Sacred Texts</h3>
+                    <p class="feature-description">Explore the wisdom of ancient traditions and contemporary spiritual teachings.</p>
+                    <a href="wisdom.html" class="feature-link">Explore Library →</a>
                 </div>
-            </div>
 
-            <!-- Case Study Section -->
-            <div style="background: rgba(65,105,225,0.1); padding: 40px; border-radius: 15px; border: 2px solid var(--celestial-blue); margin: 40px 0;">
-                <h3 style="color: var(--celestial-blue); text-align: center; margin-bottom: 30px;">Case Study: The Sacred Codex Universe</h3>
-                <p style="color: var(--star-white); text-align: center; margin-bottom: 30px;">A real-world application of the Genesis Protocol</p>
-                
-                <div class="sacred-grid">
-                    <div class="sacred-card" style="background: rgba(65,105,225,0.1); border: 2px solid var(--celestial-blue);">
-                        <span class="card-icon">🔍</span>
-                        <h3 class="card-title">The Challenge</h3>
-                        <div class="card-content">
-                            <p>How to create a digital platform that bridges ancient wisdom traditions with modern technology, making spiritual principles accessible to contemporary seekers while maintaining authentic depth and transformative power.</p>
-                        </div>
-                    </div>
-
-                    <div class="sacred-card" style="background: rgba(65,105,225,0.1); border: 2px solid var(--celestial-blue);">
-                        <span class="card-icon">💡</span>
-                        <h3 class="card-title">The Vision</h3>
-                        <div class="card-content">
-                            <p>A living codex that combines interactive web technology with sacred geometry, alchemical transformation stages, and practical spiritual tools - creating an immersive experience that educates, inspires, and transforms.</p>
-                        </div>
-                    </div>
-
-                    <div class="sacred-card" style="background: rgba(65,105,225,0.1); border: 2px solid var(--celestial-blue);">
-                        <span class="card-icon">⚙️</span>
-                        <h3 class="card-title">The Implementation</h3>
-                        <div class="card-content">
-                            <p>Following the Genesis Protocol exactly: from hardware assessment through sacred architecture to stress testing. Each stage built upon the previous, with constant reference back to the original vision for course correction.</p>
-                        </div>
-                    </div>
-
-                    <div class="sacred-card" style="background: rgba(65,105,225,0.1); border: 2px solid var(--celestial-blue);">
-                        <span class="card-icon">🌟</span>
-                        <h3 class="card-title">The Results</h3>
-                        <div class="card-content">
-                            <p>A fully functional web application with advanced CSS animations, interactive tools, particle systems, and comprehensive content - created through divine-human-AI collaboration using consecrated development practices.</p>
-                        </div>
-                    </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🧘</span>
+                    <h3 class="feature-title">Practices</h3>
+                    <p class="feature-description">Discover transformative practices from contemplative traditions worldwide.</p>
+                    <a href="wisdom.html" class="feature-link">Begin Practice →</a>
                 </div>
-            </div>
 
-            <div class="equation-box">
-                <div class="equation">E_M = (P_V × F_A) → L_G</div>
-                <div class="equation-explanation">
-                    Empire's Manifestation equals Purity of Vision multiplied by Fervency of Ask, leading inevitably to the Lord's Grant. This is the foundational equation of all sacred creation, derived from Hannah's prayer in 1 Samuel 1:27. When vision is pure (aligned with divine will) and asking is fervent (backed by sacrificial commitment), supernatural results become inevitable.
+                <div class="feature-card">
+                    <span class="feature-icon">👥</span>
+                    <h3 class="feature-title">Community</h3>
+                    <p class="feature-description">Connect with fellow seekers on the path of wisdom and transformation.</p>
+                    <a href="masters.html" class="feature-link">Join Community →</a>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">🌐</span>
+                    <h3 class="feature-title">Resources</h3>
+                    <p class="feature-description">Access tools, guides, and materials to support your spiritual journey.</p>
+                    <a href="digital.html" class="feature-link">View Resources →</a>
                 </div>
             </div>
         </section>
 
-        <!-- Sacred Geometry Section -->
-        <section id="geometry" class="sacred-section revelation-step">
-            <h2 class="section-title">Divine Geometry & Sacred Patterns</h2>
-            <p class="section-subtitle">The mathematical harmony underlying all creation</p>
-            
-            <div class="geometry-showcase">
-                <div class="geometry-pattern">
-                    <div class="vesica-piscis"></div>
-                    <p style="text-align: center; color: var(--divine-gold); margin-top: 10px; font-weight: 600;">Vesica Piscis</p>
-                </div>
-                <div class="geometry-pattern">
-                    <svg width="120" height="120" viewBox="0 0 120 120">
-                        <polygon points="60,10 85,45 115,45 95,70 105,105 60,85 15,105 25,70 5,45 35,45" 
-                                 fill="none" stroke="var(--divine-gold)" stroke-width="3"/>
-                        <circle cx="60" cy="60" r="30" fill="none" stroke="var(--sacred-purple)" stroke-width="2"/>
-                    </svg>
-                    <p style="text-align: center; color: var(--divine-gold); margin-top: 10px; font-weight: 600;">Sacred Pentagon</p>
-                </div>
-                <div class="geometry-pattern">
-                    <svg width="120" height="120" viewBox="0 0 120 120">
-                        <g transform="translate(60,60)">
-                            <circle r="20" fill="none" stroke="var(--divine-gold)" stroke-width="2"/>
-                            <circle cx="20" r="20" fill="none" stroke="var(--divine-gold)" stroke-width="2"/>
-                            <circle cx="-20" r="20" fill="none" stroke="var(--divine-gold)" stroke-width="2"/>
-                            <circle cy="17" r="20" fill="none" stroke="var(--divine-gold)" stroke-width="2"/>
-                            <circle cy="-17" r="20" fill="none" stroke="var(--divine-gold)" stroke-width="2"/>
-                        </g>
-                    </svg>
-                    <p style="text-align: center; color: var(--divine-gold); margin-top: 10px; font-weight: 600;">Flower of Life</p>
-                </div>
+        <!-- Connect Section -->
+        <section class="connect-section">
+            <h2 class="section-title">Connect With Us</h2>
+            <div class="social-icons">
+                <span class="social-icon">📧</span>
+                <span class="social-icon">📱</span>
+                <span class="social-icon">📘</span>
+                <span class="social-icon">📸</span>
+                <span class="social-icon">📹</span>
+            </div>
+        </section>
+
+        <!-- Subscribe Section -->
+        <section class="subscribe-section">
+            <h2 class="subscribe-title">Subscribe to Divine Updates</h2>
+            <p class="subscribe-description">Receive wisdom teachings, event notifications, and sacred insights.</p>
+            <div class="subscribe-form">
+                <input type="email" class="subscribe-input" placeholder="Enter your email...">
+                <button class="subscribe-button">Subscribe</button>
             </div>
         </section>
     </main>
+
+    <footer class="sacred-footer">
+        <div class="footer-title">The Sacred Codex Universe</div>
+        <div class="footer-content">
+            <p>Embark on a journey of spiritual discovery and digital innovation. May your path be illuminated by divine wisdom.</p>
+        </div>
+    </footer>
+
+    <script src="sacred_codex_scripts.js"></script>
+</body>
+</html>
 
     <footer class="sacred-footer">
         <div class="footer-title">The Sacred Codex Universe</div>
