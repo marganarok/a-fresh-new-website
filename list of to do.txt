@@ -36,6 +36,12 @@
 - [x] Standardize all files to use minified JavaScript
 - [x] Fix broken CSS structure in all HTML files (missing style tags and :root selectors)
 
+## Phase 3.6: Navigation Menu Standardization ✅ COMPLETED
+- [x] Add nav-link styles to shared-styles.css
+- [x] Replace header-nav with nav-container across all pages
+- [x] Standardize to Menu Type 2 (futuristic nav-link design) everywhere
+- [x] Preserve page-specific navigation for detailed content pages
+
 ## Phase 4: Social Media Links Update
 - [ ] Update all social media links to point to actual profiles
 - [ ] Verify link functionality
