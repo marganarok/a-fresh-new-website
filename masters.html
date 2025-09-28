@@ -448,6 +448,33 @@
                         // Modify the script to work in the masters page context
                         let durerScriptContent = scriptElement.textContent;
 
+                        // Replace the showSection function to scope it to Dürer's content area
+                        durerScriptContent = durerScriptContent.replace(
+                            /function showSection\(sectionId\) \{[\s\S]*?\}/,
+                            `function showSection(sectionId) {
+                                // Scope to Dürer's content area in masters page
+                                const durerContent = document.getElementById('durerContent');
+                                if (!durerContent) return;
+
+                                // Hide all sections within Dürer's content
+                                const sections = durerContent.querySelectorAll('.content-section');
+                                sections.forEach(section => section.classList.remove('active'));
+
+                                // Remove active class from all tabs within Dürer's content
+                                const tabs = durerContent.querySelectorAll('.nav-tab');
+                                tabs.forEach(tab => tab.classList.remove('active'));
+
+                                // Show selected section within Dürer's content
+                                const targetSection = durerContent.querySelector('#' + sectionId);
+                                if (targetSection) {
+                                    targetSection.classList.add('active');
+                                }
+
+                                // Add active class to clicked tab
+                                event.target.classList.add('active');
+                            }`
+                        );
+
                         // Wrap the script execution in a function that runs after content is loaded
                         durerScriptContent = `
                             function initDurerInteractions() {
