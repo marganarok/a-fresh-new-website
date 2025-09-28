@@ -29,6 +29,12 @@
 - [x] Add unified header to leonardo_da_vinci_complete.html ✅ COMPLETED
 - [x] Add unified header to albrecht_durer_research.html ✅ COMPLETED
 
+## Phase 3.5: Header Bug Fixes ✅ COMPLETED
+- [x] Add missing shared-styles.css links to all HTML files
+- [x] Add missing sacred_codex_scripts.min.js links to all HTML files
+- [x] Fix malformed leonardo_da_vinci_complete.html structure
+- [x] Standardize all files to use minified JavaScript
+
 ## Phase 4: Social Media Links Update
 - [ ] Update all social media links to point to actual profiles
 - [ ] Verify link functionality
