@@ -446,6 +446,7 @@
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     white-space: nowrap;
+    will-change: transform;
 }
 
 .nav-link:hover {
