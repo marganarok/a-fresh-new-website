@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize wisdom meter with animation
     animateWisdomMeter();
+    
+    // Initialize subscribe form
+    initSubscribeForm();
 });
 
 // Scroll Progress Indicator
@@ -1409,6 +1412,54 @@ function showWisdomMessage(message, type = 'info') {
     }, 5000);
 }
 
+// Subscribe Form Functionality
+function initSubscribeForm() {
+    const subscribeButton = document.querySelector('.subscribe-button');
+    const emailInput = document.querySelector('.subscribe-input');
+    
+    if (!subscribeButton || !emailInput) return;
+    
+    // Inject styles
+    const style = document.createElement('style');
+    style.textContent = subscribeFormStyles;
+    document.head.appendChild(style);
+    
+    subscribeButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const email = emailInput.value.trim();
+        
+        // Basic email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email) {
+            showWisdomMessage('Please enter your email address.', 'warning');
+            return;
+        }
+        
+        if (!emailRegex.test(email)) {
+            showWisdomMessage('Please enter a valid email address.', 'error');
+            return;
+        }
+        
+        // Store in localStorage (since no backend)
+        let subscribers = JSON.parse(localStorage.getItem('sacredCodex_subscribers') || '[]');
+        if (subscribers.includes(email)) {
+            showWisdomMessage('You are already subscribed to Divine Updates!', 'info');
+            return;
+        }
+        
+        subscribers.push(email);
+        localStorage.setItem('sacredCodex_subscribers', JSON.stringify(subscribers));
+        
+        // Clear input and show success
+        emailInput.value = '';
+        showWisdomMessage('Welcome to the Sacred Codex! You will receive divine wisdom teachings and sacred insights.', 'success');
+        
+        // Optional: Increase wisdom for subscribing
+        increaseWisdom(10);
+    });
+}
+
 // Add message animations to CSS (will be added to the HTML file)
 const messageAnimations = `
     @keyframes messageSlideIn {
@@ -1565,5 +1616,96 @@ const wisdomMapStyles = `
         color: var(--divine-gold);
         font-style: italic;
         font-size: 1.1rem;
+    }
+`;
+
+// Subscribe Form Styles
+const subscribeFormStyles = `
+    .subscribe-section {
+        background: linear-gradient(135deg, rgba(26, 0, 51, 0.9), rgba(0, 0, 0, 0.8));
+        border: 2px solid var(--divine-gold);
+        border-radius: 20px;
+        padding: 30px;
+        margin: 40px 0;
+        text-align: center;
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+    }
+
+    .subscribe-title {
+        color: var(--divine-gold);
+        font-family: 'Cinzel', serif;
+        font-size: 2rem;
+        margin-bottom: 10px;
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    }
+
+    .subscribe-description {
+        color: var(--sacred-purple);
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+        line-height: 1.4;
+    }
+
+    .subscribe-form {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .subscribe-input {
+        padding: 12px 20px;
+        border: 2px solid var(--divine-gold);
+        border-radius: 25px;
+        background: rgba(0, 0, 0, 0.7);
+        color: var(--divine-gold);
+        font-size: 1rem;
+        min-width: 250px;
+        transition: all 0.3s ease;
+    }
+
+    .subscribe-input:focus {
+        outline: none;
+        border-color: var(--emerald-wisdom);
+        box-shadow: 0 0 15px rgba(80, 200, 120, 0.3);
+    }
+
+    .subscribe-input::placeholder {
+        color: rgba(255, 215, 0, 0.6);
+    }
+
+    .subscribe-button {
+        padding: 12px 30px;
+        background: linear-gradient(45deg, var(--divine-gold), var(--emerald-wisdom));
+        border: none;
+        border-radius: 25px;
+        color: var(--shadow-deep);
+        font-family: 'Cinzel', serif;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    }
+
+    .subscribe-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+        background: linear-gradient(45deg, var(--emerald-wisdom), var(--divine-gold));
+    }
+
+    .subscribe-button:active {
+        transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+        .subscribe-form {
+            flex-direction: column;
+        }
+        
+        .subscribe-input {
+            min-width: 200px;
+        }
     }
 `;
