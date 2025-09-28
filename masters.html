@@ -391,9 +391,21 @@
                     // Extract and inject Leonardo's JavaScript (for interactions)
                     const scriptElement = doc.querySelector('script');
                     if (scriptElement) {
+                        // Modify the script to work in the masters page context
+                        let leonardoScriptContent = scriptElement.textContent;
+
+                        // Wrap the script execution in a function that runs after content is loaded
+                        leonardoScriptContent = `
+                            function initLeonardoInteractions() {
+                                ${leonardoScriptContent}
+                            }
+                            // Run after a short delay to ensure DOM is ready
+                            setTimeout(initLeonardoInteractions, 100);
+                        `;
+
                         const leonardoScript = document.createElement('script');
                         leonardoScript.id = 'leonardo-script';
-                        leonardoScript.textContent = scriptElement.textContent;
+                        leonardoScript.textContent = leonardoScriptContent;
                         document.body.appendChild(leonardoScript);
                     }
 
@@ -433,9 +445,21 @@
                     // Extract and inject Dürer's JavaScript (for tab navigation and interactions)
                     const scriptElement = doc.querySelector('script');
                     if (scriptElement) {
+                        // Modify the script to work in the masters page context
+                        let durerScriptContent = scriptElement.textContent;
+
+                        // Wrap the script execution in a function that runs after content is loaded
+                        durerScriptContent = `
+                            function initDurerInteractions() {
+                                ${durerScriptContent}
+                            }
+                            // Run after a short delay to ensure DOM is ready
+                            setTimeout(initDurerInteractions, 100);
+                        `;
+
                         const durerScript = document.createElement('script');
                         durerScript.id = 'durer-script';
-                        durerScript.textContent = scriptElement.textContent;
+                        durerScript.textContent = durerScriptContent;
                         document.body.appendChild(durerScript);
                     }
 
