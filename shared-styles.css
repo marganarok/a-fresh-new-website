@@ -1,0 +1,162 @@
+/* Sacred Codex Universe - Shared Styles */
+/* Common inline styles migrated from HTML files */
+
+/* Sacred Section Styles */
+.sacred-section-inline {
+    margin-top: 60px;
+}
+
+/* Sacred Card Styles */
+.sacred-card-inline {
+    margin: 40px 0;
+    text-align: left;
+}
+
+.sacred-card-inline-center {
+    margin: 40px 0;
+}
+
+/* Card Title Styles */
+.card-title-inline {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.card-title-inline-small {
+    font-size: 1.2rem;
+}
+
+/* Sacred Quote Styles */
+.sacred-quote-inline {
+    margin: 15px 0;
+    padding: 15px;
+    background: rgba(255, 215, 0, 0.1);
+}
+
+.sacred-quote-inline-large {
+    margin: 40px 0;
+}
+
+/* Quote Text Styles */
+.quote-text-inline {
+    font-size: 0.9rem;
+}
+
+/* Equation Styles */
+.equation-inline {
+    font-size: 1.5rem;
+    margin: 15px 0;
+}
+
+.equation-large-inline {
+    font-size: 1.8rem;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.equation-top-inline {
+    font-size: 1.5rem;
+    margin-top: 15px;
+}
+
+.equation-inline-large {
+    font-size: 1.8rem;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.equation-inline-small {
+    font-size: 1.3rem;
+    margin: 15px 0;
+}
+
+/* List Styles */
+.list-inline {
+    margin: 15px 0;
+    color: var(--mystic-silver);
+}
+
+.list-inline-left {
+    text-align: left;
+    margin-top: 15px;
+    color: var(--mystic-silver);
+}
+
+/* Heading Styles */
+.heading-inline-gold {
+    color: var(--divine-gold);
+    text-align: center;
+    margin: 60px 0 30px;
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+}
+
+.heading-inline-blue {
+    color: var(--celestial-blue);
+    text-align: center;
+    margin: 40px 0 20px;
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+}
+
+/* Centered Text Styles */
+.centered-gold-text {
+    text-align: center;
+    margin: 40px 0;
+    color: var(--divine-gold);
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+}
+
+.centered-purple-text {
+    text-align: center;
+    margin: 40px 0;
+    color: var(--sacred-purple);
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+}
+
+/* Paragraph Styles */
+.paragraph-inline-gold {
+    margin-top: 15px;
+    font-weight: 600;
+    color: var(--divine-gold);
+}
+
+.paragraph-inline-gold-small {
+    margin-top: 10px;
+    font-weight: 600;
+    color: var(--divine-gold);
+}
+
+/* Sacred Timeline Styles */
+.sacred-timeline-inline {
+    margin-top: 40px;
+}
+
+/* Timeline Date Styles */
+.timeline-date-inline {
+    background: var(--divine-gold);
+    color: var(--shadow-deep);
+}
+
+/* Sacred Card Equation Box */
+.equation-box-inline {
+    margin: 20px 0;
+    padding: 20px;
+}
+
+/* Sacred Card Symbol Display */
+.symbol-display-inline {
+    font-size: 2rem;
+    margin: 20px 0;
+    color: var(--divine-gold);
+}
+
+/* Sacred Card Figure Caption */
+.figure-caption-inline {
+    text-align: center;
+    color: var(--divine-gold);
+    margin-top: 10px;
+    font-weight: 600;
+}

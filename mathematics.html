@@ -7,6 +7,7 @@
     <meta name="description" content="Sacred Mathematics - Explore the divine language of numbers, Fibonacci sequences, and mathematical principles that govern the universe in The Sacred Codex Universe.">
     <title>The Sacred Codex Universe - Mathematics</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Orbitron:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shared-styles.css">
     <style>
         :root {
             --divine-gold: #FFD700;
@@ -80,6 +81,7 @@
             border: 2px solid var(--divine-gold);
             border-radius: 15px;
             padding: 20px;
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
         }
 
@@ -124,8 +126,8 @@
             font-size: 4rem;
             font-weight: 700;
             background: linear-gradient(45deg, var(--divine-gold), var(--sacred-purple), var(--celestial-blue));
-            background-clip: text;
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
@@ -208,6 +210,7 @@
             border-radius: 20px;
             border: 2px solid var(--divine-gold);
             position: relative;
+            -webkit-backdrop-filter: blur(5px);
             backdrop-filter: blur(5px);
         }
 
@@ -502,7 +505,7 @@
             </div>
 
             <!-- Expanded Fibonacci Section -->
-            <section class="sacred-section" style="margin-top: 60px;">
+            <section class="sacred-section sacred-section-inline">
                 <h2 class="section-title">The Fibonacci Sequence: Nature's Divine Pattern</h2>
                 <p class="section-subtitle">The golden ratio encoded in growth and creation</p>
 
@@ -511,8 +514,8 @@
                     <div class="quote-author">— Sacred Mathematics</div>
                 </div>
 
-                <div class="sacred-card" style="margin: 40px 0; text-align: left;">
-                    <h3 class="card-title" style="text-align: center; margin-bottom: 30px;">What is the Fibonacci Sequence?</h3>
+                <div class="sacred-card sacred-card-inline">
+                    <h3 class="card-title card-title-inline">What is the Fibonacci Sequence?</h3>
                     <div class="card-content">
                         <p>The <strong>Fibonacci sequence</strong> is a series of numbers where each number is the sum of the two preceding ones: <strong>0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987...</strong></p>
                         <p>This sequence was first described by Indian mathematician Pingala in the 2nd century BCE, but was popularized in the West by Italian mathematician Leonardo Fibonacci in his 1202 book "Liber Abaci."</p>
@@ -553,7 +556,7 @@ console.log(fibonacci(15));
                         <h3 class="card-title">Nature's Pattern</h3>
                         <div class="card-content">
                             <p>The Fibonacci sequence appears everywhere in nature:</p>
-                            <ul style="margin: 15px 0; color: var(--mystic-silver);">
+                            <ul class="list-inline">
                                 <li><strong>Plant growth:</strong> Leaves, petals, and seeds often follow Fibonacci numbers</li>
                                 <li><strong>Tree branches:</strong> Branching patterns optimize sunlight exposure</li>
                                 <li><strong>Shell spirals:</strong> Nautilus shells grow according to the golden ratio</li>
@@ -568,7 +571,7 @@ console.log(fibonacci(15));
                         <h3 class="card-title">The Golden Ratio</h3>
                         <div class="card-content">
                             <p>As Fibonacci numbers get larger, the ratio between consecutive numbers approaches the <strong>Golden Ratio (φ)</strong>:</p>
-                            <div class="equation" style="font-size: 1.5rem; margin: 15px 0;">φ = (1 + √5) / 2 ≈ 1.6180339887...</div>
+                            <div class="equation equation-inline">φ = (1 + √5) / 2 ≈ 1.6180339887...</div>
                             <p>This ratio is considered the most aesthetically pleasing proportion and appears in art, architecture, and nature.</p>
                             <div class="divine-code">
 // Calculate Golden Ratio
@@ -594,7 +597,7 @@ console.log(goldenRatio()); // ≈ 1.618033988749895
                         <h3 class="card-title">Architecture & Art</h3>
                         <div class="card-content">
                             <p>The Golden Ratio appears in:</p>
-                            <ul style="margin: 15px 0; color: var(--mystic-silver);">
+                            <ul class="list-inline">
                                 <li><strong>Parthenon:</strong> Greek temple proportions</li>
                                 <li><strong>Mona Lisa:</strong> Face and composition ratios</li>
                                 <li><strong>Pyramids:</strong> Giza pyramid dimensions</li>
@@ -609,7 +612,7 @@ console.log(goldenRatio()); // ≈ 1.618033988749895
                         <h3 class="card-title">Biological Applications</h3>
                         <div class="card-content">
                             <p>Fibonacci in biology:</p>
-                            <ul style="margin: 15px 0; color: var(--mystic-silver);">
+                            <ul class="list-inline">
                                 <li><strong>Human body:</strong> Finger ratios, facial proportions</li>
                                 <li><strong>DNA:</strong> Base pair arrangements</li>
                                 <li><strong>Population growth:</strong> Rabbit breeding model</li>
@@ -624,7 +627,7 @@ console.log(goldenRatio()); // ≈ 1.618033988749895
                         <h3 class="card-title">Financial Markets</h3>
                         <div class="card-content">
                             <p>Fibonacci in trading:</p>
-                            <ul style="margin: 15px 0; color: var(--mystic-silver);">
+                            <ul class="list-inline">
                                 <li><strong>Retracement levels:</strong> 23.6%, 38.2%, 61.8%</li>
                                 <li><strong>Price targets:</strong> Extension levels</li>
                                 <li><strong>Time cycles:</strong> Market timing</li>
@@ -644,7 +647,7 @@ console.log(goldenRatio()); // ≈ 1.618033988749895
             </section>
 
             <!-- Expanded Pi Section -->
-            <section class="sacred-section" style="margin-top: 60px;">
+            <section class="sacred-section sacred-section-inline">
                 <h2 class="section-title">Pi (π): The Circle of Divine Perfection</h2>
                 <p class="section-subtitle">The transcendental constant that defines circularity and cycles</p>
 
@@ -653,12 +656,12 @@ console.log(goldenRatio()); // ≈ 1.618033988749895
                     <div class="quote-author">— Ancient Wisdom</div>
                 </div>
 
-                <div class="sacred-card" style="margin: 40px 0; text-align: left;">
-                    <h3 class="card-title" style="text-align: center; margin-bottom: 30px;">What is Pi (π)?</h3>
+                <div class="sacred-card sacred-card-inline">
+                    <h3 class="card-title card-title-inline">What is Pi (π)?</h3>
                     <div class="card-content">
                         <p><strong>Pi (π)</strong> is the ratio of a circle's circumference to its diameter. No matter how large or small the circle, this ratio remains constant at approximately <strong>3.141592653589793...</strong></p>
                         <p>The symbol π was first used by Welsh mathematician William Jones in 1706, but the concept dates back to ancient Babylonians (2000 BCE) who approximated π as 3.125.</p>
-                        <div class="equation" style="font-size: 1.8rem; margin: 20px 0; text-align: center;">π = C/d = 3.141592653589793238462643383279...</div>
+                        <div class="equation equation-large-inline">π = C/d = 3.141592653589793238462643383279...</div>
                     </div>
                 </div>
 
@@ -668,7 +671,7 @@ console.log(goldenRatio()); // ≈ 1.618033988749895
                         <h3 class="card-title">Basic Properties</h3>
                         <div class="card-content">
                             <p><strong>Key Facts about π:</strong></p>
-                            <ul style="margin: 15px 0; color: var(--mystic-silver);">
+                            <ul class="list-inline">
                                 <li><strong>Irrational:</strong> Cannot be expressed as a fraction</li>
                                 <li><strong>Transcendental:</strong> Not a root of any polynomial equation</li>
                                 <li><strong>Normal:</strong> Contains all digit sequences (conjectured)</li>
@@ -696,7 +699,7 @@ console.log(approximatePi(10000)); // Gets closer to π with more iterations
                         <h3 class="card-title">Pi in Nature</h3>
                         <div class="card-content">
                             <p>Pi appears in natural phenomena:</p>
-                            <ul style="margin: 15px 0; color: var(--mystic-silver);">
+                            <ul class="list-inline">
                                 <li><strong>Celestial bodies:</strong> Planetary orbits</li>
                                 <li><strong>Sound waves:</strong> Harmonic frequencies</li>
                                 <li><strong>DNA structure:</strong> Helical proportions</li>
@@ -711,7 +714,7 @@ console.log(approximatePi(10000)); // Gets closer to π with more iterations
                         <h3 class="card-title">Pi in Physics</h3>
                         <div class="card-content">
                             <p>Fundamental physics equations:</p>
-                            <ul style="margin: 15px 0; color: var(--mystic-silver);">
+                            <ul class="list-inline">
                                 <li><strong>Electromagnetism:</strong> Maxwell's equations</li>
                                 <li><strong>Quantum mechanics:</strong> Wave functions</li>
                                 <li><strong>General relativity:</strong> Einstein field equations</li>
@@ -728,7 +731,7 @@ console.log(approximatePi(10000)); // Gets closer to π with more iterations
                         <h3 class="card-title">Historical Approximations</h3>
                         <div class="card-content">
                             <p>Ancient civilizations calculated π:</p>
-                            <ul style="margin: 15px 0; color: var(--mystic-silver);">
+                            <ul class="list-inline">
                                 <li><strong>Egypt (1650 BCE):</strong> (16/9)² ≈ 3.1605</li>
                                 <li><strong>Babylon (2000 BCE):</strong> 3 + 1/8 = 3.125</li>
                                 <li><strong>India (500 CE):</strong> √10 ≈ 3.162</li>
@@ -743,7 +746,7 @@ console.log(approximatePi(10000)); // Gets closer to π with more iterations
                         <h3 class="card-title">Modern Calculations</h3>
                         <div class="card-content">
                             <p>Computing π to trillions of digits:</p>
-                            <ul style="margin: 15px 0; color: var(--mystic-silver);">
+                            <ul class="list-inline">
                                 <li><strong>Chudnovsky algorithm:</strong> Fast convergence</li>
                                 <li><strong>Machin-like formulas:</strong> Arctangent series</li>
                                 <li><strong>Monte Carlo methods:</strong> Statistical approximation</li>
@@ -758,7 +761,7 @@ console.log(approximatePi(10000)); // Gets closer to π with more iterations
                         <h3 class="card-title">Pi in Culture</h3>
                         <div class="card-content">
                             <p>Pi's cultural significance:</p>
-                            <ul style="margin: 15px 0; color: var(--mystic-silver);">
+                            <ul class="list-inline">
                                 <li><strong>Pi Day:</strong> March 14th (3.14)</li>
                                 <li><strong>Art and music:</strong> Pi-inspired compositions</li>
                                 <li><strong>Literature:</strong> Pi memorization contests</li>
@@ -776,7 +779,7 @@ console.log(approximatePi(10000)); // Gets closer to π with more iterations
                     </div>
                 </div>
 
-                <div class="sacred-quote" style="margin: 40px 0;">
+                <div class="sacred-quote sacred-quote-inline-large">
                     <div class="quote-text">"The circle is the synthesis of the greatest oppositions. It combines the concentric and the eccentric in a single form and in equilibrium. Of the three primary forms, it points most clearly to the fourth dimension."</div>
                     <div class="quote-author">— Wassily Kandinsky</div>
                 </div>
@@ -788,16 +791,16 @@ console.log(approximatePi(10000)); // Gets closer to π with more iterations
                     <h3 class="card-title">Sacred Numbers</h3>
                     <div class="card-content">
                         <p>Certain numbers carry divine significance across spiritual traditions. These sacred numbers appear repeatedly in nature, scripture, and cosmic patterns.</p>
-                        <div class="equation" style="font-size: 1.5rem; margin-top: 15px;">1 3 4 7 9 12 40</div>
+                        <div class="equation equation-top-inline">1 3 4 7 9 12 40</div>
                     </div>
                 </div>
             </div>
 
-            <h3 style="color: var(--divine-gold); text-align: center; margin: 60px 0 30px; font-family: 'Cinzel', serif; font-size: 2rem;">The Seven Mathematical Mysteries</h3>
+            <h3 class="heading-inline-gold">The Seven Mathematical Mysteries</h3>
 
             <div class="sacred-grid">
                 <div class="sacred-card">
-                    <h4 class="card-title" style="font-size: 1.2rem;">Mystery 1: The Mystery of Prime Numbers</h4>
+                    <h4 class="card-title card-title-inline-small">Mystery 1: The Mystery of Prime Numbers</h4>
                     <div class="card-content">
                         <p>Prime numbers (divisible only by 1 and themselves) form the building blocks of all numbers, yet their distribution follows patterns that remain partially mysterious. They represent indivisible divine truths.</p>
                         <div class="divine-code">
@@ -818,42 +821,42 @@ function isPrime(num) {
                 </div>
 
                 <div class="sacred-card">
-                    <h4 class="card-title" style="font-size: 1.2rem;">Mystery 2: The Mystery of Zero</h4>
+                    <h4 class="card-title card-title-inline-small">Mystery 2: The Mystery of Zero</h4>
                     <div class="card-content">
                         <p>Zero represents both nothingness and infinite potential—the void from which all creation emerges. Its introduction revolutionized mathematics, allowing for advanced calculation and the concept of negative numbers.</p>
                     </div>
                 </div>
 
                 <div class="sacred-card">
-                    <h4 class="card-title" style="font-size: 1.2rem;">Mystery 3: The Mystery of Infinity</h4>
+                    <h4 class="card-title card-title-inline-small">Mystery 3: The Mystery of Infinity</h4>
                     <div class="card-content">
                         <p>Infinity (∞) transcends finite measurement, pointing to the boundless nature of divine reality. Mathematics reveals different "sizes" of infinity, suggesting layers of transcendence beyond human comprehension.</p>
                     </div>
                 </div>
 
                 <div class="sacred-card">
-                    <h4 class="card-title" style="font-size: 1.2rem;">Mystery 4: The Mystery of Perfect Numbers</h4>
+                    <h4 class="card-title card-title-inline-small">Mystery 4: The Mystery of Perfect Numbers</h4>
                     <div class="card-content">
                         <p>Perfect numbers (equal to the sum of their proper divisors) are extremely rare. Only 51 are known, with the first four being 6, 28, 496, and 8,128. They represent divine completeness and perfection.</p>
                     </div>
                 </div>
 
                 <div class="sacred-card">
-                    <h4 class="card-title" style="font-size: 1.2rem;">Mystery 5: The Mystery of Mathematical Constants</h4>
+                    <h4 class="card-title card-title-inline-small">Mystery 5: The Mystery of Mathematical Constants</h4>
                     <div class="card-content">
                         <p>Constants like π, e, and φ appear repeatedly in seemingly unrelated areas of mathematics and physics, suggesting a hidden unity in the mathematical fabric of reality.</p>
                     </div>
                 </div>
 
                 <div class="sacred-card">
-                    <h4 class="card-title" style="font-size: 1.2rem;">Mystery 6: The Mystery of Fractals</h4>
+                    <h4 class="card-title card-title-inline-small">Mystery 6: The Mystery of Fractals</h4>
                     <div class="card-content">
                         <p>Fractal patterns display self-similarity at different scales, revealing how complexity emerges from simple rules repeated endlessly. They demonstrate how the infinite can be contained within the finite.</p>
                     </div>
                 </div>
 
                 <div class="sacred-card">
-                    <h4 class="card-title" style="font-size: 1.2rem;">Mystery 7: The Mystery of Mathematical Proof</h4>
+                    <h4 class="card-title card-title-inline-small">Mystery 7: The Mystery of Mathematical Proof</h4>
                     <div class="card-content">
                         <p>The ability to prove eternal truths using only logic and reason points to the divine nature of mathematical reality. Some truths are provably unprovable, suggesting limits to human knowledge.</p>
                     </div>
@@ -904,7 +907,7 @@ function isPrime(num) {
                 </div>
             </div>
 
-            <div style="text-align: center; margin: 40px 0; color: var(--divine-gold); font-family: 'Cinzel', serif; font-size: 1.2rem;">
+            <div class="centered-gold-text">
                 Mathematical Wisdom Level: 70% - "Seeing the Patterns"
             </div>
         </section>
@@ -919,15 +922,15 @@ function isPrime(num) {
                 <div class="quote-author">— Terrance McKenna 🌈</div>
             </div>
 
-            <div class="sacred-card" style="margin: 40px 0; text-align: left;">
-                <h3 class="card-title" style="text-align: center; margin-bottom: 30px;">Who Was Terrance McKenna?</h3>
+            <div class="sacred-card sacred-card-inline">
+                <h3 class="card-title card-title-inline">Who Was Terrance McKenna?</h3>
                 <div class="card-content">
                     <p><strong>Terrance McKenna (1946-2000)</strong> was a pioneering ethnobotanist, mystic, and mathematician who explored the intersection of psychedelics, consciousness, and time. His work combined rigorous mathematical analysis with shamanic wisdom, creating revolutionary theories about the nature of reality itself.</p>
                     <p>McKenna's genius lay in his ability to see mathematics not as abstract symbols, but as the language through which consciousness expresses itself. He believed that psychedelics could reveal the mathematical structure of reality, and that time itself was a fractal phenomenon.</p>
                 </div>
             </div>
 
-            <h3 style="color: var(--divine-gold); text-align: center; margin: 60px 0 30px; font-family: 'Cinzel', serif; font-size: 2rem;">The Four Pillars of McKenna's Mathematical Philosophy</h3>
+            <h3 class="heading-inline-gold">The Four Pillars of McKenna's Mathematical Philosophy</h3>
 
             <div class="sacred-grid">
                 <div class="sacred-card">
@@ -981,7 +984,7 @@ function fractalScale(time, scale) {
                 </div>
             </div>
 
-            <h3 style="color: var(--divine-gold); text-align: center; margin: 60px 0 30px; font-family: 'Cinzel', serif; font-size: 2rem;">McKenna's Key Mathematical Insights</h3>
+            <h3 class="heading-inline-gold">McKenna's Key Mathematical Insights</h3>
 
             <div class="sacred-timeline">
                 <div class="timeline-item">
@@ -1032,7 +1035,7 @@ function fractalScale(time, scale) {
                 </div>
             </div>
 
-            <h3 style="color: var(--divine-gold); text-align: center; margin: 60px 0 30px; font-family: 'Cinzel', serif; font-size: 2rem;">McKenna's Mathematical Legacy</h3>
+            <h3 class="heading-inline-gold">McKenna's Mathematical Legacy</h3>
 
             <div class="sacred-grid">
                 <div class="sacred-card">
@@ -1068,7 +1071,7 @@ function fractalScale(time, scale) {
                 </div>
             </div>
 
-            <div class="sacred-quote" style="margin: 40px 0;">
+            <div class="sacred-quote sacred-quote-inline-large">
                 <div class="quote-text">"The world is made of language. The world is made of music. The world is made of mathematics. And all three are made of vibration."</div>
                 <div class="quote-author">— Terrance McKenna</div>
             </div>
@@ -1080,7 +1083,7 @@ function fractalScale(time, scale) {
                 </div>
             </div>
 
-            <div style="text-align: center; margin: 40px 0; color: var(--sacred-purple); font-family: 'Cinzel', serif; font-size: 1.2rem;">
+            <div class="centered-purple-text">
                 "Mathematics is the alphabet with which God has written the universe." - Galileo<br>
                 "And psychedelics are the vowels that bring it to life." - Terrance McKenna
             </div>

@@ -77,6 +77,7 @@
             align-items: center;
             z-index: 1000;
             box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
         }
 
@@ -85,8 +86,8 @@
             font-size: 1.8em;
             font-weight: 900;
             background: linear-gradient(45deg, var(--neon-magenta), var(--neon-yellow), var(--neon-cyan));
-            background-clip: text;
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0 0 20px var(--neon-yellow);
             animation: brandGlow 4s ease-in-out infinite alternate;
@@ -1309,114 +1310,8 @@
         class Starfield {
             constructor(canvasId, starCount, speed, size, color) {
                 this.canvas = document.getElementById(canvasId);
-                if (!this.canvas) return; // Safety check
+                if (!this.canvas) return;
 
-                this.ctx = this.canvas.getContext('2d');
-                this.stars = [];
-                this.starCount = starCount;
-                this.speed = speed;
-                this.size = size;
-                this.color = color;
-                this.animationId = null;
-                this.isVisible = false;
-
-                this.init();
-                this.resize();
-                this.checkVisibility();
-
-                // Throttle resize events
-                let resizeTimeout;
-                window.addEventListener('resize', () => {
-                    clearTimeout(resizeTimeout);
-                    resizeTimeout = setTimeout(() => this.resize(), 100);
-                });
-
-                // Use Intersection Observer for performance
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        this.isVisible = entry.isIntersecting;
-                        if (this.isVisible) {
-                            this.animate();
-                        } else {
-                            this.stop();
-                        }
-                    });
-                });
-                observer.observe(this.canvas);
-            }
-
-            init() {
-                for (let i = 0; i < this.starCount; i++) {
-                    this.stars.push({
-                        x: Math.random() * this.canvas.width,
-                        y: Math.random() * this.canvas.height,
-                        z: Math.random() * 1000,
-                        prevX: 0,
-                        prevY: 0
-                    });
-                }
-            }
-
-            resize() {
-                const rect = this.canvas.getBoundingClientRect();
-                this.canvas.width = rect.width;
-                this.canvas.height = rect.height;
-                this.init(); // Reinitialize stars for new size
-            }
-
-            checkVisibility() {
-                const rect = this.canvas.getBoundingClientRect();
-                this.isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-            }
-
-            animate() {
-                if (!this.isVisible) return;
-
-                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
-                for (let i = 0; i < this.stars.length; i++) {
-                    const star = this.stars[i];
-
-                    star.prevX = star.x;
-                    star.prevY = star.y;
-
-                    star.z -= this.speed;
-                    if (star.z <= 0) {
-                        star.z = 1000;
-                        star.x = Math.random() * this.canvas.width;
-                        star.y = Math.random() * this.canvas.height;
-                    }
-
-                    const x = (star.x - this.canvas.width / 2) * (1000 / star.z) + this.canvas.width / 2;
-                    const y = (star.y - this.canvas.height / 2) * (1000 / star.z) + this.canvas.height / 2;
-                    const size = (1 - star.z / 1000) * this.size;
-
-                    if (x >= 0 && x <= this.canvas.width && y >= 0 && y <= this.canvas.height) {
-                        this.ctx.beginPath();
-                        this.ctx.arc(x, y, size, 0, Math.PI * 2);
-                        this.ctx.fillStyle = this.color;
-                        this.ctx.fill();
-
-                        // Add twinkling effect (reduced frequency for performance)
-                        if (Math.random() > 0.995) {
-                            this.ctx.beginPath();
-                            this.ctx.arc(x, y, size * 2, 0, Math.PI * 2);
-                            this.ctx.fillStyle = this.color.replace(')', ', 0.3)');
-                            this.ctx.fill();
-                        }
-                    }
-                }
-
-                this.animationId = requestAnimationFrame(() => this.animate());
-            }
-
-            stop() {
-                if (this.animationId) {
-                    cancelAnimationFrame(this.animationId);
-                    this.animationId = null;
-                }
-            }
-        }
                 this.ctx = this.canvas.getContext('2d');
                 this.stars = [];
                 this.starCount = starCount;

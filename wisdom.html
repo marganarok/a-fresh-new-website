@@ -7,6 +7,7 @@
 <meta name="description" content="Explore the Wisdom Portal - interactive gateways to divine understanding featuring the Seven Wisdom Paths, spiritual assessments, and sacred teachings from The Sacred Codex Universe.">
 <title>The Sacred Codex Universe - Wisdom Portal</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Orbitron:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared-styles.css">
 <style>
 :root {
 --divine-gold: #FFD700;
@@ -80,6 +81,7 @@ background: rgba(0, 0, 0, 0.8);
 border: 2px solid var(--divine-gold);
 border-radius: 15px;
 padding: 20px;
+-webkit-backdrop-filter: blur(10px);
 backdrop-filter: blur(10px);
 }
 
@@ -137,8 +139,8 @@ font-family: 'Cinzel', serif;
 font-size: 4rem;
 font-weight: 700;
 background: linear-gradient(45deg, var(--divine-gold), var(--sacred-purple), var(--celestial-blue));
-background-clip: text;
 -webkit-background-clip: text;
+background-clip: text;
 -webkit-text-fill-color: transparent;
 margin-bottom: 20px;
 text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
@@ -221,6 +223,7 @@ background: rgba(0, 0, 0, 0.3);
 border-radius: 20px;
 border: 2px solid var(--divine-gold);
 position: relative;
+-webkit-backdrop-filter: blur(5px);
 backdrop-filter: blur(5px);
 }
 
@@ -799,7 +802,7 @@ color: var(--emerald-wisdom);
 <h3 class="card-title">Sacred Library</h3>
 <div class="card-content">
 <p>Access the collected wisdom of spiritual traditions from around the world. The Sacred Library contains essential texts, commentaries, and modern interpretations from diverse wisdom lineages.</p>
-<ul style="text-align: left; margin-top: 15px; color: var(--mystic-silver);">
+<ul class="list-inline-left">
 <li>Ancient Scriptures & Sacred Texts</li>
 <li>Mystical Commentaries & Interpretations</li>
 <li>Contemporary Wisdom Teachings</li>
@@ -829,23 +832,23 @@ color: var(--emerald-wisdom);
 </div>
 </div>
 
-<h3 style="color: var(--divine-gold); text-align: center; margin: 60px 0 30px; font-family: 'Cinzel', serif; font-size: 2rem;">The Seven Wisdom Paths</h3>
+<h3 class="heading-inline-gold">The Seven Wisdom Paths</h3>
 
 <div class="sacred-grid">
 <div class="sacred-card">
-<h4 class="card-title" style="font-size: 1.2rem;">Path 1: The Path of Devotion</h4>
+<h4 class="card-title card-title-inline-small">Path 1: The Path of Devotion</h4>
 <div class="card-content">
 <p><strong>Core Practice:</strong> Prayer, worship, and surrender to the divine</p>
 <p><strong>Key Virtue:</strong> Love</p>
 <p><strong>Description:</strong> The devotional path transforms the heart through love and surrender to the divine. It cultivates emotional purification, devotional ecstasy, and the experience of divine presence in all things.</p>
-<div class="sacred-quote" style="margin: 15px 0; padding: 15px; background: rgba(255,215,0,0.1);">
-<div class="quote-text" style="font-size: 0.9rem;">"The way of the heart is the way of courage. It dares to embrace everything."</div>
+<div class="sacred-quote sacred-quote-inline">
+<div class="quote-text quote-text-inline">"The way of the heart is the way of courage. It dares to embrace everything."</div>
 </div>
 </div>
 </div>
 
 <div class="sacred-card">
-<h4 class="card-title" style="font-size: 1.2rem;">Path 2: The Path of Knowledge</h4>
+<h4 class="card-title card-title-inline-small">Path 2: The Path of Knowledge</h4>
 <div class="card-content">
 <p><strong>Core Practice:</strong> Study, contemplation, and self-inquiry</p>
 <p><strong>Key Virtue:</strong> Discernment</p>
@@ -854,7 +857,7 @@ color: var(--emerald-wisdom);
 </div>
 
 <div class="sacred-card">
-<h4 class="card-title" style="font-size: 1.2rem;">Path 3: The Path of Meditation</h4>
+<h4 class="card-title card-title-inline-small">Path 3: The Path of Meditation</h4>
 <div class="card-content">
 <p><strong>Core Practice:</strong> Meditation, mindfulness, and awareness training</p>
 <p><strong>Key Virtue:</strong> Presence</p>
@@ -863,7 +866,7 @@ color: var(--emerald-wisdom);
 </div>
 
 <div class="sacred-card">
-<h4 class="card-title" style="font-size: 1.2rem;">Path 4: The Path of Service</h4>
+<h4 class="card-title card-title-inline-small">Path 4: The Path of Service</h4>
 <div class="card-content">
 <p><strong>Core Practice:</strong> Selfless action, charity, and compassionate engagement</p>
 <p><strong>Key Virtue:</strong> Generosity</p>
@@ -872,7 +875,7 @@ color: var(--emerald-wisdom);
 </div>
 
 <div class="sacred-card">
-<h4 class="card-title" style="font-size: 1.2rem;">Path 5: The Path of Ritual</h4>
+<h4 class="card-title card-title-inline-small">Path 5: The Path of Ritual</h4>
 <div class="card-content">
 <p><strong>Core Practice:</strong> Sacred ceremony, symbolic action, and liturgical practice</p>
 <p><strong>Key Virtue:</strong> Reverence</p>
@@ -881,7 +884,7 @@ color: var(--emerald-wisdom);
 </div>
 
 <div class="sacred-card">
-<h4 class="card-title" style="font-size: 1.2rem;">Path 6: The Path of Relationship</h4>
+<h4 class="card-title card-title-inline-small">Path 6: The Path of Relationship</h4>
 <div class="card-content">
 <p><strong>Core Practice:</strong> Conscious relationship, community, and interpersonal growth</p>
 <p><strong>Key Virtue:</strong> Authenticity</p>
@@ -890,7 +893,7 @@ color: var(--emerald-wisdom);
 </div>
 
 <div class="sacred-card">
-<h4 class="card-title" style="font-size: 1.2rem;">Path 7: The Path of Integration</h4>
+<h4 class="card-title card-title-inline-small">Path 7: The Path of Integration</h4>
 <div class="card-content">
 <p><strong>Core Practice:</strong> Holistic living, embodied wisdom, and unified practice</p>
 <p><strong>Key Virtue:</strong> Wholeness</p>
@@ -899,7 +902,7 @@ color: var(--emerald-wisdom);
 </div>
 </div>
 
-<div class="sacred-card" style="margin: 40px 0;">
+<div class="sacred-card sacred-card-inline-center">
 <span class="card-icon">ðŸ”</span>
 <h3 class="card-title">Wisdom Assessment</h3>
 <div class="card-content">
@@ -907,7 +910,7 @@ color: var(--emerald-wisdom);
 </div>
 </div>
 
-<h4 style="color: var(--celestial-blue); text-align: center; margin: 40px 0 20px; font-family: 'Cinzel', serif; font-size: 1.5rem;">Self-Assessment Questions</h4>
+<h4 class="heading-inline-blue">Self-Assessment Questions</h4>
 
 <div class="assessment-question">
 <div class="question-text">1. When seeking truth, I primarily rely on:</div>
@@ -945,7 +948,7 @@ color: var(--emerald-wisdom);
 <div>"Seeker"</div>
 </div>
 
-<div class="sacred-card" style="margin: 40px 0;">
+<div class="sacred-card sacred-card-inline-center">
 <span class="card-icon">ðŸ—ºï¸</span>
 <h3 class="card-title">Personal Wisdom Map</h3>
 <div class="card-content">
