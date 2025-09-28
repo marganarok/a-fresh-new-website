@@ -1024,6 +1024,365 @@
                 font-size: 1.4em;
             }
         }
+
+        /* Social Media Section */
+        .social-section {
+            padding: 80px 40px;
+            background: linear-gradient(135deg, rgba(255, 0, 255, 0.05), rgba(0, 255, 255, 0.05));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .social-title {
+            font-size: 3em;
+            font-weight: 900;
+            background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+        }
+
+        .social-subtitle {
+            font-size: 1.3em;
+            color: #ffffff;
+            margin-bottom: 60px;
+            opacity: 0.9;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .social-button {
+            display: flex;
+            align-items: center;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            text-decoration: none;
+            color: #ffffff;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .social-button:hover::before {
+            left: 100%;
+        }
+
+        .social-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .social-icon {
+            font-size: 2.5em;
+            margin-right: 20px;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+        }
+
+        .social-content {
+            text-align: left;
+            flex: 1;
+        }
+
+        .social-name {
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .social-handle {
+            font-size: 1em;
+            opacity: 0.8;
+        }
+
+        /* Platform-specific hover effects */
+        .social-button.facebook:hover {
+            box-shadow: 0 15px 35px rgba(24, 119, 242, 0.3);
+        }
+
+        .social-button.instagram:hover {
+            box-shadow: 0 15px 35px rgba(225, 48, 108, 0.3);
+        }
+
+        .social-button.twitter:hover {
+            box-shadow: 0 15px 35px rgba(29, 161, 242, 0.3);
+        }
+
+        .social-button.linkedin:hover {
+            box-shadow: 0 15px 35px rgba(10, 102, 194, 0.3);
+        }
+
+        .social-button.linktree:hover {
+            box-shadow: 0 15px 35px rgba(255, 87, 34, 0.3);
+        }
+
+        .social-button.tiktok:hover {
+            box-shadow: 0 15px 35px rgba(255, 0, 0, 0.3);
+        }
+
+        .social-button.youtube:hover {
+            box-shadow: 0 15px 35px rgba(255, 0, 0, 0.3);
+        }
+
+        /* YouTube Shorts Section */
+        .shorts-section {
+            padding: 80px 40px;
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.05), rgba(255, 255, 0, 0.05));
+        }
+
+        .shorts-title {
+            font-size: 2.5em;
+            font-weight: 900;
+            text-align: center;
+            background: linear-gradient(45deg, #00ffff, #ffff00, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .shorts-subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            color: #ffffff;
+            margin-bottom: 60px;
+            opacity: 0.9;
+        }
+
+        .shorts-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .shorts-box {
+            background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .shorts-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .shorts-icon {
+            font-size: 2em;
+            margin-right: 15px;
+        }
+
+        .shorts-name {
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+
+        .shorts-video {
+            margin-bottom: 20px;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .shorts-link {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            color: #000;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .shorts-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 0, 255, 0.3);
+        }
+
+        /* Community Section */
+        .community-section {
+            padding: 80px 40px;
+            background: linear-gradient(135deg, rgba(255, 255, 0, 0.05), rgba(255, 0, 255, 0.05));
+        }
+
+        .community-title {
+            font-size: 2.5em;
+            font-weight: 900;
+            text-align: center;
+            background: linear-gradient(45deg, #ffff00, #ff00ff, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .community-subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            color: #ffffff;
+            margin-bottom: 60px;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .community-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .community-card {
+            background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .community-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .community-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+        }
+
+        .community-name {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .community-description {
+            color: #ffffff;
+            opacity: 0.8;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .community-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            color: #000;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .community-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 0, 255, 0.3);
+        }
+
+        /* Enhanced Footer */
+        .footer {
+            padding: 40px 40px;
+            background: rgba(0, 0, 0, 0.8);
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-text {
+            font-size: 1.2em;
+            color: #ffffff;
+            opacity: 0.9;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .social-section, .shorts-section, .community-section {
+                padding: 60px 20px;
+            }
+
+            .social-title, .shorts-title, .community-title {
+                font-size: 2em;
+            }
+
+            .social-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .social-button {
+                padding: 20px;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .social-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .social-content {
+                text-align: center;
+            }
+
+            .community-options {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .shorts-box {
+                padding: 20px;
+            }
+
+            .shorts-video iframe {
+                width: 100%;
+                height: 400px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1565,19 +1924,186 @@
         </section>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-text">
-                © 2025 OMNI-EMPIRE-FRESH - Divine Digital Ministry | Guardians of the Infinite Multiverse | Explore, Create, Transcend
-            </div>
-            <div class="social-links">
-                <a href="https://facebook.com" target="_blank" rel="noopener" class="social-link facebook" title="Facebook">📘</a>
-                <a href="https://twitter.com" target="_blank" rel="noopener" class="social-link twitter" title="Twitter">🐦</a>
-                <a href="https://instagram.com" target="_blank" rel="noopener" class="social-link instagram" title="Instagram">📷</a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-link linkedin" title="LinkedIn">💼</a>
-                <a href="https://github.com/marganarok/a-fresh-new-website" target="_blank" rel="noopener" class="social-link github" title="GitHub">💻</a>
+    <!-- Social Media Section -->
+    <section class="social-section">
+        <div class="social-container">
+            <h2 class="social-title">🌟 Connect with the Alchemist</h2>
+            <p class="social-subtitle">Follow the journey through the realms of knowledge and creation</p>
+
+            <div class="social-grid">
+                <a href="https://www.facebook.com/profile.php?id=61578595622796" target="_blank" rel="noopener noreferrer" class="social-button facebook">
+                    <div class="social-icon">📘</div>
+                    <div class="social-content">
+                        <div class="social-name">Facebook</div>
+                        <div class="social-handle">@Alchemists</div>
+                    </div>
+                </a>
+
+                <a href="https://www.instagram.com/alchemistsx0/" target="_blank" rel="noopener noreferrer" class="social-button instagram">
+                    <div class="social-icon">📷</div>
+                    <div class="social-content">
+                        <div class="social-name">Instagram</div>
+                        <div class="social-handle">@alchemistsx0</div>
+                    </div>
+                </a>
+
+                <a href="https://x.com/Philipp36533206" target="_blank" rel="noopener noreferrer" class="social-button twitter">
+                    <div class="social-icon">🐦</div>
+                    <div class="social-content">
+                        <div class="social-name">X (Twitter)</div>
+                        <div class="social-handle">@Philipp36533206</div>
+                    </div>
+                </a>
+
+                <a href="https://www.linkedin.com/in/philippe-b-1234567890-/" target="_blank" rel="noopener noreferrer" class="social-button linkedin">
+                    <div class="social-icon">💼</div>
+                    <div class="social-content">
+                        <div class="social-name">LinkedIn</div>
+                        <div class="social-handle">Philippe B.</div>
+                    </div>
+                </a>
+
+                <a href="https://linktr.ee/alchemistsx0" target="_blank" rel="noopener noreferrer" class="social-button linktree">
+                    <div class="social-icon">🔗</div>
+                    <div class="social-content">
+                        <div class="social-name">Linktree</div>
+                        <div class="social-handle">@alchemistsx0</div>
+                    </div>
+                </a>
+
+                <a href="https://www.tiktok.com/@alchystones" target="_blank" rel="noopener noreferrer" class="social-button tiktok">
+                    <div class="social-icon">🎵</div>
+                    <div class="social-content">
+                        <div class="social-name">TikTok</div>
+                        <div class="social-handle">@alchystones</div>
+                    </div>
+                </a>
+
+                <a href="https://www.youtube.com/@alchemists-u1c" target="_blank" rel="noopener noreferrer" class="social-button youtube">
+                    <div class="social-icon">📺</div>
+                    <div class="social-content">
+                        <div class="social-name">YouTube</div>
+                        <div class="social-handle">@alchemists-u1c</div>
+                    </div>
+                </a>
             </div>
         </div>
+    </section>
+
+    <!-- YouTube Shorts Section -->
+    <section class="shorts-section">
+        <h2 class="shorts-title">⚡ Alchemical Insights</h2>
+        <p class="shorts-subtitle">
+            Quick transformative wisdom from the Alchemist's forge.
+        </p>
+
+        <div class="shorts-container">
+            <div class="shorts-box">
+                <div class="shorts-header">
+                    <div class="shorts-icon">🎬</div>
+                    <h3 class="shorts-name">Featured Short</h3>
+                </div>
+                <div class="shorts-video">
+                    <iframe
+                        width="315"
+                        height="560"
+                        src="https://www.youtube.com/embed/FedEOkkq1xc"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                        loading="lazy">
+                    </iframe>
+                </div>
+                <div class="shorts-footer">
+                    <a href="https://www.youtube.com/shorts/FedEOkkq1xc" target="_blank" rel="noopener noreferrer" class="shorts-link">
+                        Watch on YouTube ↗
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Links Section -->
+    <section class="community-section">
+        <h2 class="community-title">🌐 Join Our Alchemical Community</h2>
+        <p class="community-subtitle">
+            Connect with fellow seekers, support ongoing research, and access exclusive content through multiple platforms.
+        </p>
+
+        <div class="community-options">
+            <div class="community-card">
+                <div class="community-icon">�</div>
+                <h3 class="community-name">Gumroad Store</h3>
+                <p class="community-description">
+                    Digital marketplace for creators. Secure checkout with instant download and creator support.
+                </p>
+                <a href="https://alchimondestones.gumroad.com/" target="_blank" rel="noopener noreferrer" class="community-button">
+                    Shop on Gumroad
+                </a>
+            </div>
+
+            <div class="community-card">
+                <div class="community-icon">📚</div>
+                <h3 class="community-name">Amazon Kindle</h3>
+                <p class="community-description">
+                    Available on Amazon for Kindle readers. Professional formatting with Kindle Unlimited options.
+                </p>
+                <a href="https://www.amazon.ca/dp/B0FRJJL5HX" target="_blank" rel="noopener noreferrer" class="community-button">
+                    Get on Amazon
+                </a>
+            </div>
+
+            <div class="community-card">
+                <div class="community-icon">🎨</div>
+                <h3 class="community-name">Patreon Support</h3>
+                <p class="community-description">
+                    Support ongoing alchemical research and get exclusive content. Join the creator community.
+                </p>
+                <a href="https://www.patreon.com/c/alchemists468" target="_blank" rel="noopener noreferrer" class="community-button">
+                    Support on Patreon
+                </a>
+            </div>
+
+            <div class="community-card">
+                <div class="community-icon">👥</div>
+                <h3 class="community-name">Arts & AI Community</h3>
+                <p class="community-description">
+                    Join our public Facebook group for sharing arts, AI content, and creative productions. Connect with fellow creators.
+                </p>
+                <a href="https://www.facebook.com/groups/1003619021757690" target="_blank" rel="noopener noreferrer" class="community-button">
+                    Join Facebook Group
+                </a>
+            </div>
+
+            <div class="community-card">
+                <div class="community-icon">💰</div>
+                <h3 class="community-name">PayPal Support</h3>
+                <p class="community-description">
+                    Direct support through PayPal. Fast, trusted payment processing with buyer protection.
+                </p>
+                <a href="https://paypal.me/AlchemistsStone" target="_blank" rel="noopener noreferrer" class="community-button">
+                    Support via PayPal
+                </a>
+            </div>
+
+            <div class="community-card">
+                <div class="community-icon">⚗️</div>
+                <h3 class="community-name">Get the Alchemist Pack</h3>
+                <p class="community-description">
+                    Unlock the complete collection of Sacred Digital Ministry Bible and The Banana Conquest. Transform your consciousness.
+                </p>
+                <a href="/alchemist_pack_product_page.html" class="community-button">
+                    Get Alchemist Pack - $27
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p class="footer-text">
+            "In the Royal Library of Marganarok, every page turns, every scroll unrolls, and every circuit hums with the promise of discovery."
+        </p>
     </footer>
 
     <script>

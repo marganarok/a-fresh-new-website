@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alchemist Pack - Sacred Digital Ministry Bible & The Banana Conquest</title>
+    <meta name="description" content="Unlock the complete collection of Sacred Digital Ministry Bible and The Banana Conquest. Transform your consciousness with these alchemical masterpieces.">
+
+    <!-- Sacred Favicons -->
+    <link rel="icon" type="image/svg+xml" href="favicon-3d-mantra.svg">
+    <link rel="icon" type="image/svg+xml" href="favicon-geometric.svg">
+    <link rel="icon" type="image/svg+xml" href="favicon-alchemy.svg">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="favicon-3d-mantra.svg">
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shared-styles.css">
+    <style>
+        :root {
+            --neon-magenta: #ff00ff;
+            --neon-cyan: #00ffff;
+            --neon-yellow: #ffff00;
+            --cosmic-purple: #8a2be2;
+            --divine-gold: #ffd700;
+            --shadow-black: #000000;
+            --cosmic-bg: #0a0a0a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--cosmic-bg);
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Cosmic Background Layers */
+        #cosmic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -4;
+            background: radial-gradient(circle at 20% 30%, rgba(255,0,255,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(0,255,255,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 50% 50%, rgba(255,255,0,0.05) 0%, transparent 50%);
+            animation: cosmicShift 30s ease-in-out infinite alternate;
+        }
+
+        @keyframes cosmicShift {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(20px, 20px) rotate(1deg); }
+        }
+
+        #starfield-1, #starfield-2, #starfield-3 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -3;
+        }
+
+        #starfield-1 { z-index: -3; }
+        #starfield-2 { z-index: -2; }
+        #starfield-3 { z-index: -1; }
+
+        /* Main Content */
+        main {
+            padding-top: 120px;
+            min-height: 100vh;
+        }
+
+        .product-hero {
+            text-align: center;
+            padding: 100px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-title {
+            font-size: 4em;
+            font-weight: 900;
+            background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 30px;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+        }
+
+        .product-subtitle {
+            font-size: 1.5em;
+            color: #ffffff;
+            margin-bottom: 50px;
+            opacity: 0.9;
+        }
+
+        .price-tag {
+            font-size: 3em;
+            font-weight: 900;
+            color: #ffd700;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            margin-bottom: 40px;
+        }
+
+        .buy-button {
+            display: inline-block;
+            padding: 20px 40px;
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            color: #000;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 0, 255, 0.3);
+        }
+
+        .buy-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 0, 255, 0.4);
+        }
+
+        .product-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        .product-section {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            font-weight: 900;
+            text-align: center;
+            background: linear-gradient(45deg, #00ffff, #ffff00, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 40px;
+        }
+
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .book-card {
+            background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .book-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.2);
+        }
+
+        .book-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
+        }
+
+        .book-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .book-description {
+            color: #ffffff;
+            opacity: 0.9;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .feature-list {
+            list-style: none;
+            text-align: left;
+            margin: 40px 0;
+        }
+
+        .feature-item {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-item:last-child {
+            border-bottom: none;
+        }
+
+        .feature-icon {
+            font-size: 1.5em;
+            margin-right: 15px;
+            min-width: 30px;
+        }
+
+        .feature-text {
+            flex: 1;
+        }
+
+        .guarantee-section {
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid #ffd700;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .guarantee-title {
+            font-size: 2em;
+            font-weight: 700;
+            color: #ffd700;
+            margin-bottom: 20px;
+        }
+
+        .guarantee-text {
+            font-size: 1.2em;
+            color: #ffffff;
+            opacity: 0.9;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 40px;
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .purchase-section {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="cosmic-bg"></div>
+    <canvas id="starfield-1"></canvas>
+    <canvas id="starfield-2"></canvas>
+    <canvas id="starfield-3"></canvas>
+
+    <main>
+        <section class="product-hero">
+            <h1 class="product-title">⚗️ The Alchemist Pack</h1>
+            <p class="product-subtitle">Unlock the complete collection of Sacred Digital Ministry Bible and The Banana Conquest</p>
+            <div class="price-tag">$27</div>
+            <a href="https://alchimondestones.gumroad.com/l/alchemist-pack" target="_blank" rel="noopener noreferrer" class="buy-button">
+                🛒 Purchase Now on Gumroad
+            </a>
+        </section>
+
+        <section class="product-content">
+            <div class="product-section">
+                <h2 class="section-title">📚 What's Included</h2>
+
+                <div class="book-grid">
+                    <div class="book-card">
+                        <div class="book-icon">📖</div>
+                        <h3 class="book-title">Sacred Digital Ministry Bible</h3>
+                        <p class="book-description">
+                            A comprehensive guide to digital ministry in the age of artificial intelligence.
+                            Explore the intersection of faith, technology, and cosmic consciousness.
+                        </p>
+                    </div>
+
+                    <div class="book-card">
+                        <div class="book-icon">🍌</div>
+                        <h3 class="book-title">The Banana Conquest</h3>
+                        <p class="book-description">
+                            A transformative journey through consciousness, reality, and the nature of existence.
+                            Philosophical insights wrapped in an engaging narrative.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-section">
+                <h2 class="section-title">✨ Transform Your Consciousness</h2>
+
+                <ul class="feature-list">
+                    <li class="feature-item">
+                        <span class="feature-icon">🧠</span>
+                        <div class="feature-text">
+                            <strong>Digital Ministry Mastery:</strong> Learn how to effectively minister in the digital age with AI collaboration and cyberpunk aesthetics.
+                        </div>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">🌌</span>
+                        <div class="feature-text">
+                            <strong>Cosmic Consciousness:</strong> Explore the intersection of faith, technology, and the infinite multiverse.
+                        </div>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-item">
+                            <span class="feature-icon">⚗️</span>
+                            <div class="feature-text">
+                                <strong>Alchemical Transformation:</strong> Discover the philosophical insights that can change how you perceive reality.
+                            </div>
+                        </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">🤖</span>
+                        <div class="feature-text">
+                            <strong>AI Integration:</strong> Understand how artificial intelligence can enhance spiritual growth and ministry.
+                        </div>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">🎨</span>
+                        <div class="feature-text">
+                            <strong>Creative Expression:</strong> Unlock your creative potential through digital art, writing, and multimedia.
+                        </div>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">🙏</span>
+                        <div class="feature-text">
+                            <strong>Spiritual Growth:</strong> Deepen your faith while embracing technological advancement.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="guarantee-section">
+                <h3 class="guarantee-title">🔮 100% Satisfaction Guarantee</h3>
+                <p class="guarantee-text">
+                    If this collection doesn't transform your perspective and enrich your spiritual journey,
+                    contact us within 30 days for a full refund. Your consciousness evolution is our priority.
+                </p>
+            </div>
+
+            <div class="purchase-section">
+                <a href="https://alchimondestones.gumroad.com/l/alchemist-pack" target="_blank" rel="noopener noreferrer" class="buy-button">
+                    🛒 Get Your Alchemist Pack Now - $27
+                </a>
+                <br>
+                <a href="index.html" class="back-button">← Back to Sacred Codex</a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Optimized Starfield System with performance improvements
+        class Starfield {
+            constructor(canvasId, starCount, speed, size, color) {
+                this.canvas = document.getElementById(canvasId);
+                if (!this.canvas) return;
+
+                this.ctx = this.canvas.getContext('2d');
+                this.stars = [];
+                this.starCount = starCount;
+                this.speed = speed;
+                this.size = size;
+                this.color = color;
+                this.init();
+                this.animate();
+            }
+
+            init() {
+                this.canvas.width = window.innerWidth;
+                this.canvas.height = window.innerHeight;
+
+                for (let i = 0; i < this.starCount; i++) {
+                    this.stars.push({
+                        x: Math.random() * this.canvas.width,
+                        y: Math.random() * this.canvas.height,
+                        radius: Math.random() * this.size + 0.5,
+                        speed: Math.random() * this.speed + 0.5,
+                        opacity: Math.random() * 0.8 + 0.2
+                    });
+                }
+            }
+
+            animate() {
+                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+                this.stars.forEach(star => {
+                    star.y += star.speed;
+
+                    if (star.y > this.canvas.height) {
+                        star.y = 0;
+                        star.x = Math.random() * this.canvas.width;
+                    }
+
+                    this.ctx.beginPath();
+                    this.ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+                    this.ctx.fillStyle = this.color.replace('rgb', 'rgba').replace(')', `, ${star.opacity})`);
+                    this.ctx.fill();
+                });
+
+                requestAnimationFrame(() => this.animate());
+            }
+        }
+
+        // Initialize starfields
+        new Starfield('starfield-1', 150, 0.5, 2, 'rgb(255, 255, 255)');
+        new Starfield('starfield-2', 100, 1, 1.5, 'rgb(0, 255, 255)');
+        new Starfield('starfield-3', 75, 1.5, 1, 'rgb(255, 0, 255)');
+
+        // Resize handling
+        window.addEventListener('resize', () => {
+            document.querySelectorAll('canvas').forEach(canvas => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        });
+    </script>
+</body>
+</html>
