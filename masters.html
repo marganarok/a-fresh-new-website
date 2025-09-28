@@ -388,6 +388,15 @@
                         document.head.appendChild(leonardoStyle);
                     }
 
+                    // Extract and inject Leonardo's JavaScript (for interactions)
+                    const scriptElement = doc.querySelector('script');
+                    if (scriptElement) {
+                        const leonardoScript = document.createElement('script');
+                        leonardoScript.id = 'leonardo-script';
+                        leonardoScript.textContent = scriptElement.textContent;
+                        document.body.appendChild(leonardoScript);
+                    }
+
                     // Insert into Leonardo section (skip the loading div)
                     const loadingDiv = this.leonardoContent.querySelector('.loading');
                     loadingDiv.insertAdjacentHTML('afterend', bodyContent);
@@ -419,6 +428,15 @@
                         durerStyle.id = 'durer-styles';
                         durerStyle.textContent = styleElement.textContent;
                         document.head.appendChild(durerStyle);
+                    }
+
+                    // Extract and inject Dürer's JavaScript (for tab navigation and interactions)
+                    const scriptElement = doc.querySelector('script');
+                    if (scriptElement) {
+                        const durerScript = document.createElement('script');
+                        durerScript.id = 'durer-script';
+                        durerScript.textContent = scriptElement.textContent;
+                        document.body.appendChild(durerScript);
                     }
 
                     // Insert Dürer's content as-is (preserving his complete visual world)
