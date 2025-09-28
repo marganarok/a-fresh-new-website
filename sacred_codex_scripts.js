@@ -731,8 +731,296 @@ function loadFilePreview(filePath) {
 document.addEventListener('DOMContentLoaded', function() {
     // ... existing initialization code ...
     initBookPreview();
+    initLibraryEnhancements();
     initWisdomPortal();
 });
+
+// === ENHANCED LIBRARY FUNCTIONALITY ===
+
+// Library Enhancement Features
+function initLibraryEnhancements() {
+    initLibrarySearch();
+    initLibraryFilters();
+    initLibraryStats();
+    initRecentlyViewed();
+    initFavoriteSystem();
+    initShareSystem();
+}
+
+// Search Functionality
+function initLibrarySearch() {
+    const searchInput = document.getElementById('librarySearch');
+    if (!searchInput) return;
+
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        const libraryCards = document.querySelectorAll('.library-card');
+
+        libraryCards.forEach(card => {
+            const title = card.querySelector('.library-card-title').textContent.toLowerCase();
+            const description = card.querySelector('.library-description').textContent.toLowerCase();
+            const category = card.dataset.category || '';
+
+            const matches = title.includes(searchTerm) ||
+                           description.includes(searchTerm) ||
+                           category.includes(searchTerm);
+
+            card.style.display = matches ? 'block' : 'none';
+        });
+
+        updateLibraryStats();
+    });
+}
+
+// Filter Functionality
+function initLibraryFilters() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    if (!filterButtons.length) return;
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            this.classList.add('active');
+
+            const filter = this.dataset.filter;
+            const libraryCards = document.querySelectorAll('.library-card');
+
+            libraryCards.forEach(card => {
+                if (filter === 'all') {
+                    card.style.display = 'block';
+                } else {
+                    const category = card.dataset.category || '';
+                    card.style.display = category === filter ? 'block' : 'none';
+                }
+            });
+
+            updateLibraryStats();
+        });
+    });
+}
+
+// Library Statistics
+function initLibraryStats() {
+    updateLibraryStats();
+}
+
+function updateLibraryStats() {
+    const visibleCards = document.querySelectorAll('.library-card:not([style*="display: none"])');
+    const totalBooksElement = document.getElementById('totalBooks');
+    const sacredTextsElement = document.getElementById('sacredTexts');
+
+    if (totalBooksElement) {
+        totalBooksElement.textContent = visibleCards.length;
+    }
+
+    if (sacredTextsElement) {
+        const sacredCount = Array.from(visibleCards).filter(card =>
+            card.dataset.category === 'sacred'
+        ).length;
+        sacredTextsElement.textContent = sacredCount;
+    }
+}
+
+// Recently Viewed System
+function initRecentlyViewed() {
+    // Load recently viewed from localStorage
+    loadRecentlyViewed();
+
+    // Add event listeners to preview buttons to track views
+    const previewButtons = document.querySelectorAll('.preview-button');
+    previewButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const title = this.dataset.title;
+            const file = this.dataset.file;
+            addToRecentlyViewed(title, file);
+        });
+    });
+}
+
+function addToRecentlyViewed(title, file) {
+    let recentlyViewed = JSON.parse(localStorage.getItem('sacredLibrary_recentlyViewed') || '[]');
+
+    // Remove if already exists
+    recentlyViewed = recentlyViewed.filter(item => item.title !== title);
+
+    // Add to beginning
+    recentlyViewed.unshift({
+        title: title,
+        file: file,
+        timestamp: Date.now()
+    });
+
+    // Keep only last 5
+    recentlyViewed = recentlyViewed.slice(0, 5);
+
+    // Save to localStorage
+    localStorage.setItem('sacredLibrary_recentlyViewed', JSON.stringify(recentlyViewed));
+
+    // Update display
+    loadRecentlyViewed();
+}
+
+function loadRecentlyViewed() {
+    const recentlyViewed = JSON.parse(localStorage.getItem('sacredLibrary_recentlyViewed') || '[]');
+    const recentContainer = document.getElementById('recentlyViewed');
+
+    if (!recentContainer) return;
+
+    if (recentlyViewed.length === 0) {
+        recentContainer.innerHTML = `
+            <div class="recent-item">
+                <div class="recent-title">No recent views</div>
+                <div class="recent-desc">Start exploring our collection!</div>
+            </div>
+        `;
+        return;
+    }
+
+    recentContainer.innerHTML = recentlyViewed.map(item => `
+        <div class="recent-item" onclick="showPreview('${item.file}', '${item.title}')">
+            <div class="recent-title">${item.title}</div>
+            <div class="recent-desc">Click to preview</div>
+        </div>
+    `).join('');
+}
+
+// Favorite System
+function initFavoriteSystem() {
+    // Load favorites from localStorage
+    loadFavorites();
+
+    // Add event listeners to favorite buttons
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('favorite-btn')) {
+            e.stopPropagation();
+            const card = e.target.closest('.library-card');
+            const title = card.querySelector('.library-card-title').textContent;
+            toggleFavorite(title, e.target);
+        }
+    });
+}
+
+function toggleFavorite(title, button) {
+    let favorites = JSON.parse(localStorage.getItem('sacredLibrary_favorites') || '[]');
+    const isFavorited = favorites.includes(title);
+
+    if (isFavorited) {
+        favorites = favorites.filter(fav => fav !== title);
+        button.textContent = '⭐';
+        button.title = 'Add to Favorites';
+        button.style.color = '';
+    } else {
+        favorites.push(title);
+        button.textContent = '⭐';
+        button.title = 'Remove from Favorites';
+        button.style.color = '#FFD700';
+    }
+
+    localStorage.setItem('sacredLibrary_favorites', JSON.stringify(favorites));
+}
+
+function loadFavorites() {
+    const favorites = JSON.parse(localStorage.getItem('sacredLibrary_favorites') || '[]');
+    const favoriteButtons = document.querySelectorAll('.favorite-btn');
+
+    favoriteButtons.forEach(button => {
+        const card = button.closest('.library-card');
+        const title = card.querySelector('.library-card-title').textContent;
+        const isFavorited = favorites.includes(title);
+
+        if (isFavorited) {
+            button.textContent = '⭐';
+            button.style.color = '#FFD700';
+            button.title = 'Remove from Favorites';
+        } else {
+            button.textContent = '⭐';
+            button.style.color = '';
+            button.title = 'Add to Favorites';
+        }
+    });
+}
+
+// Share System
+function initShareSystem() {
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('share-btn')) {
+            e.stopPropagation();
+            const card = e.target.closest('.library-card');
+            const title = card.querySelector('.library-card-title').textContent;
+            const url = window.location.href;
+
+            shareBook(title, url);
+        }
+    });
+}
+
+function shareBook(title, url) {
+    const shareText = `Check out "${title}" from The Sacred Codex Universe Library: ${url}`;
+
+    if (navigator.share) {
+        navigator.share({
+            title: title,
+            text: shareText,
+            url: url
+        });
+    } else {
+        // Fallback: copy to clipboard
+        navigator.clipboard.writeText(shareText).then(() => {
+            showNotification('Book link copied to clipboard!');
+        }).catch(() => {
+            // Final fallback: show share text
+            alert('Share this link: ' + shareText);
+        });
+    }
+}
+
+function showNotification(message) {
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: var(--divine-gold, #FFD700);
+        color: #000;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        font-family: 'Crimson Text', serif;
+        font-weight: bold;
+        z-index: 10000;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        animation: slideIn 0.3s ease;
+    `;
+    notification.textContent = message;
+
+    // Add animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+    `;
+    document.head.appendChild(style);
+
+    document.body.appendChild(notification);
+
+    // Remove after 3 seconds
+    setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease';
+        setTimeout(() => notification.remove(), 300);
+    }, 3000);
+
+    // Add slideOut animation
+    style.textContent += `
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+    `;
+}
 
 // === WISDOM PORTAL FUNCTIONALITY ===
 

@@ -165,6 +165,8 @@
             transition: all 0.4s ease;
             display: flex;
             flex-direction: column;
+            position: relative;
+            overflow: hidden;
         }
 
         .library-card:hover {
@@ -262,6 +264,226 @@
             color: #C0C0C0;
             max-width: 600px;
             margin: 0 auto;
+        }
+
+        /* --- Search and Filter Functionality --- */
+        .library-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .search-container {
+            position: relative;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 2px solid var(--sacred-purple);
+            border-radius: 25px;
+            background: rgba(0, 4, 40, 0.8);
+            color: var(--star-white);
+            font-family: 'Crimson Text', serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--divine-gold);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--sacred-purple);
+            font-size: 1.2rem;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.2rem;
+            border: 2px solid var(--sacred-purple);
+            border-radius: 20px;
+            background: rgba(0, 4, 40, 0.8);
+            color: var(--star-white);
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            border-color: var(--divine-gold);
+            background: var(--divine-gold);
+            color: var(--shadow-deep);
+        }
+
+        .book-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            background: rgba(0, 4, 40, 0.7);
+            border: 1px solid var(--sacred-purple);
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--divine-gold);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--star-white);
+            margin-top: 0.5rem;
+        }
+
+        /* --- Enhanced Card Features --- */
+        .library-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-category {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--divine-gold);
+            color: var(--shadow-deep);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .action-btn {
+            background: none;
+            border: 1px solid var(--sacred-purple);
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            color: var(--sacred-purple);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .action-btn:hover {
+            border-color: var(--divine-gold);
+            color: var(--divine-gold);
+            transform: scale(1.1);
+        }
+
+        .download-count {
+            font-size: 0.8rem;
+            color: #C0C0C0;
+        }
+
+        /* --- Recently Viewed Section --- */
+        .recently-viewed {
+            margin-bottom: 4rem;
+        }
+
+        .recent-grid {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding: 1rem 0;
+        }
+
+        .recent-grid::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .recent-grid::-webkit-scrollbar-track {
+            background: rgba(0, 4, 40, 0.8);
+            border-radius: 3px;
+        }
+
+        .recent-grid::-webkit-scrollbar-thumb {
+            background: var(--sacred-purple);
+            border-radius: 3px;
+        }
+
+        .recent-grid::-webkit-scrollbar-thumb:hover {
+            background: var(--divine-gold);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .recent-item {
+            flex-shrink: 0;
+            background: rgba(0, 4, 40, 0.7);
+            border: 1px solid var(--sacred-purple);
+            border-radius: 10px;
+            padding: 1rem;
+            min-width: 200px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .recent-item:hover {
+            border-color: var(--divine-gold);
+            transform: translateY(-2px);
+        }
+
+        .recent-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            color: var(--divine-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .recent-desc {
+            font-size: 0.8rem;
+            color: #C0C0C0;
         }
 
         /* --- Responsive Design --- */
@@ -502,12 +724,73 @@
             <p class="section-subtitle">An archive of ancient wisdom and transformative knowledge. Explore these texts to deepen your understanding of the universe's sacred mysteries.</p>
         </header>
 
+        <!-- Library Controls -->
+        <div class="library-controls">
+            <div class="search-container">
+                <div class="search-icon">🔍</div>
+                <input type="text" id="librarySearch" class="search-input" placeholder="Search books by title, author, or description...">
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Books</button>
+                <button class="filter-btn" data-filter="sacred">Sacred Texts</button>
+                <button class="filter-btn" data-filter="philosophy">Philosophy</button>
+                <button class="filter-btn" data-filter="modern">Modern Wisdom</button>
+                <button class="filter-btn" data-filter="mystical">Mystical</button>
+            </div>
+        </div>
+
+        <!-- Book Statistics -->
+        <div class="book-stats">
+            <div class="stat-item">
+                <span class="stat-number" id="totalBooks">22</span>
+                <div class="stat-label">Total Books</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="sacredTexts">8</span>
+                <div class="stat-label">Sacred Texts</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="downloads">0</span>
+                <div class="stat-label">Total Downloads</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="previews">0</span>
+                <div class="stat-label">Previews Today</div>
+            </div>
+        </div>
+
+        <!-- Recently Viewed Books -->
+        <section class="recently-viewed">
+            <h2 class="library-section-title">Recently Viewed</h2>
+            <div class="recent-grid" id="recentlyViewed">
+                <div class="recent-item hidden">
+                    <div class="recent-title">No recent views</div>
+                    <div class="recent-desc">Start exploring our collection!</div>
+                </div>
+            </div>
+        </section>
+
         <!-- Sacred Books Section -->
         <section class="library-section">
             <h2 class="library-section-title">Sacred Books & Manuscripts</h2>
+
+            <!-- Search and Filter Controls -->
+            <div class="library-controls">
+                <div class="search-container">
+                    <input type="text" id="bookSearch" class="search-input" placeholder="Search sacred texts...">
+                    <span class="search-icon">🔍</span>
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="pdf">PDFs</button>
+                    <button class="filter-btn" data-filter="txt">TXTs</button>
+                </div>
+            </div>
+
             <div class="sacred-grid">
                 
-                <div class="library-card">
+                <div class="library-card" data-category="sacred">
+                    <div class="card-category">Sacred Texts</div>
                     <div class="card-header">
                         <div class="library-icon">📖</div>
                         <h3 class="library-card-title">The Book of Enoch</h3>
@@ -543,9 +826,17 @@
                             <a href="./Library/Enoch-3.txt" class="download-button" download="Enoch-3.txt">Download TXT</a>
                         </div>
                     </div>
+                    <div class="card-actions">
+                        <div class="action-buttons">
+                            <button class="action-btn favorite-btn" title="Add to Favorites">⭐</button>
+                            <button class="action-btn share-btn" title="Share Book">📤</button>
+                        </div>
+                        <div class="download-count">0 downloads</div>
+                    </div>
                 </div>
 
-                <div class="library-card">
+                <div class="library-card" data-category="mystical">
+                    <div class="card-category">Mystical</div>
                     <div class="card-header">
                         <div class="library-icon">💎</div>
                         <h3 class="library-card-title">The Emerald Tablet</h3>
@@ -560,7 +851,8 @@
                     </div>
                 </div>
 
-                <div class="library-card">
+                <div class="library-card" data-category="philosophy">
+                    <div class="card-category">Philosophy</div>
                     <div class="card-header">
                         <div class="library-icon">⚖️</div>
                         <h3 class="library-card-title">The Kybalion</h3>
@@ -576,9 +868,17 @@
                             <a href="./Library/Kybalion.txt" class="download-button" download="Kybalion.txt">Download TXT</a>
                         </div>
                     </div>
+                    <div class="card-actions">
+                        <div class="action-buttons">
+                            <button class="action-btn favorite-btn" title="Add to Favorites">⭐</button>
+                            <button class="action-btn share-btn" title="Share Book">📤</button>
+                        </div>
+                        <div class="download-count">0 downloads</div>
+                    </div>
                 </div>
 
-                <div class="library-card">
+                <div class="library-card" data-category="modern">
+                    <div class="card-category">Modern Wisdom</div>
                     <div class="card-header">
                         <div class="library-icon">🏴‍☠️</div>
                         <h3 class="library-card-title">Captain Black Sparrow V2.1</h3>
@@ -591,9 +891,16 @@
                         </div>
                         <a href="./Library/Captain Black Sparrow V2.1.pdf" class="download-button" download="Captain Black Sparrow V2.1.pdf">Download PDF</a>
                     </div>
+                    <div class="card-actions">
+                        <div class="action-buttons">
+                            <button class="action-btn favorite-btn" title="Add to Favorites">⭐</button>
+                            <button class="action-btn share-btn" title="Share Book">📤</button>
+                        </div>
+                        <div class="download-count">0 downloads</div>
+                    </div>
                 </div>
 
-                <div class="library-card">
+                <div class="library-card" data-category="pdf">
                     <div class="card-header">
                         <div class="library-icon">🧠</div>
                         <h3 class="library-card-title">Captain Common Sense</h3>
@@ -611,7 +918,7 @@
                     </div>
                 </div>
 
-                <div class="library-card">
+                <div class="library-card" data-category="pdf">
                     <div class="card-header">
                         <div class="library-icon">📚</div>
                         <h3 class="library-card-title">Black Sparrow Collection</h3>
@@ -629,7 +936,7 @@
                     </div>
                 </div>
 
-                <div class="library-card">
+                <div class="library-card" data-category="pdf">
                     <div class="card-header">
                         <div class="library-icon">🎨</div>
                         <h3 class="library-card-title">The Earl Dürer Archetype</h3>
@@ -647,7 +954,7 @@
                     </div>
                 </div>
 
-                <div class="library-card">
+                <div class="library-card" data-category="pdf">
                     <div class="card-header">
                         <div class="library-icon">📖</div>
                         <h3 class="library-card-title">The Living Codex</h3>
@@ -665,7 +972,7 @@
                     </div>
                 </div>
 
-                <div class="library-card">
+                <div class="library-card" data-category="pdf">
                     <div class="card-header">
                         <div class="library-icon">📜</div>
                         <h3 class="library-card-title">Curation of History</h3>
@@ -683,7 +990,7 @@
                     </div>
                 </div>
 
-                <div class="library-card">
+                <div class="library-card" data-category="pdf">
                     <div class="card-header">
                         <div class="library-icon">📿</div>
                         <h3 class="library-card-title">Sacred Digital Ministry Bible</h3>
@@ -701,7 +1008,7 @@
                     </div>
                 </div>
 
-                <div class="library-card">
+                <div class="library-card" data-category="pdf">
                     <div class="card-header">
                         <div class="library-icon">⚗️</div>
                         <h3 class="library-card-title">The Magnum Opus</h3>
@@ -719,7 +1026,7 @@
                     </div>
                 </div>
 
-                <div class="library-card">
+                <div class="library-card" data-category="pdf">
                     <div class="card-header">
                         <div class="library-icon">🎭</div>
                         <h3 class="library-card-title">Satan Comedy</h3>
@@ -737,7 +1044,7 @@
                     </div>
                 </div>
 
-                <div class="library-card">
+                <div class="library-card" data-category="pdf">
                     <div class="card-header">
                         <div class="library-icon">🤖</div>
                         <h3 class="library-card-title">AI Alchemist Adventures</h3>
@@ -755,7 +1062,7 @@
                     </div>
                 </div>
 
-                <div class="library-card">
+                <div class="library-card" data-category="pdf">
                     <div class="card-header">
                         <div class="library-icon">🔮</div>
                         <h3 class="library-card-title">Magi and Celestial Observations</h3>
@@ -773,7 +1080,7 @@
                     </div>
                 </div>
 
-                <div class="library-card">
+                <div class="library-card" data-category="pdf">
                     <div class="card-header">
                         <div class="library-icon">👁️</div>
                         <h3 class="library-card-title">The Oracle's First Glance</h3>
@@ -791,7 +1098,7 @@
                     </div>
                 </div>
 
-                <div class="library-card">
+                <div class="library-card" data-category="pdf">
                     <div class="card-header">
                         <div class="library-icon">🏛️</div>
                         <h3 class="library-card-title">The Living Codex The Imperial Foundation</h3>
@@ -809,7 +1116,7 @@
                     </div>
                 </div>
 
-                <div class="library-card">
+                <div class="library-card" data-category="pdf">
                     <div class="card-header">
                         <div class="library-icon">🗝️</div>
                         <h3 class="library-card-title">The Key of Solomon</h3>
@@ -827,7 +1134,7 @@
                     </div>
                 </div>
 
-                <div class="library-card">
+                <div class="library-card" data-category="pdf">
                     <div class="card-header">
                         <div class="library-icon">🍌</div>
                         <h3 class="library-card-title">The Banana Conquest</h3>
@@ -845,7 +1152,7 @@
                     </div>
                 </div>
 
-                <div class="library-card">
+                <div class="library-card" data-category="pdf">
                     <div class="card-header">
                         <div class="library-icon">👀</div>
                         <h3 class="library-card-title">EyesD</h3>
@@ -863,7 +1170,7 @@
                     </div>
                 </div>
 
-                <div class="library-card">
+                <div class="library-card" data-category="pdf">
                     <div class="card-header">
                         <div class="library-icon">🔥</div>
                         <h3 class="library-card-title">THE DIGITAL AWAKENING SAGA</h3>
