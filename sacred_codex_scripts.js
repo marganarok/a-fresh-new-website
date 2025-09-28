@@ -732,6 +732,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // ... existing initialization code ...
     initBookPreview();
     initLibraryEnhancements();
+    initEnhancedLibraryFeatures();
     initWisdomPortal();
 });
 
@@ -747,29 +748,61 @@ function initLibraryEnhancements() {
     initShareSystem();
 }
 
-// Search Functionality
+// Enhanced Search Functionality with Highlighting
 function initLibrarySearch() {
     const searchInput = document.getElementById('librarySearch');
     if (!searchInput) return;
 
     searchInput.addEventListener('input', function() {
-        const searchTerm = this.value.toLowerCase();
+        const searchTerm = this.value.toLowerCase().trim();
         const libraryCards = document.querySelectorAll('.library-card');
 
         libraryCards.forEach(card => {
-            const title = card.querySelector('.library-card-title').textContent.toLowerCase();
-            const description = card.querySelector('.library-description').textContent.toLowerCase();
+            const titleElement = card.querySelector('.library-card-title');
+            const descriptionElement = card.querySelector('.library-description');
+            const originalTitle = titleElement.getAttribute('data-original') || titleElement.textContent;
+            const originalDescription = descriptionElement.getAttribute('data-original') || descriptionElement.textContent;
+
+            // Store original text if not already stored
+            if (!titleElement.getAttribute('data-original')) {
+                titleElement.setAttribute('data-original', originalTitle);
+                descriptionElement.setAttribute('data-original', originalDescription);
+            }
+
+            const title = originalTitle.toLowerCase();
+            const description = originalDescription.toLowerCase();
             const category = card.dataset.category || '';
 
             const matches = title.includes(searchTerm) ||
                            description.includes(searchTerm) ||
                            category.includes(searchTerm);
 
-            card.style.display = matches ? 'block' : 'none';
+            if (searchTerm && matches) {
+                card.style.display = 'flex';
+                card.classList.add('fade-in');
+
+                // Add highlights
+                titleElement.innerHTML = highlightSearchTerm(originalTitle, searchTerm);
+                descriptionElement.innerHTML = highlightSearchTerm(originalDescription, searchTerm);
+            } else if (searchTerm) {
+                card.style.display = 'none';
+            } else {
+                // Show all and remove highlights when search is empty
+                card.style.display = 'flex';
+                titleElement.innerHTML = originalTitle;
+                descriptionElement.innerHTML = originalDescription;
+            }
         });
 
         updateLibraryStats();
     });
+}
+
+// Highlight search terms
+function highlightSearchTerm(text, term) {
+    if (!term) return text;
+    const regex = new RegExp(`(${term})`, 'gi');
+    return text.replace(regex, '<mark style="background: #ffd700; color: #000000; padding: 2px 4px; border-radius: 3px;">$1</mark>');
 }
 
 // Filter Functionality
@@ -1020,6 +1053,93 @@ function showNotification(message) {
             to { transform: translateX(100%); opacity: 0; }
         }
     `;
+}
+
+// Enhanced Keyboard Shortcuts and Effects
+function initEnhancedLibraryFeatures() {
+    // Keyboard shortcuts
+    document.addEventListener('keydown', (e) => {
+        // ESC to close modal
+        if (e.key === 'Escape') {
+            const previewModal = document.getElementById('previewModal');
+            if (previewModal && previewModal.classList.contains('active')) {
+                previewModal.classList.remove('active');
+            }
+        }
+
+        // Ctrl/Cmd + K to focus search
+        if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+            e.preventDefault();
+            const searchInput = document.getElementById('librarySearch');
+            if (searchInput) {
+                searchInput.focus();
+                searchInput.select();
+            }
+        }
+    });
+
+    // Enhanced download effects
+    const downloadButtons = document.querySelectorAll('.download-button');
+    downloadButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            // Create burst effect
+            for (let i = 0; i < 12; i++) {
+                setTimeout(() => {
+                    const particle = document.createElement('div');
+                    particle.className = 'divine-particle';
+                    particle.style.position = 'fixed';
+                    particle.style.left = centerX + 'px';
+                    particle.style.top = centerY + 'px';
+                    particle.style.width = '3px';
+                    particle.style.height = '3px';
+                    particle.style.background = '#ffd700';
+                    particle.style.zIndex = '9999';
+                    particle.style.pointerEvents = 'none';
+                    particle.style.borderRadius = '50%';
+
+                    const angle = (i / 12) * Math.PI * 2;
+                    const velocity = 100 + Math.random() * 50;
+                    const endX = centerX + Math.cos(angle) * velocity;
+                    const endY = centerY + Math.sin(angle) * velocity;
+
+                    particle.style.animation = `burstParticle 1s ease-out forwards`;
+                    particle.style.setProperty('--endX', endX + 'px');
+                    particle.style.setProperty('--endY', endY + 'px');
+
+                    document.body.appendChild(particle);
+
+                    setTimeout(() => {
+                        if (particle.parentNode) {
+                            particle.parentNode.removeChild(particle);
+                        }
+                    }, 1000);
+                }, i * 50);
+            }
+        });
+    });
+
+    // Add CSS for burst animation if not exists
+    if (!document.getElementById('burstAnimationStyle')) {
+        const style = document.createElement('style');
+        style.id = 'burstAnimationStyle';
+        style.textContent = `
+            @keyframes burstParticle {
+                0% {
+                    transform: translate(0, 0) scale(1);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translate(calc(var(--endX) - 50vw), calc(var(--endY) - 50vh)) scale(0);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
 }
 
 // === WISDOM PORTAL FUNCTIONALITY ===

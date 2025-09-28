@@ -4,17 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sacred Library - The Sacred Codex Universe</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        /* --- Root Variables for Theming --- */
+        /* --- Enhanced Root Variables for Theming --- */
         :root {
-            --divine-gold: #FFD700;
-            --sacred-purple: #9932CC;
-            --celestial-blue: #4169E1;
-            --emerald-wisdom: #50C878;
-            --star-white: #FFFACD;
-            --shadow-deep: #000000;
-            --cosmic-gradient: linear-gradient(135deg, #000428 0%, #004e92 100%);
+            --deep-space: #0a0a0f;
+            --star-white: #ffffff;
+            --divine-gold: #ffd700;
+            --sacred-purple: #9932cc;
+            --celestial-blue: #4169e1;
+            --seraph-crimson: #dc143c;
+            --emerald-wisdom: #50c878;
+            --void-black: #000000;
+            --mystic-silver: #c0c0c0;
+            --holy-amber: #ffbf00;
+            --cosmic-gradient: linear-gradient(135deg, #1a1a2e 0%, #16213e 30%, #0f3460 60%, #0a0a0f 100%);
         }
 
         * {
@@ -31,15 +35,82 @@
             overflow-x: hidden;
         }
 
-        /* --- Animated Cosmic Background --- */
+        /* --- Enhanced Cosmic Background --- */
         .cosmic-background {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
+            z-index: -2;
             background: var(--cosmic-gradient);
+        }
+
+        .sacred-patterns {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.08;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, var(--divine-gold), transparent),
+                radial-gradient(2px 2px at 40px 70px, var(--sacred-purple), transparent),
+                radial-gradient(1px 1px at 90px 40px, var(--celestial-blue), transparent),
+                radial-gradient(1px 1px at 130px 80px, var(--emerald-wisdom), transparent),
+                radial-gradient(2px 2px at 160px 30px, var(--seraph-crimson), transparent);
+            background-size: 200px 100px;
+            animation: cosmicDrift 40s ease-in-out infinite alternate;
+        }
+
+        @keyframes cosmicDrift {
+            0% { transform: translateX(0px) translateY(0px); }
+            100% { transform: translateX(20px) translateY(10px); }
+        }
+
+        /* --- Particle System --- */
+        .particle-system {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .divine-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--divine-gold);
+            border-radius: 50%;
+            animation: divineFloat 8s ease-in-out infinite;
+        }
+
+        @keyframes divineFloat {
+            0%, 100% { 
+                transform: translateY(0px) translateX(0px) scale(1);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            50% { 
+                transform: translateY(-100px) translateX(50px) scale(1.5);
+                opacity: 0.8;
+            }
+            90% { opacity: 1; }
+        }
+
+        /* --- Scroll Progress Indicator --- */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--sacred-purple), var(--divine-gold), var(--celestial-blue));
+            z-index: 10000;
+            transition: width 0.3s ease;
         }
 
         /* --- Navigation Bar --- */
@@ -47,11 +118,12 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(0, 4, 40, 0.8);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--divine-gold);
+            background: linear-gradient(45deg, rgba(0,0,0,0.8), rgba(25,25,112,0.8));
+            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+            border-bottom: 3px solid var(--divine-gold);
             z-index: 1000;
-            padding: 1rem 0;
+            padding: 15px 0;
         }
 
         .nav-container {
@@ -67,32 +139,24 @@
         .nav-link {
             color: var(--star-white);
             text-decoration: none;
-            font-family: 'Cinzel', serif;
+            font-family: 'Orbitron', monospace;
             font-weight: 600;
             font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: all 0.3s ease;
             position: relative;
-            padding: 0.2rem 0;
+            padding: 8px 16px;
+            border: 2px solid transparent;
+            border-radius: 8px;
         }
 
         .nav-link:hover {
-            color: var(--divine-gold);
-            text-shadow: 0 0 8px var(--divine-gold);
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--divine-gold);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
+            color: var(--void-black);
+            background: linear-gradient(45deg, var(--divine-gold), var(--holy-amber));
+            border-color: var(--star-white);
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(255,215,0,0.4);
         }
 
         /* --- Main Content & Sections --- */
@@ -107,13 +171,25 @@
 
         .section-title {
             font-family: 'Cinzel', serif;
-            font-size: 2.8rem;
-            font-weight: 700;
-            background: linear-gradient(45deg, var(--divine-gold), var(--sacred-purple));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            font-size: clamp(3rem, 8vw, 6rem);
+            color: var(--divine-gold);
+            text-shadow: 
+                0 0 20px var(--divine-gold),
+                0 0 40px var(--holy-amber),
+                5px 5px 15px rgba(0,0,0,0.8);
             margin-bottom: 1rem;
+            animation: sacredGlow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes sacredGlow {
+            from { 
+                text-shadow: 0 0 20px var(--divine-gold), 0 0 40px var(--holy-amber), 5px 5px 15px rgba(0,0,0,0.8);
+                transform: scale(1);
+            }
+            to { 
+                text-shadow: 0 0 30px var(--divine-gold), 0 0 60px var(--holy-amber), 5px 5px 15px rgba(0,0,0,0.8);
+                transform: scale(1.02);
+            }
         }
 
         .section-subtitle {
@@ -158,21 +234,54 @@
         }
 
         .library-card {
-            background: rgba(0, 4, 40, 0.7);
-            border: 1px solid var(--sacred-purple);
-            border-radius: 15px;
-            padding: 2rem;
+            background: linear-gradient(135deg, rgba(25,25,112,0.3), rgba(75,0,130,0.2));
+            border: 3px solid var(--celestial-blue);
+            border-radius: 20px;
+            padding: 40px;
             transition: all 0.4s ease;
-            display: flex;
-            flex-direction: column;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .library-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--divine-gold), var(--sacred-purple), var(--celestial-blue), var(--emerald-wisdom));
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: -1;
+        }
+
+        .library-card:hover::before {
+            opacity: 0.3;
         }
 
         .library-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px) scale(1.02);
             border-color: var(--divine-gold);
-            box-shadow: 0 15px 35px rgba(153, 50, 204, 0.25);
+            box-shadow: 0 25px 50px rgba(255,215,0,0.3);
+        }
+
+        .library-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .library-card:hover::after {
+            left: 100%;
         }
 
         .card-header {
@@ -200,14 +309,22 @@
 
         /* --- File Item and Download Button --- */
         .file-item {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 8px;
-            padding: 1rem;
-            margin-bottom: 0.75rem;
+            background: linear-gradient(45deg, rgba(255,215,0,0.1), rgba(153,50,204,0.1));
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 1rem;
+            gap: 20px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .file-item:hover {
+            border-color: var(--divine-gold);
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(255,215,0,0.2);
         }
 
         .file-info {
@@ -224,24 +341,34 @@
             color: #C0C0C0;
         }
 
-        .download-button {
-            background: linear-gradient(45deg, var(--divine-gold), var(--sacred-purple));
+        .download-button, .preview-button {
             border: none;
-            border-radius: 20px;
-            padding: 0.6rem 1.2rem;
-            color: var(--shadow-deep);
-            font-family: 'Cinzel', serif;
+            border-radius: 25px;
+            padding: 12px 20px;
+            font-family: 'Orbitron', monospace;
             font-weight: 700;
             font-size: 0.9rem;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
-            white-space: nowrap; /* Prevents button text from wrapping */
+            white-space: nowrap;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .download-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
+        .download-button {
+            background: linear-gradient(45deg, var(--divine-gold), var(--holy-amber));
+            color: var(--void-black);
+        }
+
+        .preview-button {
+            background: linear-gradient(45deg, var(--celestial-blue), var(--sacred-purple));
+            color: var(--star-white);
+        }
+
+        .download-button:hover, .preview-button:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255,215,0,0.4);
         }
 
         /* --- Footer --- */
@@ -284,20 +411,21 @@
 
         .search-input {
             width: 100%;
-            padding: 1rem 1rem 1rem 3rem;
-            border: 2px solid var(--sacred-purple);
+            padding: 15px 20px 15px 50px;
+            border: 3px solid var(--sacred-purple);
             border-radius: 25px;
-            background: rgba(0, 4, 40, 0.8);
+            background: linear-gradient(135deg, rgba(25,25,112,0.3), rgba(75,0,130,0.2));
             color: var(--star-white);
             font-family: 'Crimson Text', serif;
-            font-size: 1rem;
+            font-size: 1.1rem;
             transition: all 0.3s ease;
         }
 
         .search-input:focus {
             outline: none;
             border-color: var(--divine-gold);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 0 25px rgba(255,215,0,0.4);
+            transform: scale(1.02);
         }
 
         .search-icon {
@@ -316,22 +444,27 @@
         }
 
         .filter-btn {
-            padding: 0.6rem 1.2rem;
+            padding: 12px 20px;
             border: 2px solid var(--sacred-purple);
             border-radius: 20px;
-            background: rgba(0, 4, 40, 0.8);
+            background: linear-gradient(135deg, rgba(153,50,204,0.2), rgba(75,0,130,0.3));
             color: var(--star-white);
-            font-family: 'Cinzel', serif;
+            font-family: 'Orbitron', monospace;
             font-size: 0.9rem;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .filter-btn:hover,
         .filter-btn.active {
             border-color: var(--divine-gold);
-            background: var(--divine-gold);
-            color: var(--shadow-deep);
+            background: linear-gradient(45deg, var(--divine-gold), var(--holy-amber));
+            color: var(--void-black);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255,215,0,0.3);
         }
 
         .book-stats {
@@ -343,19 +476,46 @@
         }
 
         .stat-item {
-            background: rgba(0, 4, 40, 0.7);
-            border: 1px solid var(--sacred-purple);
-            border-radius: 10px;
-            padding: 1rem;
+            background: linear-gradient(135deg, rgba(25,25,112,0.3), rgba(75,0,130,0.2));
+            border: 2px solid var(--celestial-blue);
+            border-radius: 15px;
+            padding: 25px;
             text-align: center;
-            min-width: 120px;
+            min-width: 140px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--divine-gold), var(--sacred-purple), var(--celestial-blue), var(--emerald-wisdom));
+            border-radius: 15px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: -1;
+        }
+
+        .stat-item:hover::before {
+            opacity: 0.3;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px) scale(1.05);
+            border-color: var(--divine-gold);
         }
 
         .stat-number {
-            font-size: 1.8rem;
-            font-weight: bold;
+            font-size: 2.5rem;
+            font-weight: 700;
             color: var(--divine-gold);
             display: block;
+            font-family: 'Orbitron', monospace;
         }
 
         .stat-label {
@@ -372,16 +532,17 @@
 
         .card-category {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: var(--divine-gold);
-            color: var(--shadow-deep);
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, var(--divine-gold), var(--holy-amber));
+            color: var(--void-black);
+            padding: 8px 15px;
+            border-radius: 20px;
             font-size: 0.8rem;
-            font-weight: bold;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            font-family: 'Orbitron', monospace;
         }
 
         .card-actions {
@@ -512,7 +673,6 @@
             }
         }
 
-        /* --- Preview Modal Styles --- */
         .preview-modal {
             display: none;
             position: fixed;
@@ -520,10 +680,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0,0,0,0.9);
             z-index: 10000;
-            -webkit-backdrop-filter: blur(5px);
-            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
         }
 
         .preview-modal.active {
@@ -533,60 +693,78 @@
         }
 
         .preview-content {
-            background: var(--shadow-deep);
-            border: 2px solid var(--divine-gold);
-            border-radius: 15px;
-            max-width: 800px;
+            background: linear-gradient(135deg, var(--deep-space), #1a1a2e);
+            border: 3px solid var(--divine-gold);
+            border-radius: 20px;
+            max-width: 900px;
             max-height: 80vh;
             width: 90%;
-            padding: 2rem;
+            padding: 40px;
             position: relative;
-            box-shadow: 0 0 50px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 0 80px rgba(255,215,0,0.5);
         }
 
         .preview-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid var(--sacred-purple);
-            padding-bottom: 1rem;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--sacred-purple);
+            padding-bottom: 20px;
         }
 
         .preview-title {
             font-family: 'Cinzel', serif;
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--divine-gold);
             margin: 0;
+            text-shadow: 0 0 15px var(--divine-gold);
         }
 
         .preview-close {
-            background: var(--sacred-purple);
+            background: linear-gradient(45deg, var(--seraph-crimson), #ff6b6b);
             border: none;
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             color: var(--star-white);
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-weight: 700;
         }
 
         .preview-close:hover {
-            background: var(--celestial-blue);
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(90deg);
+            box-shadow: 0 0 20px var(--seraph-crimson);
         }
 
         .preview-text {
             max-height: 50vh;
             overflow-y: auto;
-            line-height: 1.7;
+            line-height: 1.8;
             color: var(--star-white);
-            background: rgba(0, 0, 0, 0.3);
-            padding: 1rem;
-            border-radius: 8px;
+            background: rgba(0,0,0,0.3);
+            padding: 25px;
+            border-radius: 15px;
             font-family: 'Crimson Text', serif;
+            font-size: 1.1rem;
             white-space: pre-wrap;
+            border: 2px solid var(--sacred-purple);
+        }
+
+        .preview-text::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .preview-text::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.3);
+            border-radius: 4px;
+        }
+
+        .preview-text::-webkit-scrollbar-thumb {
+            background: var(--divine-gold);
+            border-radius: 4px;
         }
 
         .preview-loading {
@@ -690,6 +868,13 @@
 <body>
 
     <div class="cosmic-background"></div>
+    <div class="sacred-patterns"></div>
+    
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
+    <!-- Particle System -->
+    <div class="particle-system" id="particleSystem"></div>
 
     <!-- Preview Modal -->
     <div id="previewModal" class="preview-modal">
@@ -1241,8 +1426,146 @@
         </div>
     </footer>
 
-    <!-- You can add your JavaScript file here for animations and interactivity -->
-    <script src="sacred_codex_scripts.js"></script>
+    <script>
+        // Scroll Progress Indicator
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.getElementById('scrollProgress');
+            const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+            scrollProgress.style.width = scrollPercent + '%';
+        });
 
+        // Particle System
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'divine-particle';
+            particle.style.left = Math.random() * window.innerWidth + 'px';
+            particle.style.top = window.innerHeight + 'px';
+            particle.style.animationDelay = Math.random() * 2 + 's';
+            
+            const colors = ['#ffd700', '#9932cc', '#4169e1', '#50c878', '#dc143c'];
+            particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+            
+            document.getElementById('particleSystem').appendChild(particle);
+            
+            setTimeout(() => {
+                if (particle.parentNode) {
+                    particle.parentNode.removeChild(particle);
+                }
+            }, 8000);
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 2500);
+
+        // Enhanced Search with Highlighting
+        function highlightSearchTerm(text, term) {
+            if (!term) return text;
+            const regex = new RegExp(`(${term})`, 'gi');
+            return text.replace(regex, '<mark style="background: var(--divine-gold); color: var(--void-black); padding: 2px 4px; border-radius: 3px;">$1</mark>');
+        }
+
+        // Update search to include highlights
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase().trim();
+            
+            libraryCards.forEach(card => {
+                const titleElement = card.querySelector('.library-card-title');
+                const descriptionElement = card.querySelector('.library-description');
+                const originalTitle = titleElement.getAttribute('data-original') || titleElement.textContent;
+                const originalDescription = descriptionElement.getAttribute('data-original') || descriptionElement.textContent;
+                
+                // Store original text if not already stored
+                if (!titleElement.getAttribute('data-original')) {
+                    titleElement.setAttribute('data-original', originalTitle);
+                    descriptionElement.setAttribute('data-original', originalDescription);
+                }
+                
+                const title = originalTitle.toLowerCase();
+                const description = originalDescription.toLowerCase();
+                const category = card.getAttribute('data-category').toLowerCase();
+                
+                if (searchTerm && (title.includes(searchTerm) || description.includes(searchTerm) || category.includes(searchTerm))) {
+                    card.style.display = 'flex';
+                    card.classList.add('fade-in');
+                    
+                    // Add highlights
+                    titleElement.innerHTML = highlightSearchTerm(originalTitle, searchTerm);
+                    descriptionElement.innerHTML = highlightSearchTerm(originalDescription, searchTerm);
+                } else if (searchTerm) {
+                    card.style.display = 'none';
+                } else {
+                    // Show all and remove highlights when search is empty
+                    card.style.display = 'flex';
+                    titleElement.innerHTML = originalTitle;
+                    descriptionElement.innerHTML = originalDescription;
+                }
+            });
+        });
+
+        // Sacred number animation for stats
+        function animateValue(element, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const currentValue = Math.floor(progress * (end - start) + start);
+                element.textContent = currentValue;
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // Animate stats on scroll
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumber = entry.target.querySelector('.stat-number');
+                    const targetValue = parseInt(statNumber.textContent);
+                    if (!isNaN(targetValue)) {
+                        animateValue(statNumber, 0, targetValue, 2000);
+                    }
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        document.querySelectorAll('.stat-item').forEach(item => {
+            statsObserver.observe(item);
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            // ESC to close modal
+            if (e.key === 'Escape' && previewModal.classList.contains('active')) {
+                previewModal.classList.remove('active');
+            }
+            
+            // Ctrl/Cmd + K to focus search
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                searchInput.focus();
+                searchInput.select();
+            }
+        });
+
+        // Initialize particles on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Create initial particles
+            for (let i = 0; i < 5; i++) {
+                setTimeout(createParticle, i * 1000);
+            }
+        });
+
+        // Sacred geometry background patterns that respond to scroll
+        window.addEventListener('scroll', () => {
+            const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+            const patterns = document.querySelector('.sacred-patterns');
+            if (patterns) {
+                patterns.style.transform = `translateX(${scrollPercent * 30}px) translateY(${scrollPercent * 20}px) rotate(${scrollPercent * 10}deg)`;
+            }
+        });
+    </script>
 </body>
 </html>
