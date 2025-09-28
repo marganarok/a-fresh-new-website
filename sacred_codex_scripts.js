@@ -1441,13 +1441,25 @@ function initSubscribeForm() {
             return;
         }
         
-        // Store in localStorage (since no backend)
+        // TODO: Replace with your email service integration
+        // Example for Mailchimp:
+        // fetch('https://your-mailchimp-endpoint.com/subscribe', {
+        //     method: 'POST',
+        //     headers: { 'Content-Type': 'application/json' },
+        //     body: JSON.stringify({ email: email })
+        // }).then(response => response.json()).then(data => {
+        //     showWisdomMessage('Welcome to the Sacred Codex! Check your email for confirmation.', 'success');
+        // }).catch(error => {
+        //     showWisdomMessage('Subscription failed. Please try again later.', 'error');
+        // });
+
+        // For now, store in localStorage (temporary solution)
         let subscribers = JSON.parse(localStorage.getItem('sacredCodex_subscribers') || '[]');
         if (subscribers.includes(email)) {
             showWisdomMessage('You are already subscribed to Divine Updates!', 'info');
             return;
         }
-        
+
         subscribers.push(email);
         localStorage.setItem('sacredCodex_subscribers', JSON.stringify(subscribers));
         
