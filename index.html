@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OMNI-EMPIRE-FRESH: Divine Digital Ministry</title>
     <meta name="description" content="A cyberpunk divine ministry exploring the intersection of faith, technology, and cosmic consciousness.">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -1304,10 +1305,118 @@
     </footer>
 
     <script>
-        // Enhanced Starfield System
+        // Optimized Starfield System with performance improvements
         class Starfield {
             constructor(canvasId, starCount, speed, size, color) {
                 this.canvas = document.getElementById(canvasId);
+                if (!this.canvas) return; // Safety check
+
+                this.ctx = this.canvas.getContext('2d');
+                this.stars = [];
+                this.starCount = starCount;
+                this.speed = speed;
+                this.size = size;
+                this.color = color;
+                this.animationId = null;
+                this.isVisible = false;
+
+                this.init();
+                this.resize();
+                this.checkVisibility();
+
+                // Throttle resize events
+                let resizeTimeout;
+                window.addEventListener('resize', () => {
+                    clearTimeout(resizeTimeout);
+                    resizeTimeout = setTimeout(() => this.resize(), 100);
+                });
+
+                // Use Intersection Observer for performance
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        this.isVisible = entry.isIntersecting;
+                        if (this.isVisible) {
+                            this.animate();
+                        } else {
+                            this.stop();
+                        }
+                    });
+                });
+                observer.observe(this.canvas);
+            }
+
+            init() {
+                for (let i = 0; i < this.starCount; i++) {
+                    this.stars.push({
+                        x: Math.random() * this.canvas.width,
+                        y: Math.random() * this.canvas.height,
+                        z: Math.random() * 1000,
+                        prevX: 0,
+                        prevY: 0
+                    });
+                }
+            }
+
+            resize() {
+                const rect = this.canvas.getBoundingClientRect();
+                this.canvas.width = rect.width;
+                this.canvas.height = rect.height;
+                this.init(); // Reinitialize stars for new size
+            }
+
+            checkVisibility() {
+                const rect = this.canvas.getBoundingClientRect();
+                this.isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+            }
+
+            animate() {
+                if (!this.isVisible) return;
+
+                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+                for (let i = 0; i < this.stars.length; i++) {
+                    const star = this.stars[i];
+
+                    star.prevX = star.x;
+                    star.prevY = star.y;
+
+                    star.z -= this.speed;
+                    if (star.z <= 0) {
+                        star.z = 1000;
+                        star.x = Math.random() * this.canvas.width;
+                        star.y = Math.random() * this.canvas.height;
+                    }
+
+                    const x = (star.x - this.canvas.width / 2) * (1000 / star.z) + this.canvas.width / 2;
+                    const y = (star.y - this.canvas.height / 2) * (1000 / star.z) + this.canvas.height / 2;
+                    const size = (1 - star.z / 1000) * this.size;
+
+                    if (x >= 0 && x <= this.canvas.width && y >= 0 && y <= this.canvas.height) {
+                        this.ctx.beginPath();
+                        this.ctx.arc(x, y, size, 0, Math.PI * 2);
+                        this.ctx.fillStyle = this.color;
+                        this.ctx.fill();
+
+                        // Add twinkling effect (reduced frequency for performance)
+                        if (Math.random() > 0.995) {
+                            this.ctx.beginPath();
+                            this.ctx.arc(x, y, size * 2, 0, Math.PI * 2);
+                            this.ctx.fillStyle = this.color.replace(')', ', 0.3)');
+                            this.ctx.fill();
+                        }
+                    }
+                }
+
+                this.animationId = requestAnimationFrame(() => this.animate());
+            }
+
+            stop() {
+                if (this.animationId) {
+                    cancelAnimationFrame(this.animationId);
+                    this.animationId = null;
+                }
+            }
+        }
                 this.ctx = this.canvas.getContext('2d');
                 this.stars = [];
                 this.starCount = starCount;
@@ -1363,16 +1472,20 @@
             }
         }
 
-        // Initialize starfields
-        const starfield1 = new Starfield('starfield-1', 300, 0.5, 2, '#ffffff');
-        const starfield2 = new Starfield('starfield-2', 200, 1, 1.5, '#00ffff');
-        const starfield3 = new Starfield('starfield-3', 100, 1.5, 1, '#ff00ff');
+        // Initialize starfields with reduced counts for better performance
+        const starfield1 = new Starfield('starfield-1', 150, 0.5, 1.5, 'rgba(255, 0, 255, 0.8)');
+        const starfield2 = new Starfield('starfield-2', 100, 0.3, 1, 'rgba(0, 255, 255, 0.6)');
+        const starfield3 = new Starfield('starfield-3', 75, 0.2, 0.8, 'rgba(255, 255, 0, 0.4)');
 
-        // Handle window resize
+        // Handle window resize with throttling
+        let resizeTimeout;
         window.addEventListener('resize', () => {
-            starfield1.resize();
-            starfield2.resize();
-            starfield3.resize();
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                starfield1.resize();
+                starfield2.resize();
+                starfield3.resize();
+            }, 100);
         });
 
         // Smooth scrolling for navigation
@@ -1408,9 +1521,10 @@
             observer.observe(section);
         });
 
-        // Add some cosmic particle effects on click
+        // Reduced particle effects for better performance
         document.addEventListener('click', (e) => {
-            for (let i = 0; i < 5; i++) {
+            // Only create particles occasionally to reduce performance impact
+            if (Math.random() > 0.7) {
                 createParticle(e.clientX, e.clientY);
             }
         });
@@ -1421,23 +1535,25 @@
                 position: fixed;
                 left: ${x}px;
                 top: ${y}px;
-                width: 4px;
-                height: 4px;
+                width: 3px;
+                height: 3px;
                 background: ${['#ff00ff', '#00ffff', '#ffff00'][Math.floor(Math.random() * 3)]};
                 border-radius: 50%;
                 pointer-events: none;
                 z-index: 9999;
-                animation: particleBurst 1s ease-out forwards;
+                animation: particleBurst 0.6s ease-out forwards;
             `;
 
             document.body.appendChild(particle);
 
             setTimeout(() => {
-                particle.remove();
-            }, 1000);
+                if (particle.parentNode) {
+                    particle.parentNode.removeChild(particle);
+                }
+            }, 600);
         }
 
-        // Add particle burst animation
+        // Add optimized particle burst animation
         const style = document.createElement('style');
         style.textContent = `
             @keyframes particleBurst {
@@ -1446,7 +1562,7 @@
                     opacity: 1;
                 }
                 100% {
-                    transform: scale(0) translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px);
+                    transform: scale(0) translate(${Math.random() * 30 - 15}px, ${Math.random() * 30 - 15}px);
                     opacity: 0;
                 }
             }

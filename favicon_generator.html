@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favicon Generator - OMNI-EMPIRE-FRESH</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #0a0a0a;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        canvas {
+            border: 2px solid #ff00ff;
+            margin: 20px auto;
+            display: block;
+        }
+        button {
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 10px;
+        }
+        button:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <h1>OMNI-EMPIRE-FRESH Favicon Generator</h1>
+    <canvas id="faviconCanvas" width="32" height="32"></canvas>
+    <br>
+    <button onclick="generateFavicon()">Generate Favicon</button>
+    <button onclick="downloadFavicon()">Download favicon.ico</button>
+    <p>Creating a cyberpunk divine favicon for your ministry...</p>
+
+    <script>
+        function generateFavicon() {
+            const canvas = document.getElementById('faviconCanvas');
+            const ctx = canvas.getContext('2d');
+
+            // Clear canvas
+            ctx.clearRect(0, 0, 32, 32);
+
+            // Create cyberpunk background
+            const gradient = ctx.createLinearGradient(0, 0, 32, 32);
+            gradient.addColorStop(0, '#ff00ff');
+            gradient.addColorStop(0.5, '#00ffff');
+            gradient.addColorStop(1, '#ffff00');
+
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 32, 32);
+
+            // Add divine symbol - OMNI
+            ctx.fillStyle = '#000000';
+            ctx.font = 'bold 8px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('OMNI', 16, 12);
+
+            // Add cyberpunk glow effect
+            ctx.shadowColor = '#ffffff';
+            ctx.shadowBlur = 3;
+            ctx.fillStyle = '#ffffff';
+            ctx.fillText('OMNI', 16, 12);
+
+            // Add divine cross/star
+            ctx.shadowBlur = 0;
+            ctx.strokeStyle = '#ffff00';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(16, 6);
+            ctx.lineTo(16, 26);
+            ctx.moveTo(6, 16);
+            ctx.lineTo(26, 16);
+            ctx.stroke();
+
+            // Add corner accents
+            ctx.fillStyle = '#ff00ff';
+            ctx.fillRect(2, 2, 4, 4);
+            ctx.fillRect(26, 2, 4, 4);
+            ctx.fillRect(2, 26, 4, 4);
+            ctx.fillRect(26, 26, 4, 4);
+        }
+
+        function downloadFavicon() {
+            const canvas = document.getElementById('faviconCanvas');
+            canvas.toBlob(function(blob) {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'favicon.ico';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            });
+        }
+
+        // Generate favicon on load
+        window.onload = generateFavicon;
+    </script>
+</body>
+</html></content>
+<parameter name="filePath">c:\Users\LiteGamer\Desktop\a fresh new website\favicon_generator.html
