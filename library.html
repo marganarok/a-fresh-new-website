@@ -30,6 +30,7 @@
             color: var(--star-white);
             line-height: 1.6;
             overflow-x: hidden;
+            min-height: 100vh;
         }
 
         /* Cosmic Background Animation */
@@ -417,7 +418,833 @@
 </body>
 </html>
 
-            --sacred-purple: #9932cc;
+    <title>Sacred Library - The Sacred Codex Universe</title>    <title>Sacred Library - The Sacred Codex Universe</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Orbitron:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Orbitron:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <style>    <style>
+
+        :root {        :root {
+
+            --divine-gold: #FFD700;            --divine-gold: #FFD700;
+
+            --sacred-purple: #9932CC;            --sacred-purple: #9932CC;
+
+            --celestial-blue: #4169E1;            --celestial-blue: #4169E1;
+
+            --emerald-wisdom: #50C878;            --emerald-wisdom: #50C878;
+
+            --crimson-passion: #DC143C;            --crimson-passion: #DC143C;
+
+            --mystic-silver: #C0C0C0;            --mystic-silver: #C0C0C0;
+
+            --star-white: #FFFACD;            --star-white: #FFFACD;
+
+            --shadow-deep: #000000;            --shadow-deep: #000000;
+
+            --cosmic-gradient: linear-gradient(135deg, #000428 0%, #004e92 100%);            --cosmic-gradient: linear-gradient(135deg, #000428 0%, #004e92 100%);
+
+        }        }
+
+
+
+        * {        * {
+
+            margin: 0;            margin: 0;
+
+            padding: 0;            padding: 0;
+
+            box-sizing: border-box;            box-sizing: border-box;
+
+        }        }
+
+
+
+        body {        body {
+
+            font-family: 'Crimson Text', serif;            font-family: 'Crimson Text', serif;
+
+            background: var(--cosmic-gradient);            background: var(--cosmic-gradient);
+
+            color: var(--star-white);            color: var(--star-white);
+
+            line-height: 1.6;            line-height: 1.6;
+
+            overflow-x: hidden;            overflow-x: hidden;
+
+            min-height: 100vh;            min-height: 100vh;
+
+        }        }
+
+
+
+        /* Cosmic Background Animation */        /* Cosmic Background Animation */
+
+        .cosmic-background {        .cosmic-background {
+
+            position: fixed;            position: fixed;
+
+            top: 0;            top: 0;
+
+            left: 0;            left: 0;
+
+            width: 100%;            width: 100%;
+
+            height: 100%;            height: 100%;
+
+            z-index: -2;            z-index: -2;
+
+            background:            background:
+
+                radial-gradient(2px 2px at 20px 30px, var(--divine-gold), transparent),                radial-gradient(2px 2px at 20px 30px, var(--divine-gold), transparent),
+
+                radial-gradient(2px 2px at 40px 70px, var(--sacred-purple), transparent),                radial-gradient(2px 2px at 40px 70px, var(--sacred-purple), transparent),
+
+                radial-gradient(1px 1px at 90px 40px, var(--celestial-blue), transparent),                radial-gradient(1px 1px at 90px 40px, var(--celestial-blue), transparent),
+
+                radial-gradient(1px 1px at 130px 80px, var(--emerald-wisdom), transparent),                radial-gradient(1px 1px at 130px 80px, var(--emerald-wisdom), transparent),
+
+                radial-gradient(2px 2px at 160px 30px, var(--crimson-passion), transparent);                radial-gradient(2px 2px at 160px 30px, var(--crimson-passion), transparent);
+
+            background-repeat: repeat;            background-repeat: repeat;
+
+            background-size: 200px 100px;            background-size: 200px 100px;
+
+            animation: cosmic-drift 20s ease-in-out infinite;            animation: cosmic-drift 20s ease-in-out infinite;
+
+        }        }
+
+
+
+        @keyframes cosmic-drift {        @keyframes cosmic-drift {
+
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+
+            33% { transform: translate(-30px, -30px) rotate(120deg); }            33% { transform: translate(-30px, -30px) rotate(120deg); }
+
+            66% { transform: translate(30px, -60px) rotate(240deg); }            66% { transform: translate(30px, -60px) rotate(240deg); }
+
+        }        }
+
+
+
+        /* Navigation */        /* Navigation */
+
+        .sacred-nav {        .sacred-nav {
+
+            position: fixed;            position: fixed;
+
+            top: 0;            top: 0;
+
+            width: 100%;            width: 100%;
+
+            background: rgba(0, 4, 40, 0.9);            background: rgba(0, 4, 40, 0.9);
+
+            backdrop-filter: blur(10px);            backdrop-filter: blur(10px);
+
+            z-index: 1000;            z-index: 1000;
+
+            padding: 1rem 0;            padding: 1rem 0;
+
+            border-bottom: 1px solid var(--divine-gold);            border-bottom: 1px solid var(--divine-gold);
+
+        }        }
+
+
+
+        .nav-container {        .nav-container {
+
+            max-width: 1200px;            max-width: 1200px;
+
+            margin: 0 auto;            margin: 0 auto;
+
+            display: flex;            display: flex;
+
+            justify-content: center;            justify-content: center;
+
+            gap: 2rem;            gap: 2rem;
+
+            flex-wrap: wrap;            flex-wrap: wrap;
+
+        }        }
+
+
+
+        .nav-link {        .nav-link {
+
+            color: var(--mystic-silver);            color: var(--mystic-silver);
+
+            text-decoration: none;            text-decoration: none;
+
+            font-family: 'Cinzel', serif;            font-family: 'Cinzel', serif;
+
+            font-weight: 600;            font-weight: 600;
+
+            font-size: 0.9rem;            font-size: 0.9rem;
+
+            padding: 0.5rem 1rem;            padding: 0.5rem 1rem;
+
+            border-radius: 25px;            border-radius: 25px;
+
+            transition: all 0.3s ease;            transition: all 0.3s ease;
+
+            border: 1px solid transparent;            border: 1px solid transparent;
+
+        }        }
+
+
+
+        .nav-link:hover {        .nav-link:hover {
+
+            color: var(--divine-gold);            color: var(--divine-gold);
+
+            background: rgba(255, 215, 0, 0.1);            background: rgba(255, 215, 0, 0.1);
+
+            border-color: var(--divine-gold);            border-color: var(--divine-gold);
+
+            transform: translateY(-2px);            transform: translateY(-2px);
+
+        }        }
+
+
+
+        /* Main Content */        /* Main Content */
+
+        .library-container {        .library-container {
+
+            max-width: 1200px;            max-width: 1200px;
+
+            margin: 0 auto;            margin: 0 auto;
+
+            padding: 120px 2rem 4rem;            padding: 120px 2rem 4rem;
+
+        }        }
+
+
+
+        .library-header {        .library-header {
+
+            text-align: center;            text-align: center;
+
+            margin-bottom: 3rem;            margin-bottom: 3rem;
+
+        }        }
+
+
+
+        .library-title {        .library-title {
+
+            font-family: 'Cinzel', serif;            font-family: 'Cinzel', serif;
+
+            font-size: 3rem;            font-size: 3rem;
+
+            font-weight: 700;            font-weight: 700;
+
+            color: var(--divine-gold);            color: var(--divine-gold);
+
+            margin-bottom: 1rem;            margin-bottom: 1rem;
+
+            text-shadow: 0 0 20px var(--sacred-purple);            text-shadow: 0 0 20px var(--sacred-purple);
+
+        }        }
+
+
+
+        .library-subtitle {        .library-subtitle {
+
+            font-size: 1.2rem;            font-size: 1.2rem;
+
+            color: var(--mystic-silver);            color: var(--mystic-silver);
+
+            max-width: 600px;            max-width: 600px;
+
+            margin: 0 auto;            margin: 0 auto;
+
+        }        }
+
+
+
+        /* Library Grid */        /* Library Grid */
+
+        .library-grid {        .library-grid {
+
+            display: grid;            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+
+            gap: 2rem;            gap: 2rem;
+
+            margin-top: 2rem;            margin-top: 2rem;
+
+        }        }
+
+
+
+        .sacred-text-card {        .sacred-text-card {
+
+            background: rgba(0, 4, 40, 0.8);            background: rgba(0, 4, 40, 0.8);
+
+            backdrop-filter: blur(10px);            backdrop-filter: blur(10px);
+
+            border: 1px solid var(--sacred-purple);            border: 1px solid var(--sacred-purple);
+
+            border-radius: 15px;            border-radius: 15px;
+
+            padding: 2rem;            padding: 2rem;
+
+            transition: all 0.3s ease;            transition: all 0.3s ease;
+
+            position: relative;            position: relative;
+
+            overflow: hidden;            overflow: hidden;
+
+        }        }
+
+
+
+        .sacred-text-card::before {        .sacred-text-card::before {
+
+            content: '';            content: '';
+
+            position: absolute;            position: absolute;
+
+            top: 0;            top: 0;
+
+            left: 0;            left: 0;
+
+            right: 0;            right: 0;
+
+            height: 3px;            height: 3px;
+
+            background: linear-gradient(90deg, var(--divine-gold), var(--sacred-purple), var(--celestial-blue));            background: linear-gradient(90deg, var(--divine-gold), var(--sacred-purple), var(--celestial-blue));
+
+        }        }
+
+
+
+        .sacred-text-card:hover {        .sacred-text-card:hover {
+
+            transform: translateY(-5px);            transform: translateY(-5px);
+
+            border-color: var(--divine-gold);            border-color: var(--divine-gold);
+
+            box-shadow: 0 10px 30px rgba(153, 50, 204, 0.3);            box-shadow: 0 10px 30px rgba(153, 50, 204, 0.3);
+
+        }        }
+
+
+
+        .text-title {        .text-title {
+
+            font-family: 'Cinzel', serif;            font-family: 'Cinzel', serif;
+
+            font-size: 1.5rem;            font-size: 1.5rem;
+
+            font-weight: 600;            font-weight: 600;
+
+            color: var(--divine-gold);            color: var(--divine-gold);
+
+            margin-bottom: 1rem;            margin-bottom: 1rem;
+
+        }        }
+
+
+
+        .text-description {        .text-description {
+
+            color: var(--mystic-silver);            color: var(--mystic-silver);
+
+            margin-bottom: 1.5rem;            margin-bottom: 1.5rem;
+
+            line-height: 1.6;            line-height: 1.6;
+
+        }        }
+
+
+
+        .text-meta {        .text-meta {
+
+            display: flex;            display: flex;
+
+            justify-content: space-between;            justify-content: space-between;
+
+            align-items: center;            align-items: center;
+
+            margin-bottom: 1.5rem;            margin-bottom: 1.5rem;
+
+            font-size: 0.9rem;            font-size: 0.9rem;
+
+            color: var(--star-white);            color: var(--star-white);
+
+        }        }
+
+
+
+        .text-category {        .text-category {
+
+            background: var(--sacred-purple);            background: var(--sacred-purple);
+
+            padding: 0.25rem 0.75rem;            padding: 0.25rem 0.75rem;
+
+            border-radius: 15px;            border-radius: 15px;
+
+            font-size: 0.8rem;            font-size: 0.8rem;
+
+            font-weight: 600;            font-weight: 600;
+
+        }        }
+
+
+
+        /* Download Button */        /* Download Button */
+
+        .download-section {        .download-section {
+
+            display: flex;            display: flex;
+
+            gap: 1rem;            gap: 1rem;
+
+            align-items: center;            align-items: center;
+
+        }        }
+
+
+
+        .download-btn {        .download-btn {
+
+            background: linear-gradient(135deg, var(--divine-gold), var(--sacred-purple));            background: linear-gradient(135deg, var(--divine-gold), var(--sacred-purple));
+
+            color: var(--shadow-deep);            color: var(--shadow-deep);
+
+            text-decoration: none;            text-decoration: none;
+
+            padding: 0.75rem 1.5rem;            padding: 0.75rem 1.5rem;
+
+            border-radius: 25px;            border-radius: 25px;
+
+            font-family: 'Cinzel', serif;            font-family: 'Cinzel', serif;
+
+            font-weight: 600;            font-weight: 600;
+
+            font-size: 0.9rem;            font-size: 0.9rem;
+
+            transition: all 0.3s ease;            transition: all 0.3s ease;
+
+            border: none;            border: none;
+
+            cursor: pointer;            cursor: pointer;
+
+            display: inline-flex;            display: inline-flex;
+
+            align-items: center;            align-items: center;
+
+            gap: 0.5rem;            gap: 0.5rem;
+
+            min-width: 120px;            min-width: 120px;
+
+            justify-content: center;            justify-content: center;
+
+        }        }
+
+
+
+        .download-btn:hover {        .download-btn:hover {
+
+            transform: translateY(-2px);            transform: translateY(-2px);
+
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+
+        }        }
+
+
+
+        .download-btn:active {        .download-btn:active {
+
+            transform: translateY(0);            transform: translateY(0);
+
+        }        }
+
+
+
+        .file-info {        .file-info {
+
+            font-size: 0.8rem;            font-size: 0.8rem;
+
+            color: var(--mystic-silver);            color: var(--mystic-silver);
+
+        }        }
+
+
+
+        /* Scroll Progress */        /* Scroll Progress */
+
+        .scroll-progress-container {        .scroll-progress-container {
+
+            position: fixed;            position: fixed;
+
+            top: 0;            top: 0;
+
+            left: 0;            left: 0;
+
+            width: 100%;            width: 100%;
+
+            height: 3px;            height: 3px;
+
+            background: rgba(0, 4, 40, 0.8);            background: rgba(0, 4, 40, 0.8);
+
+            z-index: 1001;            z-index: 1001;
+
+        }        }
+
+
+
+        #scrollProgress {        #scrollProgress {
+
+            height: 100%;            height: 100%;
+
+            background: linear-gradient(90deg, var(--divine-gold), var(--sacred-purple));            background: linear-gradient(90deg, var(--divine-gold), var(--sacred-purple));
+
+            width: 0%;            width: 0%;
+
+            transition: width 0.25s ease;            transition: width 0.25s ease;
+
+        }        }
+
+
+
+        /* Responsive Design */        /* Responsive Design */
+
+        @media (max-width: 768px) {        @media (max-width: 768px) {
+
+            .nav-container {            .nav-container {
+
+                gap: 1rem;                gap: 1rem;
+
+                padding: 0 1rem;                padding: 0 1rem;
+
+            }            }
+
+
+
+            .nav-link {            .nav-link {
+
+                font-size: 0.8rem;                font-size: 0.8rem;
+
+                padding: 0.4rem 0.8rem;                padding: 0.4rem 0.8rem;
+
+            }            }
+
+
+
+            .library-container {            .library-container {
+
+                padding: 100px 1rem 2rem;                padding: 100px 1rem 2rem;
+
+            }            }
+
+
+
+            .library-title {            .library-title {
+
+                font-size: 2rem;                font-size: 2rem;
+
+            }            }
+
+
+
+            .library-grid {            .library-grid {
+
+                grid-template-columns: 1fr;                grid-template-columns: 1fr;
+
+                gap: 1.5rem;                gap: 1.5rem;
+
+            }            }
+
+
+
+            .download-section {            .download-section {
+
+                flex-direction: column;                flex-direction: column;
+
+                align-items: stretch;                align-items: stretch;
+
+                gap: 0.5rem;                gap: 0.5rem;
+
+            }            }
+
+
+
+            .download-btn {            .download-btn {
+
+                width: 100%;                width: 100%;
+
+            }            }
+
+        }        }
+
+
+
+        /* Sacred Particles Animation */        /* Sacred Particles Animation */
+
+        .sacred-particle {        .sacred-particle {
+
+            position: absolute;            position: absolute;
+
+            background: var(--divine-gold);            background: var(--divine-gold);
+
+            border-radius: 50%;            border-radius: 50%;
+
+            pointer-events: none;            pointer-events: none;
+
+            animation: particle-float 6s ease-in-out infinite;            animation: particle-float 6s ease-in-out infinite;
+
+        }        }
+
+
+
+        @keyframes particle-float {        @keyframes particle-float {
+
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }            50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+
+        }        }
+
+    </style>    </style>
+
+</head></head>
+
+<body><body>
+
+    <!-- Cosmic Background -->    <!-- Cosmic Background -->
+
+    <div class="cosmic-background"></div>    <div class="cosmic-background"></div>
+
+
+
+    <!-- Scroll Progress -->    <!-- Scroll Progress -->
+
+    <div class="scroll-progress-container">    <div class="scroll-progress-container">
+
+        <div id="scrollProgress"></div>        <div id="scrollProgress"></div>
+
+    </div>    </div>
+
+
+
+    <!-- Navigation -->    <!-- Navigation -->
+
+    <nav class="sacred-nav">    <nav class="sacred-nav">
+
+        <div class="nav-container">        <div class="nav-container">
+
+            <a href="index.html" class="nav-link">Home</a>            <a href="index.html" class="nav-link">Home</a>
+
+            <a href="genesis.html" class="nav-link">Genesis</a>            <a href="genesis.html" class="nav-link">Genesis</a>
+
+            <a href="geometry.html" class="nav-link">Geometry</a>            <a href="geometry.html" class="nav-link">Geometry</a>
+
+            <a href="mathematics.html" class="nav-link">Mathematics</a>            <a href="mathematics.html" class="nav-link">Mathematics</a>
+
+            <a href="masters.html" class="nav-link">Masters</a>            <a href="masters.html" class="nav-link">Masters</a>
+
+            <a href="alchemy.html" class="nav-link">Alchemy</a>            <a href="alchemy.html" class="nav-link">Alchemy</a>
+
+            <a href="library.html" class="nav-link">Library</a>            <a href="library.html" class="nav-link">Library</a>
+
+            <a href="digital.html" class="nav-link">Digital Ministry</a>            <a href="digital.html" class="nav-link">Digital Ministry</a>
+
+            <a href="wisdom.html" class="nav-link">Wisdom Portal</a>            <a href="wisdom.html" class="nav-link">Wisdom Portal</a>
+
+        </div>        </div>
+
+    </nav>    </nav>
+
+
+
+    <!-- Main Content -->    <!-- Main Content -->
+
+    <div class="library-container">    <div class="library-container">
+
+        <header class="library-header">        <header class="library-header">
+
+            <h1 class="library-title">Sacred Library</h1>            <h1 class="library-title">Sacred Library</h1>
+
+            <p class="library-subtitle">Ancient wisdom preserved through the ages. Download these sacred texts to deepen your understanding of the universe's hidden knowledge.</p>            <p class="library-subtitle">Ancient wisdom preserved through the ages. Download these sacred texts to deepen your understanding of the universe's hidden knowledge.</p>
+
+        </header>        </header>
+
+
+
+        <div class="library-grid">        <div class="library-grid">
+
+            <!-- Book of Enoch - Chapter 1 -->            <!-- Book of Enoch - Chapter 1 -->
+
+            <div class="sacred-text-card">            <div class="sacred-text-card">
+
+                <h2 class="text-title">Book of Enoch - Chapter 1</h2>                <h2 class="text-title">Book of Enoch - Chapter 1</h2>
+
+                <p class="text-description">The first chapter of the ancient Book of Enoch, containing prophecies and visions of the fallen angels and the coming judgment.</p>                <p class="text-description">The first chapter of the ancient Book of Enoch, containing prophecies and visions of the fallen angels and the coming judgment.</p>
+
+                <div class="text-meta">                <div class="text-meta">
+
+                    <span class="text-category">Prophecy</span>                    <span class="text-category">Prophecy</span>
+
+                    <span class="file-info">Text File</span>                    <span class="file-info">Text File</span>
+
+                </div>                </div>
+
+                <div class="download-section">                <div class="download-section">
+
+                    <a href="Library/Enoch-1.txt" download="Book-of-Enoch-Chapter-1.txt" class="download-btn">                    <a href="Library/Enoch-1.txt" download="Book-of-Enoch-Chapter-1.txt" class="download-btn">
+
+                        📖 Download                        📖 Download
+
+                    </a>                    </a>
+
+                </div>                </div>
+
+            </div>            </div>
+
+
+
+            <!-- Book of Enoch - Chapter 2 -->            <!-- Book of Enoch - Chapter 2 -->
+
+            <div class="sacred-text-card">            <div class="sacred-text-card">
+
+                <h2 class="text-title">Book of Enoch - Chapter 2</h2>                <h2 class="text-title">Book of Enoch - Chapter 2</h2>
+
+                <p class="text-description">Continuing the revelations of Enoch, this chapter delves deeper into the mysteries of the heavenly realms and divine knowledge.</p>                <p class="text-description">Continuing the revelations of Enoch, this chapter delves deeper into the mysteries of the heavenly realms and divine knowledge.</p>
+
+                <div class="text-meta">                <div class="text-meta">
+
+                    <span class="text-category">Prophecy</span>                    <span class="text-category">Prophecy</span>
+
+                    <span class="file-info">Text File</span>                    <span class="file-info">Text File</span>
+
+                </div>                </div>
+
+                <div class="download-section">                <div class="download-section">
+
+                    <a href="Library/Enoch-2.txt" download="Book-of-Enoch-Chapter-2.txt" class="download-btn">                    <a href="Library/Enoch-2.txt" download="Book-of-Enoch-Chapter-2.txt" class="download-btn">
+
+                        📖 Download                        📖 Download
+
+                    </a>                    </a>
+
+                </div>                </div>
+
+            </div>            </div>
+
+
+
+            <!-- Book of Enoch - Chapter 3 -->            <!-- Book of Enoch - Chapter 3 -->
+
+            <div class="sacred-text-card">            <div class="sacred-text-card">
+
+                <h2 class="text-title">Book of Enoch - Chapter 3</h2>                <h2 class="text-title">Book of Enoch - Chapter 3</h2>
+
+                <p class="text-description">The final chapter of Enoch's visions, revealing the ultimate destiny of the righteous and the fate of the wicked.</p>                <p class="text-description">The final chapter of Enoch's visions, revealing the ultimate destiny of the righteous and the fate of the wicked.</p>
+
+                <div class="text-meta">                <div class="text-meta">
+
+                    <span class="text-category">Prophecy</span>                    <span class="text-category">Prophecy</span>
+
+                    <span class="file-info">Text File</span>                    <span class="file-info">Text File</span>
+
+                </div>                </div>
+
+                <div class="download-section">                <div class="download-section">
+
+                    <a href="Library/Enoch-3.txt" download="Book-of-Enoch-Chapter-3.txt" class="download-btn">                    <a href="Library/Enoch-3.txt" download="Book-of-Enoch-Chapter-3.txt" class="download-btn">
+
+                        📖 Download                        📖 Download
+
+                    </a>                    </a>
+
+                </div>                </div>
+
+            </div>            </div>
+
+
+
+            <!-- The Kybalion -->            <!-- The Kybalion -->
+
+            <div class="sacred-text-card">            <div class="sacred-text-card">
+
+                <h2 class="text-title">The Kybalion</h2>                <h2 class="text-title">The Kybalion</h2>
+
+                <p class="text-description">A study of the hermetic philosophy of ancient Egypt and Greece, revealing the seven hermetic principles that govern the universe.</p>                <p class="text-description">A study of the hermetic philosophy of ancient Egypt and Greece, revealing the seven hermetic principles that govern the universe.</p>
+
+                <div class="text-meta">                <div class="text-meta">
+
+                    <span class="text-category">Hermetics</span>                    <span class="text-category">Hermetics</span>
+
+                    <span class="file-info">Text File</span>                    <span class="file-info">Text File</span>
+
+                </div>                </div>
+
+                <div class="download-section">                <div class="download-section">
+
+                    <a href="Library/Kybalion.txt" download="The-Kybalion.txt" class="download-btn">                    <a href="Library/Kybalion.txt" download="The-Kybalion.txt" class="download-btn">
+
+                        📖 Download                        📖 Download
+
+                    </a>                    </a>
+
+                </div>                </div>
+
+            </div>            </div>
+
+
+
+            <!-- The Emerald Tablet -->            <!-- The Emerald Tablet -->
+
+            <div class="sacred-text-card">            <div class="sacred-text-card">
+
+                <h2 class="text-title">The Emerald Tablet</h2>                <h2 class="text-title">The Emerald Tablet</h2>
+
+                <p class="text-description">The legendary tablet of Hermes Trismegistus, containing the fundamental principles of alchemy and the philosopher's stone.</p>                <p class="text-description">The legendary tablet of Hermes Trismegistus, containing the fundamental principles of alchemy and the philosopher's stone.</p>
+
+                <div class="text-meta">                <div class="text-meta">
+
+                    <span class="text-category">Alchemy</span>                    <span class="text-category">Alchemy</span>
+
+                    <span class="file-info">Text File</span>                    <span class="file-info">Text File</span>
+
+                </div>                </div>
+
+                <div class="download-section">                <div class="download-section">
+
+                    <a href="Library/Emerald-Tablet.txt" download="The-Emerald-Tablet.txt" class="download-btn">                    <a href="Library/Emerald-Tablet.txt" download="The-Emerald-Tablet.txt" class="download-btn">
+
+                        📖 Download                        📖 Download
+
+                    </a>                    </a>
+
+                </div>                </div>
+
+            </div>            </div>
+
+        </div>        </div>
+
+    </div>    </div>
+
+
+
+    <!-- Sacred Particles -->    <!-- Sacred Particles -->
+
+    <div id="sacredParticles"></div>    <div id="sacredParticles"></div>
+
+
+
+    <!-- JavaScript -->    <!-- JavaScript -->
+
+    <script src="sacred_codex_scripts.js"></script>    <script src="sacred_codex_scripts.js"></script>
+
+</body></body>
+
+</html></html>            --sacred-purple: #9932cc;
 
         body {            --celestial-blue: #4169e1;
 
@@ -1450,18 +2277,10 @@
         <section class="donation-section">
             <h2 class="donation-title">Support Our Mission</h2>
             <p class="donation-description">Help us continue providing free spiritual resources and teachings to seekers worldwide. Your support enables us to create more content and maintain this sacred library.</p>
-            <a href="#" class="donation-button">🙏 Make a Donation</a>
-        </section>
-    </main>
+    <!-- Sacred Particles -->
+    <div id="sacredParticles"></div>
 
-    <footer class="sacred-footer">
-        <div class="footer-title">The Sacred Codex Universe</div>
-        <div class="footer-content">
-            <p>Embark on a journey of spiritual discovery and digital innovation. May your path be illuminated by divine wisdom.</p>
-        </div>
-    </footer>
-
+    <!-- JavaScript -->
     <script src="sacred_codex_scripts.js"></script>
 </body>
-</html></content>
-<parameter name="filePath">c:\Users\LiteGamer\Desktop\a fresh new website\library.html
+</html>
