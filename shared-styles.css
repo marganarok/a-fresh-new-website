@@ -535,4 +535,11 @@
     }
 }
 
+/* Last Updated Timestamp */
+.last-updated {
+    font-size: 0.9em;
+    opacity: 0.8;
+    margin-top: 10px;
+}
+
 /* Navigation Container and Links */
