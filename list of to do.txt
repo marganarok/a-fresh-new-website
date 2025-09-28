@@ -34,6 +34,7 @@
 - [x] Add missing sacred_codex_scripts.min.js links to all HTML files
 - [x] Fix malformed leonardo_da_vinci_complete.html structure
 - [x] Standardize all files to use minified JavaScript
+- [x] Fix broken CSS structure in all HTML files (missing style tags and :root selectors)
 
 ## Phase 4: Social Media Links Update
 - [ ] Update all social media links to point to actual profiles
