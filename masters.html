@@ -399,9 +399,29 @@
                     const doc = parser.parseFromString(html, 'text/html');
                     const bodyContent = doc.body.innerHTML;
 
+                    // Clean the content to remove conflicting styles and use masters page theming
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = bodyContent;
+
+                    // Remove any style tags that might conflict
+                    const styleTags = tempDiv.querySelectorAll('style');
+                    styleTags.forEach(style => style.remove());
+
+                    // Update hardcoded colors to use CSS variables
+                    const elementsWithStyles = tempDiv.querySelectorAll('[style]');
+                    elementsWithStyles.forEach(el => {
+                        let style = el.getAttribute('style');
+                        // Replace hardcoded Dürer colors with CSS variables
+                        style = style.replace(/#2c1810/g, 'var(--current-bg)');
+                        style = style.replace(/#8B4513/g, 'var(--current-secondary)');
+                        style = style.replace(/#DAA520/g, 'var(--current-accent)');
+                        style = style.replace(/#f4f1e8/g, 'var(--current-text)');
+                        el.setAttribute('style', style);
+                    });
+
                     // Insert into Dürer section
                     const loadingDiv = this.durerContent.querySelector('.loading');
-                    loadingDiv.insertAdjacentHTML('afterend', bodyContent);
+                    loadingDiv.insertAdjacentHTML('afterend', tempDiv.innerHTML);
                     loadingDiv.remove();
 
                     this.durerLoaded = true;
