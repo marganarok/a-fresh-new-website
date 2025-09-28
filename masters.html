@@ -3,49 +3,439 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Renaissance Masters</title>
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Renaissance Masters - Explore the genius of Leonardo da Vinci and Albrecht Dürer through interactive sacred geometry and divine artistry.">
+    <title>Renaissance Masters - The Sacred Codex Universe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* --- Sacred Codex Theme Variables --- */
+        :root {
+            --divine-gold: #FFD700;
+            --sacred-purple: #9932CC;
+            --celestial-blue: #4169E1;
+            --emerald-wisdom: #50C878;
+            --crimson-passion: #DC143C;
+            --mystic-silver: #C0C0C0;
+            --star-white: #FFFACD;
+            --shadow-deep: #000000;
+            --cosmic-gradient: linear-gradient(135deg, #000428 0%, #004e92 100%);
+        }
+
+        * {
             margin: 0;
-            padding: 20px;
-            background: #f5f5f5;
+            padding: 0;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: 'Crimson Text', serif;
+            background: var(--shadow-deep);
+            color: var(--star-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Cosmic Background --- */
+        .cosmic-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: var(--cosmic-gradient);
+        }
+
+        .sacred-patterns {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.08;
+            background-image:
+                radial-gradient(2px 2px at 20px 30px, var(--divine-gold), transparent),
+                radial-gradient(2px 2px at 40px 70px, var(--sacred-purple), transparent),
+                radial-gradient(1px 1px at 90px 40px, var(--celestial-blue), transparent),
+                radial-gradient(1px 1px at 130px 80px, var(--emerald-wisdom), transparent),
+                radial-gradient(2px 2px at 160px 30px, var(--crimson-passion), transparent);
+            background-size: 200px 100px;
+            animation: cosmicDrift 40s ease-in-out infinite alternate;
+        }
+
+        @keyframes cosmicDrift {
+            0% { transform: translateX(0px) translateY(0px); }
+            100% { transform: translateX(20px) translateY(10px); }
+        }
+
+        /* --- Particle System --- */
+        .particle-system {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .divine-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--divine-gold);
+            border-radius: 50%;
+            animation: divineFloat 8s ease-in-out infinite;
+        }
+
+        @keyframes divineFloat {
+            0%, 100% {
+                transform: translateY(0px) translateX(0px) scale(1);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            50% {
+                transform: translateY(-100px) translateX(50px) scale(1.2);
+                opacity: 0.8;
+            }
+        }
+
+        /* --- Scroll Progress --- */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--divine-gold), var(--sacred-purple), var(--celestial-blue));
+            z-index: 9999;
+            transition: width 0.3s ease;
+        }
+
+        /* --- Navigation Bar --- */
+        .sacred-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(45deg, rgba(0,0,0,0.8), rgba(25,25,112,0.8));
+            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+            border-bottom: 3px solid var(--divine-gold);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            padding: 0 1rem;
+        }
+
+        .nav-link {
+            color: var(--star-white);
+            text-decoration: none;
+            font-family: 'Orbitron', monospace;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 8px 16px;
+            border: 2px solid transparent;
+            border-radius: 8px;
+        }
+
+        .nav-link:hover {
+            color: var(--shadow-deep);
+            background: linear-gradient(45deg, var(--divine-gold), var(--sacred-purple));
+            border-color: var(--star-white);
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(255,215,0,0.4);
+        }
+
+        /* --- Main Content --- */
+        .main-content {
+            padding: 120px 2rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(4rem, 8vw, 8rem);
+            color: var(--divine-gold);
+            text-align: center;
+            text-shadow:
+                0 0 20px var(--divine-gold),
+                0 0 40px var(--sacred-purple),
+                5px 5px 15px rgba(0,0,0,0.8);
+            margin-bottom: 2rem;
+            animation: titleGlow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            from { filter: drop-shadow(0 0 20px var(--divine-gold)); }
+            to { filter: drop-shadow(0 0 40px var(--sacred-purple)); }
+        }
+
+        .page-subtitle {
+            font-size: 1.4rem;
+            color: var(--mystic-silver);
+            text-align: center;
+            margin-bottom: 4rem;
+            font-style: italic;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- Master Sections --- */
         .master-section {
-            margin: 20px 0;
-            padding: 20px;
-            border: 2px solid #ccc;
-            border-radius: 10px;
-            background: white;
+            margin: 4rem 0;
+            padding: 3rem;
+            background: rgba(0,0,0,0.4);
+            border: 3px solid var(--divine-gold);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
         }
-        iframe {
+
+        .master-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, rgba(255,215,0,0.05), rgba(153,50,204,0.05));
+            animation: sectionGlow 8s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+
+        @keyframes sectionGlow {
+            from { opacity: 0.3; }
+            to { opacity: 0.7; }
+        }
+
+        .master-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: var(--divine-gold);
+            text-align: center;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 15px var(--divine-gold);
+        }
+
+        .master-description {
+            font-size: 1.1rem;
+            color: var(--mystic-silver);
+            text-align: center;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .master-controls {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .master-button {
+            background: linear-gradient(45deg, var(--divine-gold), var(--sacred-purple));
+            border: none;
+            border-radius: 12px;
+            padding: 15px 30px;
+            color: var(--shadow-deep);
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+        }
+
+        .master-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(255,215,0,0.5);
+        }
+
+        .master-iframe {
             width: 100%;
             height: 1200px;
-            border: none;
-            border-radius: 5px;
+            border: 3px solid var(--divine-gold);
+            border-radius: 15px;
+            background: rgba(0,0,0,0.8);
+            box-shadow:
+                0 0 30px rgba(255,215,0,0.2),
+                inset 0 0 30px rgba(0,0,0,0.5);
+        }
+
+        /* --- Footer --- */
+        .sacred-footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            border-top: 2px solid var(--divine-gold);
+        }
+
+        .footer-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--divine-gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-content {
+            color: var(--mystic-silver);
+            font-size: 1rem;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 100px 1rem 2rem;
+            }
+
+            .page-title {
+                font-size: clamp(2.5rem, 10vw, 4rem);
+            }
+
+            .master-section {
+                margin: 2rem 0;
+                padding: 2rem 1.5rem;
+            }
+
+            .master-iframe {
+                height: 800px;
+            }
+
+            .nav-container {
+                gap: 1rem;
+            }
+
+            .nav-link {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
         }
     </style>
 </head>
 <body>
-    <h1 style="text-align: center; margin-bottom: 30px;">Renaissance Masters</h1>
+    <!-- Cosmic Background Elements -->
+    <div class="cosmic-background"></div>
+    <div class="sacred-patterns"></div>
+    <div class="particle-system" id="particleSystem"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
 
-    <!-- Leonardo Section -->
-    <div class="master-section">
-        <h2>Leonardo da Vinci</h2>
-        <iframe src="leonardo_da_vinci_complete.html"></iframe>
-    </div>
+    <!-- Navigation -->
+    <nav class="sacred-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="genesis.html" class="nav-link">Genesis</a>
+            <a href="geometry.html" class="nav-link">Geometry</a>
+            <a href="mathematics.html" class="nav-link">Mathematics</a>
+            <a href="masters.html" class="nav-link">Masters</a>
+            <a href="alchemy.html" class="nav-link">Alchemy</a>
+            <a href="library.html" class="nav-link">Library</a>
+            <a href="digital.html" class="nav-link">Digital Ministry</a>
+            <a href="wisdom.html" class="nav-link">Wisdom Portal</a>
+        </div>
+    </nav>
 
-    <!-- Durer Section -->
-    <div class="master-section">
-        <h2>Albrecht Durer</h2>
-        <button onclick="showMonogram()" style="margin-bottom: 10px; padding: 10px 20px; background: #DAA520; color: #2c1810; border: none; border-radius: 5px; cursor: pointer;">Show The AD Monogram</button>
-        <iframe id="durerFrame" src="albrecht_durer_research.html"></iframe>
-    </div>
+    <!-- Main Content -->
+    <main class="main-content">
+        <h1 class="page-title">Renaissance Masters</h1>
+        <p class="page-subtitle">Explore the divine genius of Leonardo da Vinci and Albrecht Dürer through sacred geometry, divine proportion, and mystical artistry that transcends time itself.</p>
+
+        <!-- Leonardo Section -->
+        <section class="master-section">
+            <h2 class="master-title">Leonardo da Vinci</h2>
+            <p class="master-description">The ultimate Renaissance genius whose scientific curiosity, artistic mastery, and spiritual insights continue to illuminate humanity's path toward divine understanding.</p>
+            <div class="master-controls">
+                <button class="master-button" onclick="focusLeonardo()">🔍 Explore His Genius</button>
+                <button class="master-button" onclick="toggleLeonardoMirror()">🪞 Mirror Writing</button>
+            </div>
+            <iframe src="leonardo_da_vinci_complete.html" class="master-iframe" id="leonardoFrame" title="Leonardo da Vinci - Complete Master Study"></iframe>
+        </section>
+
+        <!-- Durer Section -->
+        <section class="master-section">
+            <h2 class="master-title">Albrecht Dürer</h2>
+            <p class="master-description">The master of sacred symbolism whose mathematical precision and mystical vision revealed the divine geometry underlying all creation.</p>
+            <div class="master-controls">
+                <button class="master-button" onclick="showMonogram()">✨ Reveal The AD Monogram</button>
+                <button class="master-button" onclick="focusDurer()">🔍 Explore His Vision</button>
+            </div>
+            <iframe src="albrecht_durer_research.html" class="master-iframe" id="durerFrame" title="Albrecht Dürer - Master of Sacred Symbols"></iframe>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="sacred-footer">
+        <div class="footer-title">The Sacred Codex Universe</div>
+        <div class="footer-content">Where ancient wisdom meets divine artistry. May these masters illuminate your path.</div>
+    </footer>
 
     <script>
+        // Scroll Progress Indicator
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.getElementById('scrollProgress');
+            const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+            scrollProgress.style.width = scrollPercent + '%';
+        });
+
+        // Create divine particles
+        function createParticle() {
+            const particleSystem = document.getElementById('particleSystem');
+            const particle = document.createElement('div');
+            particle.className = 'divine-particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 8 + 's';
+            particleSystem.appendChild(particle);
+
+            setTimeout(() => {
+                particle.remove();
+            }, 8000);
+        }
+
+        // Initialize particles
+        document.addEventListener('DOMContentLoaded', () => {
+            for (let i = 0; i < 15; i++) {
+                setTimeout(createParticle, i * 500);
+            }
+            setInterval(createParticle, 3000);
+        });
+
+        // Master interaction functions
         function showMonogram() {
             const iframe = document.getElementById('durerFrame');
             iframe.contentWindow.postMessage({ action: 'showSection', sectionId: 'monogram' }, '*');
+        }
+
+        function focusLeonardo() {
+            const iframe = document.getElementById('leonardoFrame');
+            iframe.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function focusDurer() {
+            const iframe = document.getElementById('durerFrame');
+            iframe.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function toggleLeonardoMirror() {
+            const iframe = document.getElementById('leonardoFrame');
+            iframe.contentWindow.postMessage({ action: 'toggleMirror' }, '*');
         }
     </script>
 </body>
