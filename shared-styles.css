@@ -414,6 +414,47 @@
         top: 35px;
         left: 35px;
     }
+
+    /* Additional mobile optimizations */
+    .hero-section {
+        padding: 60px 20px;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+
+    .sacred-section {
+        padding: 40px 20px;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+    }
+
+    .social-section {
+        padding: 40px 20px;
+    }
+
+    .social-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 15px;
+    }
+
+    .community-section {
+        padding: 40px 20px;
+    }
+
+    .community-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 }
 
 /* Navigation Container and Links */
