@@ -425,13 +425,6 @@
     margin: 20px 0;
 }
 
-/* Navigation Container within Header Top */
-.header-top .nav-container {
-    justify-content: flex-end;
-    margin: 0;
-    gap: 10px;
-}
-
 .nav-link {
     color: var(--star-white);
     text-decoration: none;
