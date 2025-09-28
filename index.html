@@ -99,6 +99,17 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" href="favicon-3d-mantra.svg">
 
+    <!-- Performance Optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.paypal.com">
+    <link rel="preconnect" href="https://gumroad.com">
+    <link rel="preconnect" href="https://www.facebook.com">
+    <link rel="preconnect" href="https://www.instagram.com">
+    <link rel="preconnect" href="https://x.com">
+    <link rel="preconnect" href="https://www.linkedin.com">
+    <link rel="preconnect" href="https://linktr.ee">
+
     <!-- Preload critical fonts for better performance -->
     <link rel="preload" href="https://fonts.gstatic.com/s/orbitron/v31/yMJRMIlzdpvBhQQL_Qq7dys.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="https://fonts.gstatic.com/s/rajdhani/v15/LDIxapCSOBg7S-QT7p4.woff2" as="font" type="font/woff2" crossorigin>
@@ -106,14 +117,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="shared-styles.css" as="style">
+    <link rel="preload" href="shared-styles.min.css" as="style">
     <link rel="preload" href="sacred_codex_scripts.min.js" as="script">
 
     <!-- DNS prefetch for external resources -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//www.paypal.com">
+    <link rel="dns-prefetch" href="//gumroad.com">
+    <link rel="dns-prefetch" href="//www.facebook.com">
+    <link rel="dns-prefetch" href="//www.instagram.com">
+    <link rel="dns-prefetch" href="//x.com">
+    <link rel="dns-prefetch" href="//www.linkedin.com">
+    <link rel="dns-prefetch" href="//linktr.ee">
 
-    <link rel="stylesheet" href="shared-styles.css">
+    <link rel="stylesheet" href="shared-styles.min.css">
     <style>
         :root {
             --neon-magenta: #ff00ff;
@@ -2112,7 +2131,7 @@
             </div>
         </section>
 
-        <section id="vision" class="section fade-in">
+        <section id="vision" class="section fade-in lazy-load">
             <h2>The Sacred Vision</h2>
             <p class="vision-quote">
                 "I prayed for this child, and the Lord has granted me what I asked of him." — 1 Samuel 1:27 (NIV)
@@ -2147,7 +2166,7 @@
             </div>
         </section>
 
-        <section id="bigger-presentation" class="section fade-in">
+        <section id="bigger-presentation" class="section fade-in lazy-load">
             <h2>The Bigger Presentation</h2>
             <div class="presentation-content">
                 <div class="presentation-header">
@@ -2207,7 +2226,7 @@
             </div>
         </section>
 
-        <section id="sacred-codex" class="section fade-in">
+        <section id="sacred-codex" class="section fade-in lazy-load">
             <h2>🙏 THE SACRED CODEX 🙏</h2>
             <p class="codex-subtitle">OF OMNI-EMPIRE-FRESH - A Divine Blueprint for Digital Ministry Blessed by the Almighty for His Glory</p>
 
@@ -2402,7 +2421,7 @@
             </div>
         </section>
 
-        <section id="divine-book" class="section fade-in">
+        <section id="divine-book" class="section fade-in lazy-load">
             <h2>📖 DIVINE DIGITAL MINISTRY</h2>
             <p class="book-subtitle">The Sacred Art of AI-Powered Creation - Building God's Kingdom in the Digital Age</p>
 
@@ -2534,7 +2553,7 @@
             </div>
         </section>
 
-        <section id="ministry" class="section fade-in">
+        <section id="ministry" class="section fade-in lazy-load">
             <h2>Digital Ministry Features</h2>
 
             <div class="content-grid">
@@ -2576,7 +2595,7 @@
             </div>
         </section>
 
-        <section id="contact" class="section fade-in">
+        <section id="contact" class="section fade-in lazy-load">
             <h2>Join the Divine Mission</h2>
             <div class="contact-content">
                 <p>Ready to be part of something eternal? Connect with the OMNI-EMPIRE-FRESH movement.</p>
@@ -2592,7 +2611,7 @@
     </main>
 
     <!-- Social Media Section -->
-    <section class="social-section">
+    <section class="social-section lazy-load">
         <div class="social-container">
             <h2 class="social-title">🌟 Connect with the Alchemist</h2>
             <p class="social-subtitle">Follow the journey through the realms of knowledge and creation</p>
@@ -2658,7 +2677,7 @@
     </section>
 
     <!-- YouTube Shorts Section -->
-    <section class="shorts-section">
+    <section class="shorts-section lazy-load">
         <h2 class="shorts-title">⚡ Alchemical Insights</h2>
         <p class="shorts-subtitle">
             Quick transformative wisdom from the Alchemist's forge.
@@ -2692,7 +2711,7 @@
     </section>
 
     <!-- Community Links Section -->
-    <section class="community-section">
+    <section class="community-section lazy-load">
         <h2 class="community-title">🌐 Join Our Alchemical Community</h2>
         <p class="community-subtitle">
             Connect with fellow seekers, support ongoing research, and access exclusive content through multiple platforms.
@@ -3010,6 +3029,6 @@
             }
         });
     </script>
-    <script src="sacred_codex_scripts.min.js"></script>
+    <script src="sacred_codex_scripts.min.js" defer></script>
 </body>
 </html>
