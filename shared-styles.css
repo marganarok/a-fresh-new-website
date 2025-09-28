@@ -455,6 +455,84 @@
         grid-template-columns: 1fr;
         gap: 20px;
     }
+
+    /* Enhanced text block optimizations */
+    .sacred-card {
+        padding: 20px;
+        margin: 20px 0;
+    }
+
+    .sacred-card p {
+        margin-bottom: 15px;
+        line-height: 1.6;
+        font-size: 0.95rem;
+    }
+
+    .sacred-quote {
+        padding: 20px;
+        margin: 20px 0;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .equation {
+        font-size: 1.2rem;
+        margin: 15px 0;
+        padding: 10px;
+    }
+
+    .wisdom-path-card {
+        padding: 20px;
+        margin: 15px 0;
+    }
+
+    .wisdom-path-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+
+    .wisdom-path-card p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    /* Consistent cosmic branding colors */
+    .cosmic-text {
+        color: var(--neon-cyan);
+    }
+
+    .divine-text {
+        color: var(--divine-gold);
+    }
+
+    .sacred-text {
+        color: var(--cosmic-purple);
+    }
+
+    /* Enhanced navigation adaptability */
+    .nav-portal-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .portal-link {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+        border-radius: 20px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .portal-link:hover {
+        background: rgba(0, 255, 255, 0.1);
+        border-color: var(--neon-cyan);
+        transform: translateY(-2px);
+    }
 }
 
 /* Navigation Container and Links */
