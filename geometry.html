@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sacred Codex Universe - Geometry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Orbitron:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --divine-gold: #FFD700;
+            --sacred-purple: #9932CC;
+            --celestial-blue: #4169E1;
+            --emerald-wisdom: #50C878;
+            --crimson-passion: #DC143C;
+            --mystic-silver: #C0C0C0;
+            --star-white: #FFFACD;
+            --shadow-deep: #000000;
+            --cosmic-gradient: linear-gradient(135deg, #000428 0%, #004e92 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Text', serif;
+            background: var(--cosmic-gradient);
+            color: var(--star-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Cosmic Background Animation */
+        .cosmic-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: 
+                radial-gradient(2px 2px at 20px 30px, var(--divine-gold), transparent),
+                radial-gradient(2px 2px at 40px 70px, var(--sacred-purple), transparent),
+                radial-gradient(1px 1px at 90px 40px, var(--celestial-blue), transparent),
+                radial-gradient(1px 1px at 130px 80px, var(--emerald-wisdom), transparent),
+                radial-gradient(2px 2px at 160px 30px, var(--crimson-passion), transparent);
+            background-repeat: repeat;
+            background-size: 200px 100px;
+            animation: sparkle 20s linear infinite;
+        }
+
+        @keyframes sparkle {
+            from { transform: translateX(0); }
+            to { transform: translateX(200px); }
+        }
+
+        /* Scroll Progress */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--divine-gold), var(--sacred-purple), var(--celestial-blue));
+            z-index: 9999;
+            transition: width 0.3s ease;
+        }
+
+        /* Navigation */
+        .sacred-nav {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid var(--divine-gold);
+            border-radius: 15px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-link {
+            display: block;
+            color: var(--divine-gold);
+            text-decoration: none;
+            margin: 10px 0;
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--sacred-purple);
+            text-shadow: 0 0 10px var(--sacred-purple);
+            transform: translateX(5px);
+        }
+
+        /* Header */
+        .sacred-header {
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cosmic-weather {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid var(--celestial-blue);
+            font-size: 0.9rem;
+            color: var(--celestial-blue);
+        }
+
+        .main-title {
+            font-family: 'Cinzel', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--divine-gold), var(--sacred-purple), var(--celestial-blue));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            from { filter: drop-shadow(0 0 20px var(--divine-gold)); }
+            to { filter: drop-shadow(0 0 40px var(--sacred-purple)); }
+        }
+
+        .subtitle {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.5rem;
+            color: var(--mystic-silver);
+            margin-bottom: 30px;
+        }
+
+        .sacred-mandala {
+            width: 200px;
+            height: 200px;
+            margin: 40px auto;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .sacred-mandala:hover {
+            transform: scale(1.1);
+        }
+
+        .mandala-ring {
+            position: absolute;
+            border: 3px solid var(--divine-gold);
+            border-radius: 50%;
+            animation: mandalaRotate 20s linear infinite;
+        }
+
+        .mandala-ring:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            top: 0;
+            left: 0;
+        }
+
+        .mandala-ring:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            top: 25px;
+            left: 25px;
+            border-color: var(--sacred-purple);
+            animation-direction: reverse;
+        }
+
+        .mandala-ring:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            top: 50px;
+            left: 50px;
+            border-color: var(--celestial-blue);
+            animation-duration: 15s;
+        }
+
+        @keyframes mandalaRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .sacred-section {
+            margin: 100px 0;
+            padding: 60px 40px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            border: 2px solid var(--divine-gold);
+            position: relative;
+            backdrop-filter: blur(5px);
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: var(--divine-gold);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--mystic-silver);
+            text-align: center;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        /* Sacred Grid */
+        .sacred-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .sacred-card {
+            background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(153,50,204,0.1));
+            border: 2px solid var(--divine-gold);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sacred-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,215,0,0.1), transparent);
+            transition: all 0.5s ease;
+            transform: rotate(-90deg);
+        }
+
+        .sacred-card:hover::before {
+            transform: rotate(90deg);
+        }
+
+        .sacred-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--sacred-purple);
+            box-shadow: 0 20px 40px rgba(153,50,204,0.3);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 20px;
+            color: var(--divine-gold);
+        }
+
+        .card-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--divine-gold);
+            margin-bottom: 15px;
+        }
+
+        .card-content {
+            color: var(--star-white);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Equations */
+        .equation-box {
+            background: rgba(0,0,0,0.5);
+            border: 3px solid var(--sacred-purple);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .equation {
+            font-family: 'Orbitron', monospace;
+            font-size: 2rem;
+            color: var(--divine-gold);
+            margin-bottom: 20px;
+        }
+
+        .equation-explanation {
+            font-size: 1.1rem;
+            color: var(--star-white);
+            line-height: 1.8;
+        }
+
+        /* Sacred Geometry */
+        .geometry-showcase {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 50px 0;
+        }
+
+        .geometry-pattern {
+            margin: 20px;
+            text-align: center;
+        }
+
+        .vesica-piscis {
+            width: 120px;
+            height: 120px;
+            position: relative;
+            margin: 0 auto 10px;
+        }
+
+        .vesica-piscis::before,
+        .vesica-piscis::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border: 3px solid var(--divine-gold);
+            border-radius: 50%;
+        }
+
+        .vesica-piscis::before {
+            left: 0;
+        }
+
+        .vesica-piscis::after {
+            right: 0;
+        }
+
+        /* Quotes */
+        .sacred-quote {
+            background: rgba(153,50,204,0.2);
+            border-left: 5px solid var(--sacred-purple);
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 10px;
+        }
+
+        .quote-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--star-white);
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .quote-author {
+            color: var(--divine-gold);
+            font-weight: 600;
+            text-align: right;
+        }
+
+        /* Particle System */
+        .particle-system {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .divine-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--divine-gold);
+            border-radius: 50%;
+            animation: particleFloat 8s linear infinite;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Footer */
+        .sacred-footer {
+            background: rgba(0,0,0,0.8);
+            padding: 60px 40px 40px;
+            text-align: center;
+            border-top: 3px solid var(--divine-gold);
+            margin-top: 100px;
+        }
+
+        .footer-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--divine-gold);
+            margin-bottom: 20px;
+        }
+
+        .footer-content {
+            color: var(--mystic-silver);
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .sacred-nav {
+                position: static;
+                margin: 20px auto;
+                max-width: 300px;
+            }
+            
+            .sacred-section {
+                padding: 30px 20px;
+                margin: 50px 0;
+            }
+            
+            .sacred-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cosmic-background"></div>
+    <div class="particle-system" id="particleSystem"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
+    <!-- Navigation -->
+    <nav class="sacred-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="genesis.html" class="nav-link">Genesis</a>
+        <a href="geometry.html" class="nav-link">Geometry</a>
+        <a href="mathematics.html" class="nav-link">Mathematics</a>
+        <a href="masters.html" class="nav-link">Masters</a>
+        <a href="alchemy.html" class="nav-link">Alchemy</a>
+        <a href="digital.html" class="nav-link">Digital Ministry</a>
+        <a href="wisdom.html" class="nav-link">Wisdom Portal</a>
+    </nav>
+
+    <!-- Header -->
+    <header class="sacred-header">
+        <div class="cosmic-weather" id="cosmicWeather">
+            <div>Cosmic Alignment: ⭐ Favorable</div>
+            <div>Divine Energy: ⚡ High</div>
+            <div>Spiritual Weather: ☀️ Clear</div>
+        </div>
+        
+        <h1 class="main-title">The Sacred Codex Universe</h1>
+        <p class="subtitle">Squared Circle</p>
+        
+        <div class="sacred-mandala" onclick="activateMandala(this)">
+            <div class="mandala-ring"></div>
+            <div class="mandala-ring"></div>
+            <div class="mandala-ring"></div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Sacred Geometry Section -->
+        <section id="geometry" class="sacred-section">
+            <h2 class="section-title">Divine Geometry & Sacred Patterns</h2>
+            <p class="section-subtitle">The mathematical harmony underlying all creation</p>
+            
+            <div class="sacred-quote">
+                <div class="quote-text">"Geometry is knowledge of the eternally existent."</div>
+                <div class="quote-author">— Plato ⚜️</div>
+            </div>
+
+            <div class="geometry-showcase">
+                <div class="geometry-pattern">
+                    <div class="vesica-piscis"></div>
+                    <p style="text-align: center; color: var(--divine-gold); margin-top: 10px; font-weight: 600;">Vesica Piscis</p>
+                </div>
+                <div class="geometry-pattern">
+                    <svg width="120" height="120" viewBox="0 0 120 120">
+                        <polygon points="60,10 85,45 115,45 95,70 105,105 60,85 15,105 25,70 5,45 35,45" 
+                                 fill="none" stroke="var(--divine-gold)" stroke-width="3"/>
+                        <circle cx="60" cy="60" r="30" fill="none" stroke="var(--sacred-purple)" stroke-width="2"/>
+                    </svg>
+                    <p style="text-align: center; color: var(--divine-gold); margin-top: 10px; font-weight: 600;">Sacred Pentagon</p>
+                </div>
+                <div class="geometry-pattern">
+                    <svg width="120" height="120" viewBox="0 0 120 120">
+                        <g transform="translate(60,60)">
+                            <circle r="20" fill="none" stroke="var(--divine-gold)" stroke-width="2"/>
+                            <circle cx="20" r="20" fill="none" stroke="var(--divine-gold)" stroke-width="2"/>
+                            <circle cx="-20" r="20" fill="none" stroke="var(--divine-gold)" stroke-width="2"/>
+                            <circle cy="17" r="20" fill="none" stroke="var(--divine-gold)" stroke-width="2"/>
+                            <circle cy="-17" r="20" fill="none" stroke="var(--divine-gold)" stroke-width="2"/>
+                        </g>
+                    </svg>
+                    <p style="text-align: center; color: var(--divine-gold); margin-top: 10px; font-weight: 600;">Flower of Life</p>
+                </div>
+            </div>
+
+            <div class="sacred-grid">
+                <div class="sacred-card">
+                    <span class="card-icon">🔯</span>
+                    <h3 class="card-title">The Golden Ratio</h3>
+                    <div class="card-content">
+                        <p>The divine proportion (φ = 1.618...) appears throughout creation, from the spiral of galaxies to the arrangement of leaves on a stem. It represents perfect balance and harmony in design.</p>
+                        <div class="equation" style="font-size: 1.5rem; margin-top: 15px;">φ = (1 + √5) ÷ 2</div>
+                    </div>
+                </div>
+
+                <div class="sacred-card">
+                    <span class="card-icon">△</span>
+                    <h3 class="card-title">Sacred Triangles</h3>
+                    <div class="card-content">
+                        <p>The triangle is the most stable geometric form, representing the trinity in many spiritual traditions. The equilateral triangle symbolizes balance, while the isosceles triangle represents the mountain or path to enlightenment.</p>
+                    </div>
+                </div>
+
+                <div class="sacred-card">
+                    <span class="card-icon">⭕</span>
+                    <h3 class="card-title">The Perfect Circle</h3>
+                    <div class="card-content">
+                        <p>The circle represents eternity, wholeness, and the divine with no beginning or end. It is the symbol of unity, completeness, and the cyclical nature of existence and time.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="color: var(--divine-gold); text-align: center; margin: 60px 0 30px; font-family: 'Cinzel', serif; font-size: 2rem;">The Seven Sacred Geometric Principles</h3>
+
+            <div class="sacred-grid">
+                <div class="sacred-card">
+                    <h4 class="card-title" style="font-size: 1.2rem;">Principle 1: The Principle of Vibration</h4>
+                    <div class="card-content">
+                        <p>All matter and energy are in constant motion, vibrating at different frequencies. Sacred geometry captures these vibrational patterns in visual form, allowing us to see the unseen forces that shape reality.</p>
+                    </div>
+                </div>
+
+                <div class="sacred-card">
+                    <h4 class="card-title" style="font-size: 1.2rem;">Principle 2: The Principle of Correspondence</h4>
+                    <div class="card-content">
+                        <p>"As above, so below; as below, so above." The same patterns repeat at all scales of existence, from atomic structures to galactic formations. Sacred geometry reveals these universal patterns.</p>
+                    </div>
+                </div>
+
+                <div class="sacred-card">
+                    <h4 class="card-title" style="font-size: 1.2rem;">Principle 3: The Principle of Divine Proportion</h4>
+                    <div class="card-content">
+                        <p>The Golden Ratio (1.618...) appears throughout nature as the most aesthetically pleasing and efficient proportion. It represents perfect balance between symmetry and asymmetry.</p>
+                    </div>
+                </div>
+
+                <div class="sacred-card">
+                    <h4 class="card-title" style="font-size: 1.2rem;">Principle 4: The Principle of Fractal Expansion</h4>
+                    <div class="card-content">
+                        <p>Complex structures emerge from simple patterns repeated at different scales. This self-similarity reveals the elegant efficiency of creation's blueprint.</p>
+                    </div>
+                </div>
+
+                <div class="sacred-card">
+                    <h4 class="card-title" style="font-size: 1.2rem;">Principle 5: The Principle of Polarity</h4>
+                    <div class="card-content">
+                        <p>Opposing forces create balance and dynamic tension. Sacred geometry illustrates how complementary opposites (like the vesica piscis) generate new forms through their interaction.</p>
+                    </div>
+                </div>
+
+                <div class="sacred-card">
+                    <h4 class="card-title" style="font-size: 1.2rem;">Principle 6: The Principle of Rhythm</h4>
+                    <div class="card-content">
+                        <p>All phenomena move in cyclical patterns. Sacred geometry captures these rhythms in static form, allowing us to perceive the dance of creation.</p>
+                    </div>
+                </div>
+
+                <div class="sacred-card">
+                    <h4 class="card-title" style="font-size: 1.2rem;">Principle 7: The Principle of Unity</h4>
+                    <div class="card-content">
+                        <p>All forms emerge from and return to unity. The circle, representing wholeness, contains within it all other geometric forms, just as the divine contains all creation.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="equation-box">
+                <div class="equation">∀x ∈ Universe: ∃ Sacred Pattern(x)</div>
+                <div class="equation-explanation">
+                    For all things in the Universe, there exists a Sacred Pattern. This fundamental theorem of divine geometry states that nothing exists without an underlying geometric blueprint. Every form, process, and system in creation follows geometric principles that can be discovered and applied.
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="sacred-footer">
+        <div class="footer-title">The Sacred Codex Universe</div>
+        <div class="footer-content">
+            <p>Embark on a journey of spiritual discovery and digital innovation. May your path be illuminated by divine wisdom.</p>
+        </div>
+    </footer>
+
+    <script src="sacred_codex_scripts.js"></script>
+</body>
+</html>
