@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sacred Texts Library - The Sacred Codex Universe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --shadow-deep: #0a0a0a;
+            --star-white: #ffffff;
+            --mystic-silver: #c0c0c0;
+            --divine-gold: #ffd700;
+            --sacred-purple: #9932cc;
+            --celestial-blue: #4169e1;
+            --emerald-wisdom: #008b8b;
+            --crimson-passion: #dc143c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Text', serif;
+            background: linear-gradient(135deg, var(--shadow-deep), #1a1a2e, #16213e);
+            color: var(--star-white);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        .sacred-nav {
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--divine-gold);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--divine-gold), var(--sacred-purple));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: var(--mystic-silver);
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--divine-gold);
+            text-shadow: 0 0 10px var(--divine-gold);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--divine-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding-top: 100px;
+            min-height: 100vh;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            background: linear-gradient(45deg, var(--divine-gold), var(--sacred-purple), var(--celestial-blue));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .section-subtitle {
+            font-size: 1.4rem;
+            color: var(--mystic-silver);
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Library Sections */
+        .library-section {
+            margin-bottom: 80px;
+        }
+
+        .library-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: var(--divine-gold);
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .library-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--divine-gold), var(--sacred-purple));
+            border-radius: 2px;
+        }
+
+        .sacred-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .library-card {
+            background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(153,50,204,0.1));
+            border: 2px solid var(--divine-gold);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .library-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,215,0,0.1), transparent);
+            transition: all 0.5s ease;
+            transform: rotate(-90deg);
+        }
+
+        .library-card:hover::before {
+            transform: rotate(90deg);
+        }
+
+        .library-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--sacred-purple);
+            box-shadow: 0 20px 40px rgba(153,50,204,0.3);
+        }
+
+        .library-icon {
+            font-size: 4rem;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .library-card-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--divine-gold);
+            margin-bottom: 15px;
+        }
+
+        .library-description {
+            color: var(--star-white);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .download-button {
+            background: linear-gradient(45deg, var(--divine-gold), var(--sacred-purple));
+            border: none;
+            border-radius: 10px;
+            padding: 12px 25px;
+            color: var(--shadow-deep);
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px;
+        }
+
+        .download-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255,215,0,0.3);
+        }
+
+        .file-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .file-item {
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .file-info {
+            flex: 1;
+            text-align: left;
+        }
+
+        .file-name {
+            font-weight: 600;
+            color: var(--divine-gold);
+            margin-bottom: 5px;
+        }
+
+        .file-description {
+            font-size: 0.9rem;
+            color: var(--mystic-silver);
+        }
+
+        /* Donation Section */
+        .donation-section {
+            background: linear-gradient(135deg, rgba(65,105,225,0.1), rgba(255,215,0,0.1));
+            padding: 60px 40px;
+            text-align: center;
+            border-radius: 20px;
+            margin: 60px 20px;
+            border: 2px solid var(--celestial-blue);
+        }
+
+        .donation-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: var(--celestial-blue);
+            margin-bottom: 20px;
+        }
+
+        .donation-description {
+            color: var(--mystic-silver);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .donation-button {
+            background: linear-gradient(45deg, var(--emerald-wisdom), var(--celestial-blue));
+            border: none;
+            border-radius: 15px;
+            padding: 15px 40px;
+            color: var(--star-white);
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .donation-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(0,139,139,0.4);
+        }
+
+        /* Footer */
+        .sacred-footer {
+            background: rgba(0,0,0,0.8);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 2px solid var(--divine-gold);
+        }
+
+        .footer-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--divine-gold);
+            margin-bottom: 15px;
+        }
+
+        .footer-content {
+            color: var(--mystic-silver);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .section-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .sacred-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .library-card {
+                padding: 20px;
+            }
+
+            .library-icon {
+                font-size: 3rem;
+            }
+
+            .library-card-title {
+                font-size: 1.5rem;
+            }
+
+            .file-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .download-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .library-section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <nav class="sacred-nav">
+        <div class="nav-container">
+            <div class="nav-title">The Sacred Codex Universe</div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="genesis.html" class="nav-link">Genesis</a>
+                <a href="geometry.html" class="nav-link">Geometry</a>
+                <a href="mathematics.html" class="nav-link">Mathematics</a>
+                <a href="masters.html" class="nav-link">Masters</a>
+                <a href="alchemy.html" class="nav-link">Alchemy</a>
+                <a href="library.html" class="nav-link">Library</a>
+                <a href="digital.html" class="nav-link">Digital Ministry</a>
+                <a href="wisdom.html" class="nav-link">Wisdom Portal</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <h1 class="section-title">Sacred Texts Library</h1>
+        <p class="section-subtitle">Free access to sacred wisdom, spiritual teachings, and transformative resources for your journey of enlightenment.</p>
+
+        <!-- Sacred Books Section -->
+        <section class="library-section">
+            <h2 class="library-title">📚 Sacred Books & Manuscripts</h2>
+            <div class="sacred-grid">
+                <div class="library-card">
+                    <div class="library-icon">📖</div>
+                    <h3 class="library-card-title">The Alchemist's Codex</h3>
+                    <p class="library-description">A comprehensive guide to spiritual alchemy, transformation, and the hermetic arts.</p>
+                    <div class="file-list">
+                        <div class="file-item">
+                            <div class="file-info">
+                                <div class="file-name">The Alchemist's Codex - Complete Edition</div>
+                                <div class="file-description">Full manuscript with illustrations and practical exercises</div>
+                            </div>
+                            <a href="#" class="download-button">📄 PDF</a>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-info">
+                                <div class="file-name">Chapter Excerpts</div>
+                                <div class="file-description">Selected chapters for preview</div>
+                            </div>
+                            <a href="#" class="download-button">📄 PDF</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="library-card">
+                    <div class="library-icon">🌟</div>
+                    <h3 class="library-card-title">Wisdom of the Ancients</h3>
+                    <p class="library-description">Collected teachings from mystical traditions spanning centuries of spiritual wisdom.</p>
+                    <div class="file-list">
+                        <div class="file-item">
+                            <div class="file-info">
+                                <div class="file-name">Wisdom of the Ancients - Volume I</div>
+                                <div class="file-description">Eastern philosophies and meditation practices</div>
+                            </div>
+                            <a href="#" class="download-button">📄 PDF</a>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-info">
+                                <div class="file-name">Wisdom of the Ancients - Volume II</div>
+                                <div class="file-description">Western esoteric traditions and alchemy</div>
+                            </div>
+                            <a href="#" class="download-button">📄 PDF</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="library-card">
+                    <div class="library-icon">🔮</div>
+                    <h3 class="library-card-title">Digital Alchemy</h3>
+                    <p class="library-description">Modern applications of ancient wisdom in the digital age.</p>
+                    <div class="file-list">
+                        <div class="file-item">
+                            <div class="file-info">
+                                <div class="file-name">Digital Alchemy - Complete Guide</div>
+                                <div class="file-description">Technology and spirituality integration</div>
+                            </div>
+                            <a href="#" class="download-button">📄 PDF</a>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-info">
+                                <div class="file-name">Digital Alchemy Workbook</div>
+                                <div class="file-description">Practical exercises and implementations</div>
+                            </div>
+                            <a href="#" class="download-button">📄 PDF</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Study Guides Section -->
+        <section class="library-section">
+            <h2 class="library-title">📝 Study Guides & Resources</h2>
+            <div class="sacred-grid">
+                <div class="library-card">
+                    <div class="library-icon">🧠</div>
+                    <h3 class="library-card-title">Meditation Practices</h3>
+                    <p class="library-description">Comprehensive guides for various meditation techniques and contemplative practices.</p>
+                    <div class="file-list">
+                        <div class="file-item">
+                            <div class="file-info">
+                                <div class="file-name">Beginner's Meditation Guide</div>
+                                <div class="file-description">Step-by-step instructions for beginners</div>
+                            </div>
+                            <a href="#" class="download-button">📄 PDF</a>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-info">
+                                <div class="file-name">Advanced Contemplation Techniques</div>
+                                <div class="file-description">Deep meditation practices for experienced practitioners</div>
+                            </div>
+                            <a href="#" class="download-button">📄 PDF</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="library-card">
+                    <div class="library-icon">🎨</div>
+                    <h3 class="library-card-title">Sacred Geometry Templates</h3>
+                    <p class="library-description">Printable templates and guides for sacred geometry studies and mandala creation.</p>
+                    <div class="file-list">
+                        <div class="file-item">
+                            <div class="file-info">
+                                <div class="file-name">Flower of Life Template</div>
+                                <div class="file-description">High-resolution printable template</div>
+                            </div>
+                            <a href="#" class="download-button">📄 PDF</a>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-info">
+                                <div class="file-name">Metatron's Cube Guide</div>
+                                <div class="file-description">Construction and meaning guide</div>
+                            </div>
+                            <a href="#" class="download-button">📄 PDF</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="library-card">
+                    <div class="library-icon">📊</div>
+                    <h3 class="library-card-title">Mathematics of Creation</h3>
+                    <p class="library-description">Explore the mathematical patterns underlying sacred geometry and universal design.</p>
+                    <div class="file-list">
+                        <div class="file-item">
+                            <div class="file-info">
+                                <div class="file-name">Fibonacci & Golden Ratio</div>
+                                <div class="file-description">Mathematical exploration with practical applications</div>
+                            </div>
+                            <a href="#" class="download-button">📄 PDF</a>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-info">
+                                <div class="file-name">Sacred Number Calculations</div>
+                                <div class="file-description">Workbook for sacred mathematics</div>
+                            </div>
+                            <a href="#" class="download-button">📄 PDF</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Audio & Video Resources -->
+        <section class="library-section">
+            <h2 class="library-title">🎧 Audio & Multimedia</h2>
+            <div class="sacred-grid">
+                <div class="library-card">
+                    <div class="library-icon">🎵</div>
+                    <h3 class="library-card-title">Guided Meditations</h3>
+                    <p class="library-description">Audio recordings for meditation, contemplation, and spiritual practice.</p>
+                    <div class="file-list">
+                        <div class="file-item">
+                            <div class="file-info">
+                                <div class="file-name">Morning Contemplation</div>
+                                <div class="file-description">20-minute guided meditation for daily practice</div>
+                            </div>
+                            <a href="#" class="download-button">🎵 MP3</a>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-info">
+                                <div class="file-name">Sacred Geometry Visualization</div>
+                                <div class="file-description">Journey through sacred patterns and forms</div>
+                            </div>
+                            <a href="#" class="download-button">🎵 MP3</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="library-card">
+                    <div class="library-icon">🎬</div>
+                    <h3 class="library-card-title">Teaching Videos</h3>
+                    <p class="library-description">Video lectures and demonstrations of spiritual practices and sacred knowledge.</p>
+                    <div class="file-list">
+                        <div class="file-item">
+                            <div class="file-info">
+                                <div class="file-name">Introduction to Alchemy</div>
+                                <div class="file-description">Foundational principles and modern applications</div>
+                            </div>
+                            <a href="#" class="download-button">🎬 MP4</a>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-info">
+                                <div class="file-name">Sacred Geometry Workshop</div>
+                                <div class="file-description">Hands-on learning experience</div>
+                            </div>
+                            <a href="#" class="download-button">🎬 MP4</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="library-card">
+                    <div class="library-icon">📱</div>
+                    <h3 class="library-card-title">Digital Tools</h3>
+                    <p class="library-description">Apps, software, and digital resources for spiritual practice and study.</p>
+                    <div class="file-list">
+                        <div class="file-item">
+                            <div class="file-info">
+                                <div class="file-name">Mandala Generator</div>
+                                <div class="file-description">Interactive tool for creating sacred patterns</div>
+                            </div>
+                            <a href="#" class="download-button">💾 ZIP</a>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-info">
+                                <div class="file-name">Meditation Timer App</div>
+                                <div class="file-description">Customizable meditation timing software</div>
+                            </div>
+                            <a href="#" class="download-button">💾 ZIP</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Donation Section -->
+        <section class="donation-section">
+            <h2 class="donation-title">Support Our Mission</h2>
+            <p class="donation-description">Help us continue providing free spiritual resources and teachings to seekers worldwide. Your support enables us to create more content and maintain this sacred library.</p>
+            <a href="#" class="donation-button">🙏 Make a Donation</a>
+        </section>
+    </main>
+
+    <footer class="sacred-footer">
+        <div class="footer-title">The Sacred Codex Universe</div>
+        <div class="footer-content">
+            <p>Embark on a journey of spiritual discovery and digital innovation. May your path be illuminated by divine wisdom.</p>
+        </div>
+    </footer>
+
+    <script src="sacred_codex_scripts.js"></script>
+</body>
+</html></content>
+<parameter name="filePath">c:\Users\LiteGamer\Desktop\a fresh new website\library.html
