@@ -10,17 +10,15 @@
     <style>
         /* --- Enhanced Root Variables for Theming --- */
         :root {
-            --deep-space: #0a0a0f;
-            --star-white: #ffffff;
-            --divine-gold: #ffd700;
-            --sacred-purple: #9932cc;
-            --celestial-blue: #4169e1;
-            --seraph-crimson: #dc143c;
-            --emerald-wisdom: #50c878;
-            --void-black: #000000;
-            --mystic-silver: #c0c0c0;
-            --holy-amber: #ffbf00;
-            --cosmic-gradient: linear-gradient(135deg, #1a1a2e 0%, #16213e 30%, #0f3460 60%, #0a0a0f 100%);
+            --divine-gold: #FFD700;
+            --sacred-purple: #9932CC;
+            --celestial-blue: #4169E1;
+            --emerald-wisdom: #50C878;
+            --crimson-passion: #DC143C;
+            --mystic-silver: #C0C0C0;
+            --star-white: #FFFACD;
+            --shadow-deep: #000000;
+            --cosmic-gradient: linear-gradient(135deg, #000428 0%, #004e92 100%);
         }
 
         * {
@@ -61,7 +59,7 @@
                 radial-gradient(2px 2px at 40px 70px, var(--sacred-purple), transparent),
                 radial-gradient(1px 1px at 90px 40px, var(--celestial-blue), transparent),
                 radial-gradient(1px 1px at 130px 80px, var(--emerald-wisdom), transparent),
-                radial-gradient(2px 2px at 160px 30px, var(--seraph-crimson), transparent);
+                radial-gradient(2px 2px at 160px 30px, var(--crimson-passion), transparent);
             background-size: 200px 100px;
             animation: cosmicDrift 40s ease-in-out infinite alternate;
         }
@@ -154,8 +152,8 @@
         }
 
         .nav-link:hover {
-            color: var(--void-black);
-            background: linear-gradient(45deg, var(--divine-gold), var(--holy-amber));
+            color: var(--shadow-deep);
+            background: linear-gradient(45deg, var(--divine-gold), var(--sacred-purple));
             border-color: var(--star-white);
             transform: translateY(-2px) scale(1.05);
             box-shadow: 0 8px 20px rgba(255,215,0,0.4);
@@ -177,7 +175,7 @@
             color: var(--divine-gold);
             text-shadow: 
                 0 0 20px var(--divine-gold),
-                0 0 40px var(--holy-amber),
+                0 0 40px var(--sacred-purple),
                 5px 5px 15px rgba(0,0,0,0.8);
             margin-bottom: 1rem;
             animation: sacredGlow 4s ease-in-out infinite alternate;
