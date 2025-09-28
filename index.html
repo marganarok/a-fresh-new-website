@@ -5,7 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OMNI-EMPIRE-FRESH: Divine Digital Ministry</title>
     <meta name="description" content="A cyberpunk divine ministry exploring the intersection of faith, technology, and cosmic consciousness.">
+
+    <!-- Sacred Favicons -->
+    <link rel="icon" type="image/svg+xml" href="favicon-3d-mantra.svg">
+    <link rel="icon" type="image/svg+xml" href="favicon-geometric.svg">
+    <link rel="icon" type="image/svg+xml" href="favicon-alchemy.svg">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="favicon-3d-mantra.svg">
+
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="shared-styles.css">
     <style>
@@ -76,6 +83,125 @@
             padding: 100px 40px;
             position: relative;
             overflow: hidden;
+        }
+
+        /* ALIVE Status Display */
+        .alive-status {
+            margin-bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid var(--neon-cyan);
+            border-radius: 25px;
+            padding: 12px 25px;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--neon-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--neon-cyan);
+            animation: statusBlink 2s ease-in-out infinite;
+        }
+
+        @keyframes statusBlink {
+            0%, 100% { 
+                opacity: 1; 
+                transform: scale(1);
+                box-shadow: 0 0 15px var(--neon-cyan);
+            }
+            50% { 
+                opacity: 0.7; 
+                transform: scale(1.2);
+                box-shadow: 0 0 25px var(--neon-cyan);
+            }
+        }
+
+        .status-text {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.2em;
+            font-weight: 700;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px var(--neon-cyan);
+            letter-spacing: 2px;
+        }
+
+        .status-pulse {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--neon-cyan);
+            border-radius: 25px;
+            animation: statusPulse 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes statusPulse {
+            0% { 
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.8;
+            }
+            100% { 
+                transform: translate(-50%, -50%) scale(1.1);
+                opacity: 0;
+            }
+        }
+
+        .status-metrics {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .metric {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--neon-magenta);
+            border-radius: 10px;
+            padding: 8px 15px;
+            min-width: 100px;
+        }
+
+        .metric-label {
+            font-family: 'Orbitron', monospace;
+            font-size: 0.8em;
+            color: var(--neon-magenta);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .metric-value {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.9em;
+            color: var(--neon-cyan);
+            font-weight: 700;
+            text-shadow: 0 0 5px var(--neon-cyan);
+            animation: metricGlow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes metricGlow {
+            0% { text-shadow: 0 0 5px var(--neon-cyan); }
+            100% { text-shadow: 0 0 15px var(--neon-cyan), 0 0 20px var(--neon-cyan); }
         }
 
         .hero-title {
@@ -814,6 +940,44 @@
                 font-size: 0.9em;
                 padding: 10px 12px;
             }
+
+            .alive-status {
+                margin-bottom: 30px;
+            }
+
+            .status-indicator {
+                padding: 10px 20px;
+            }
+
+            .status-text {
+                font-size: 1em;
+                letter-spacing: 1px;
+            }
+
+            .status-metrics {
+                gap: 15px;
+            }
+
+            .metric {
+                min-width: 80px;
+                padding: 6px 12px;
+            }
+
+            .metric-label {
+                font-size: 0.7em;
+            }
+
+            .metric-value {
+                font-size: 0.8em;
+            }
+
+            .hero-title {
+                font-size: 3em;
+            }
+
+            .hero-subtitle {
+                font-size: 1.4em;
+            }
         }
     </style>
 </head>
@@ -849,6 +1013,29 @@
 
     <main>
         <section id="home" class="hero-section">
+            <!-- ALIVE Status Display -->
+            <div class="alive-status">
+                <div class="status-indicator">
+                    <div class="status-dot"></div>
+                    <span class="status-text">SYSTEM ALIVE</span>
+                    <div class="status-pulse"></div>
+                </div>
+                <div class="status-metrics">
+                    <div class="metric">
+                        <span class="metric-label">DIVINE</span>
+                        <span class="metric-value">ONLINE</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">COSMIC</span>
+                        <span class="metric-value">CONNECTED</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">SACRED</span>
+                        <span class="metric-value">ACTIVE</span>
+                    </div>
+                </div>
+            </div>
+
             <h1 class="hero-title">DIVINE DIGITAL MINISTRY</h1>
             <p class="hero-subtitle">Where faith meets technology in a cosmic dance of creation and revelation</p>
             <a href="#vision" class="hero-cta">Enter the Divine Realm</a>

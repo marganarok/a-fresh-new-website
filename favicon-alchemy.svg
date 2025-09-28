@@ -1,0 +1,43 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="alchemyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#DC143C;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4169E1;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Alchemical Triangle (Fire) -->
+  <g transform="translate(16,16)">
+    <!-- Triangle Base -->
+    <polygon points="-8,6 8,6 0,-6" fill="url(#alchemyGradient)" stroke="url(#goldGradient)" stroke-width="1"/>
+
+    <!-- Alchemical Symbols inside -->
+    <!-- Sulfur (Sun/♂) -->
+    <circle cx="-3" cy="-1" r="1.5" fill="none" stroke="url(#goldGradient)" stroke-width="1"/>
+    <line x1="-3" y1="-3.5" x2="-3" y2="1.5" stroke="url(#goldGradient)" stroke-width="1"/>
+    <line x1="-4.5" y1="-1" x2="-1.5" y2="-1" stroke="url(#goldGradient)" stroke-width="1"/>
+
+    <!-- Mercury (Moon/♀) -->
+    <circle cx="3" cy="-1" r="1.5" fill="none" stroke="url(#goldGradient)" stroke-width="1"/>
+    <line x1="3" y1="-3.5" x2="3" y2="1.5" stroke="url(#goldGradient)" stroke-width="1"/>
+    <line x1="1.5" y1="-1" x2="4.5" y2="-1" stroke="url(#goldGradient)" stroke-width="1"/>
+
+    <!-- Salt (Earth/⚱) at bottom -->
+    <rect x="-1.5" y="2" width="3" height="2" fill="none" stroke="url(#goldGradient)" stroke-width="0.8"/>
+    <line x1="-1.5" y1="3" x2="1.5" y2="3" stroke="url(#goldGradient)" stroke-width="0.8"/>
+  </g>
+
+  <!-- 3D Effect -->
+  <g stroke="url(#alchemyGradient)" stroke-width="0.5" opacity="0.5">
+    <line x1="8" y1="22" x2="10" y2="20"/>
+    <line x1="24" y1="22" x2="22" y2="20"/>
+  </g>
+
+  <!-- Shadow -->
+  <ellipse cx="16" cy="28" rx="10" ry="2" fill="#000000" opacity="0.2"/>
+</svg>
