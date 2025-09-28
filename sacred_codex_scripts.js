@@ -658,6 +658,7 @@ function initBookPreview() {
             e.preventDefault();
             const filePath = button.getAttribute('data-file');
             const fileName = button.getAttribute('data-title');
+            console.log('Preview button clicked:', fileName, filePath);
             showPreview(filePath, fileName);
         });
     });
@@ -685,35 +686,43 @@ function closePreview() {
 }
 
 function loadFilePreview(filePath) {
+    console.log('loadFilePreview called with:', filePath);
+    console.log('filePath type:', typeof filePath);
+    console.log('filePath lowercased:', filePath ? filePath.toLowerCase() : 'null/undefined');
+    console.log('ends with .pdf?', filePath ? filePath.toLowerCase().endsWith('.pdf') : 'null/undefined');
+
     // Check if it's a PDF file
-    if (filePath.toLowerCase().endsWith('.pdf')) {
+    if (filePath && filePath.toLowerCase().endsWith('.pdf')) {
+        console.log('PDF detected, showing PDF message');
         previewText.innerHTML = '<div class="preview-error">PDF preview not available. Please download the file to read the complete content.</div>';
         return;
     }
-    
+
+    console.log('Not a PDF, proceeding with text loading');
+
     // For text files, try to load the content
     fetch(filePath)
         .then(response => {
+            console.log('Fetch response:', response);
             if (!response.ok) {
                 throw new Error('File not found');
             }
             return response.text();
         })
         .then(content => {
+            console.log('Content loaded, length:', content.length);
             // Show only the first 2000 characters as preview
-            const previewContent = content.length > 2000 
+            const previewContent = content.length > 2000
                 ? content.substring(0, 2000) + '\n\n[... Preview truncated. Download to read the complete text ...]'
                 : content;
-            
+
             previewText.innerHTML = `<pre>${previewContent}</pre>`;
         })
         .catch(error => {
             console.error('Error loading preview:', error);
             previewText.innerHTML = '<div class="preview-error">Unable to load preview. The file may not be available or there was a loading error.</div>';
         });
-}
-
-// Initialize preview functionality when DOM is loaded
+}// Initialize preview functionality when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     // ... existing initialization code ...
     initBookPreview();
